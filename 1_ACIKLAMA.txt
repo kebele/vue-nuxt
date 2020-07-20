@@ -1,0 +1,91 @@
+Vue.js ve Nuxt.js Rubicon Data Udemy Eğitimi Notları
+
+Genel Kaynaklar
+
+https://vuejs.org/v2/guide/
+https://github.com/vuejs/awesome-vue
+https://vuetifyjs.com/en/
+https://medium.com/@_shirish/thinking-in-components-with-vue-js-a35b5af12df
+
+kurulumlar
+
+https://nodejs.org/en/ adresinden LTS versiyonu indirilip kurulacak
+problem varsa ortam değişkenlerinden sıralama kontrol edilmeli, önce npm sonra nodejs olacak, 
+
+vue cli yüklenecek https://cli.vuejs.org/ adresinde en güncel şekli, 
+global yükleyelim, terminalden 
+npm install -g @vue/cli
+
+proje oluşturma
+vue create hello-world
+
+cd hello-world ile klasör içine girme
+npm run serve ile de projeyi çalıştırma (bazen npm run dev) ???
+vue bunu nasl yapılacağını söylüyor zaten
+
+cdn
+projeye dışarıdan eklenen özel amaçlı kütüphaneler, bootstrap gibi, bunlar vue projelerinden public altındaki index.html içinde head e eklenir, genellikle cdn ler npm yolumla da projeye eklenirler, bu yöntem daha yaygındır, 
+
+webpack ve babel, webpack js tabanlı bir module bundler, js dosylarını paketler, bütün js dosyaları, resimler vs çeşitlerine göre toplar her çeşidi te bir dosya haline getirir. 
+
+babes ecmascript6 yı es5 e çevirir, zaten vue cli da default gelir, 
+
+vue cdn yardımıyla html, css, js üçlüsünde (CLI) kullanmadan da kullanılabilir ancak CLI kullanmak daha verimlidir, 
+
+klasör yapısında node_modules > burada hazır gelen ve sonradan yükleyeceimiz moduller bulunur, public > paylaşılan dosyalar olur, ve anasayfanın html kısmı burada, src > assets içinde genelde resim dosyaları vs olur, components içinde uygulamada kullanılan componentler burada olur, main.js ana js dosyamızdır, package.json ise proje içindeki gerekli dosyalara ilişkin veriler tururlur, proje kurulacağında taşınacağında vs. buradaki dependencies e göre kurulur, kurulum ve çalıştırmaya ilişkin konutlar, script ler olur, projeye bir paket eklediğimizde buraya o paketle ilgili veriler gelir. 
+
+string interpolations = mustache int. = <p>{{ value }}</p>
+bunun çıktısı 'mesela' olur
+
+export default {
+    data(){
+        return {
+            value : "mesela",
+        }
+    } 
+}
+
+directives
+v- ile başlayan ve html yi manipule eden  özel ifadeler
+v-bind  
+
+<input v-bind:placeholder="inputHolder">
+
+data(){
+    return {
+        inputHolder : "şehri gir"
+    }
+}
+
+v-bind ile inputHolder ile data daki inputHolder birbirine bağladık.
+
+v-for   
+v-on
+v-once
+v-html
+v-slot
+v-if
+v-else
+v-model 
+v-show
+v-text
+v-pre 
+v-cloak
+
+argümanlar ise directive lerden sonra gelen ifadeler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
