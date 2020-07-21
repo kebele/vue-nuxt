@@ -97,8 +97,49 @@
       </div>
       <div>
         <h4 style="color:red">v-once</h4>
-        <p></p>
+        <p>templatedeki elemente v-once eklediğimizde o element her tıklama ile değişir ancak ekran değişmez</p>
         <br />
+        <button v-once v-on:click="changeButon">{{butonData}}</button>
+      </div>
+      <div>
+        <h4 style="color:red">v-html</h4>
+        <p>directive in içinde html yazmak istersek bunu kullanırız, p içerisinde v-html="vue" şeklinde kullanırsak html şeklinde basar</p>
+        <br>
+        <p>{{vue}} bunu string olarak basar</p>
+        <p v-html="vue"></p>
+      </div>
+      <div>
+        <h4 style="color:red">v-pre</h4>
+        <p>eğer süslü parantezli şekilde görünsün hata gelmesin şeklinde istiyorsak directive v-pre ekleriz, çok kullanılmaz</p>
+        <br>
+        <p v-pre>{{vue_pre}}</p>
+      </div>
+      <div v-cloak>
+        <h4 style="color:red">v-cloak</h4>
+        <p>diyelim bu div içindeki herşeyiyle beraber derleme bitene kadar görünmez hal getirir, mesela bir sayfadaki resim parça parça yükleniyor yada yazı, div içine v-cloak yazarsak parçalı yükleme olmaz, hepsi bitince son hali olan sayfa gelir</p>
+      </div>
+      <div>
+        <h4 style="color:red">mustache ve js ifadeleri</h4>
+        <p>mustache içinde arimetik işlemler, ternary operator, kullanılabilir, tek satırlık ifadeler olmalı, ayrıca burada değişken tanımlanmaz</p>
+        <p v-pre>{{ number + 1 }}</p>
+        {{number + 1}}
+        <br>
+        {{ number === 4 ? "four" : "not four"}} 
+        <br>
+        {{ msg.length}}
+        <br>
+        {{ msg.split("").reverse().join('')}}
+        <br>
+      </div>
+      <div>
+         <h4 style="color:red">v-bind / v-on kısa halleri</h4>
+         <p>v-bind:placeholder = :placeholder = :[placeholder]</p>
+         <p>v-on:click = @click = @[some attributes]</p>
+      </div>
+      <div>
+        <h4 style="color:red">mustaches ve diziler</h4>
+        <p>A ve B arrayleri oluşturduk, </p>
+
       </div>
     </div>
   </div>
@@ -129,7 +170,14 @@ export default {
         { option: "c", value: "three" }
       ],
       itemSelected: null,
-      radio: null
+      radio: null,
+      butonData : true,
+      vue : '<a href="https://vuejs.org/v2/guide/">vue web</a>',
+      vue_pre : 'pre directive',
+      number : 12,
+      msg : "real madrid",
+      A:['a','b','c','d','e'],
+      b:[1,2,3,4,5,6]
     };
   },
   methods: {
@@ -138,6 +186,10 @@ export default {
     },
     buttonClick() {
       console.log("tıklandı");
+    },
+    changeButon(){
+      this.butonData = !this.butonData;
+      console.log(this.butonData);
     }
   },
   computed: {
