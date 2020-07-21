@@ -74,6 +74,100 @@ v-cloak
 
 argümanlar ise directive lerden sonra gelen ifadeler
 
+<h4 style="color:red">v-bind / v-on</h4>
+      <p>v-bind : datadaki bir değere bağlamak için</p>
+
+      <p>
+        v-on : bir function çalıştırmak için mesela aşağıda inputta bir
+        değişiklik olup bittiğinde changeInput func. çalıştırır, maxLength
+        olarak MaxValue değerini bağladık, 5 taneden fazla karakter girilmesine
+        izin vermez $event ile değeride alırız, koda bak
+      </p>
+
+<h4 style="color:red">v-if / v-else / v-show</h4>
+      <p>
+        v-if : data da see tanımladık, true değerini verdik, değeri false a
+        çevirirsek buton görünmez
+      </p>
+      <p>
+        v-else : bir yere v-if koyduysak v-if false old. v-else koyduğumuz
+        çalışır, terside aynı şekilde, v-else-if de kullanılabilir
+      </p>
+      <p>
+        v-show : v-if ile aynı şekilde çalışır, tryOne computed de, kodları
+        inceleme computed e bak
+      </p>
+      <p>
+        v-show da elementler her zaman dom un üzerindedir, display : none gibi
+        calışır, v-if de ise her seferinde dom a eklenir ve kaldırılır, bir
+        bilgi olaral v-for ve v-if beraber kullanılmaz, beraber kullanılacaksa
+        v-for v-if in dışına yazılır
+      </p>
+
+    <h4 style="color:red">v-for</h4>
+      <p>v-for : döngü açıklama kodun içinde</p>
+
+     <h4 style="color:red">v-model</h4>
+      <p>
+        v-model : çift yönlü data iletişimi, aynı anda veriyi hem iki taraflı
+        yollar hemde görüntüler, v-model normalde hemen tepki verir,
+        v-model.lazy="xyz" de lazy yazılanın/girilenin bitmesini bekler sonra
+        tepki verir, v-model de yazılan herşey string olarak algılanır,
+        v-model.number="xyz" yazılanı number olarak algılar, v-model.lazy.number
+        şeklinde de kullanlabilir, v-model.trim ise girilen verideki boşlukları
+        siler
+      </p>
+
+      <h4 style="color:red">v-once</h4>
+      <p>
+        templatedeki elemente v-once eklediğimizde o element her tıklama ile
+        değişir ancak ekran değişmez
+      </p>
+
+     <h4 style="color:red">v-html</h4>
+      <p>
+        directive in içinde html yazmak istersek bunu kullanırız, p içerisinde
+        v-html="vue" şeklinde kullanırsak html şeklinde basar
+      </p>
+
+        <h4 style="color:red">v-pre</h4>
+      <p>
+        eğer süslü parantezli şekilde görünsün hata gelmesin şeklinde istiyorsak
+        directive v-pre ekleriz, çok kullanılmaz
+      </p>
+
+      <h4 style="color:red">v-cloak</h4>
+      <p>
+        diyelim bu div içindeki herşeyiyle beraber derleme bitene kadar görünmez
+        hal getirir, mesela bir sayfadaki resim parça parça yükleniyor yada
+        yazı, div içine v-cloak yazarsak parçalı yükleme olmaz, hepsi bitince
+        son hali olan sayfa gelir
+      </p>
+
+      <h4 style="color:red">mustache ve js ifadeleri</h4>
+      <p>
+        mustache içinde arimetik işlemler, ternary operator, kullanılabilir, tek
+        satırlık ifadeler olmalı, ayrıca burada değişken tanımlanmaz
+      </p>
+
+      <h4 style="color:red">v-bind / v-on kısa halleri</h4>
+      <p>v-bind:placeholder = :placeholder = :[placeholder]</p>
+      <p>v-on:click = @click = @[some attributes]</p>
+
+       <h4 style="color:red">mustaches ve diziler</h4>
+      <p>
+        A ve B arrayleri oluşturduk, changeArray(){} hazırladık, bunu da bir
+        butona bağladık, her tıklamada changeArray() çalışacak,
+      </p>
+
+       <h4 style="color:red">listeleri görüntülemek ve dizi ifadeleri</h4>
+      <p>items2 isimli data da bir array imiz var onu aşağıya v-for ile aldık, şimdi dinamik veri ekleyelim, </p>
+
+        <h4 style="color:red">custom directive oluşturmak</h4>
+      <p>vue da kendi directive lerimizide yazabiliriz, aşağıda span kullandık v-colorChanger olarak hazırladığımız directive ile beraber, bu directive ile kullanılan elementin arkaplan rengi yeşil olacak görevi bu, binding ekledik işleme,  border koyalım mesela, attribute yollayalım birde, ayrıca directive ler main.js de de tanımlanabilir, bu şekidle yapıldığında global olur, main.js e bak</p>
+
+Computed ve Watch 
+
 
 
 

@@ -220,8 +220,14 @@
     </div>
     <div>
       <h4 style="color:red">custom directive oluşturmak</h4>
-      
-
+      <p>vue da kendi directive lerimizide yazabiliriz, aşağıda span kullandık v-colorChanger olarak hazırladığımız directive ile beraber, bu directive ile kullanılan elementin arkaplan rengi yeşil olacak görevi bu, binding ekledik işleme,  border koyalım mesela, attribute yollayalım birde, ayrıca directive ler main.js de de tanımlanabilir, bu şekidle yapıldığında global olur, main.js e bak</p>
+      <span v-colorChanger="'yellow'">real madrid</span>
+      <br/>
+      <span v-colorChanger.border="'yellow'">real madrid</span>
+      <br>
+      <span v-colorChanger:bold.border="{color:'red', fontsize:''}">ronaldo</span>
+      <hr>
+      <span v-underline>altı çizili directive kullanımı</span>
 
     </div>
   </div>
@@ -348,6 +354,26 @@ export default {
       return a;
     },
   },
+  directives : {
+    colorChanger : {
+      bind : (el, binding) => {
+        // el.style.background="green"
+        el.style.background=binding.value
+        el.style.paddingBottom = "40px"
+        console.log("directive çalıştı")
+        //binding ile neleri kullanabiliriz console a gelir
+        console.log(binding)
+        //modifier olarak border geldiyse
+        if(binding.modifiers.border){
+          el.style.border = 'thick solid crimson'
+          console.log("directive work with modifiers")
+        }
+        if(binding.arg.bold){
+          el.style.fontWeight = '800'
+        }
+      }
+    }
+  }
 };
 </script>
 
