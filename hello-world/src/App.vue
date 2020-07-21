@@ -212,10 +212,17 @@
     </div>
     <div>
       <h4 style="color:red">listeleri görüntülemek ve dizi ifadeleri</h4>
-      <p>items2 isimli data da bir array imiz var onu aşağıya v-for ile aldık, şidi dinamik ver ekleyelim, </p>
+      <p>items2 isimli data da bir array imiz var onu aşağıya v-for ile aldık, şimdi dinamik veri ekleyelim, </p>
       <ul>
         <li v-for="(item, index) in items2" :key="index"> product name : {{ item.type }}    stock quantity : {{ item.number }}</li>
       </ul>
+      <button @click="tryArray()">ADD</button>
+    </div>
+    <div>
+      <h4 style="color:red">custom directive oluşturmak</h4>
+      
+
+
     </div>
   </div>
 </template>
@@ -309,6 +316,31 @@ export default {
         return 0.5 - Math.random();
       });
     },
+    tryArray(){
+      //sona eleman eklesin
+      // this.items2.push({type : 'telefon', number : 55})
+      //başa eleman eklesin
+      //this.items2.unshift({type : 'telefon', number : 55})
+      //eleman silmek, en sondan
+      // this.items2.pop()
+      //en baştan eleman silmek
+      // this.items2.shift()
+      //aradaki eleman silmek, indis 1 den itibaren 2 tane sil
+      //yani ball ve rocket siler
+      // this.items2.splice(1,2)
+      //diğer kullanımı 3 parametreli, sondakileri de silinenlerin yerine ekler
+      //this.items2.splice(1,2,{type : "soda", number : 250}, {type : "fanta", number : 1250},{type : "bardak", number : 500})
+      //concat ana diziyi bozmadan alıp yeni bir dizi yapar ve sona eleman ekler, console da görünür
+      //const yeniDizi = this.items2.concat({type : "bardak", number : 500})
+      // console.log(yeniDizi);
+      //concat a benzer spread operator var, 
+      // const yeniDizi = [...this.items2, {type : "bardak", number : 500}]
+      // console.log(yeniDizi);
+      //önemli bir konu olarak Vue aşağıdaki kullanımı fark etmez
+      // this.items2[2] = {type : "bardak", number : 500}
+      //eğer bir arraydaki belli bir index tek veriyi değiştirmek istiyorsak aşağıdaki yöntemi kullanmalıyız
+      this.$set(this.items2,2,{type : "bardak", number : 500})
+    }
   },
   computed: {
     tryOne() {
