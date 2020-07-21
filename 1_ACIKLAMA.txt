@@ -166,7 +166,18 @@ argümanlar ise directive lerden sonra gelen ifadeler
         <h4 style="color:red">custom directive oluşturmak</h4>
       <p>vue da kendi directive lerimizide yazabiliriz, aşağıda span kullandık v-colorChanger olarak hazırladığımız directive ile beraber, bu directive ile kullanılan elementin arkaplan rengi yeşil olacak görevi bu, binding ekledik işleme,  border koyalım mesela, attribute yollayalım birde, ayrıca directive ler main.js de de tanımlanabilir, bu şekidle yapıldığında global olur, main.js e bak</p>
 
-Computed ve Watch 
+Computed ve methods 
+
+computed bir kere çalışır, eğer onu etkileyen bir şey yoksa çalışmaz, method ise her çagrıldığında çalışır, 
+
+computed ve watch
+computed sync çalışır, basit yerlerde kullanılır, 
+watch async çalışır, maliyetli, perf isteyen yerlerde kullanılır, watch temelde bir değişkeni isler değiştiğinde ona tepki verir,
+
+computed oluşturalım, reverseMsg
+basit hesaplamalar, her seferinde çalışmasına gerek olmayan func. için computed kullanak aperf açısından çok daha iyidir, 
+
+watch ile ornek yapalım, termometre çevirisi yapalım, celcius cel, fahrenheit fah ve kelvin için kel i dataya tanımlayalım, watch her bir değişken değiştiğinde çalışır, watch içine yazdığımız cel, fah ve kel data da tanımlı, bu watch içindeki func. bunlara bağlı dolayısıyla bunlardaki değişiklik yani herhengibir inputa girdiğimiz değer değiştiğinde watch bunları izleidği için hemen değiştiryor
 
 
 

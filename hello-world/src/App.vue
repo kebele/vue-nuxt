@@ -228,8 +228,22 @@
       <span v-colorChanger:bold.border="{color:'red', fontsize:''}">ronaldo</span>
       <hr>
       <span v-underline>altı çizili directive kullanımı</span>
-
+      <br>
+      <h4 style="color:red">computed, methods, watch</h4>
+      {{msg2}}
+      <br>
+      {{reverseMsg}}
     </div>
+    <p>termometre</p>
+    <label for=""> celcius
+      <input type="text" v-model="cel">
+    </label><br>
+    <label for=""> fahrenheit
+      <input type="text" v-model="fah">
+    </label><br>
+    <label for=""> kelvin
+      <input type="text" v-model="kel">
+    </label>
   </div>
 </template>
 
@@ -279,7 +293,12 @@ export default {
         {type : 'rocket', number : 89},
         {type : 'guitar', number : 110},
         {type : 'table', number : 350}
-      ]
+      ],
+      msg2 : 'bu bir mesajdır',
+      //termometre uyg için
+      cel : 0,
+      fah : 0,
+      kel : 0
     };
   },
   methods: {
@@ -353,6 +372,26 @@ export default {
       const a = Math.random() > 0.5;
       return a;
     },
+    reverseMsg(){
+      return this.msg2.split('').reverse().join('')
+    }
+  },
+  watch: {
+    cel(val){
+      this.cel = val
+      this.fah = (val * 1.8) + 32
+      this.kel = val + 273.15
+    },
+    fah(val){
+      this.cel = (val - 32) /1.8
+      this.fah = val
+      this.kel = ((val - 32) /1.8) +273.15
+    },
+    kel(val){
+      this.cel = val - 273.15
+      this.fah = ((val - 273.15)*1.8)+32
+      this.kel = val
+    }
   },
   directives : {
     colorChanger : {
