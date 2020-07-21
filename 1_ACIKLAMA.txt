@@ -179,6 +179,17 @@ basit hesaplamalar, her seferinde çalışmasına gerek olmayan func. için comp
 
 watch ile ornek yapalım, termometre çevirisi yapalım, celcius cel, fahrenheit fah ve kelvin için kel i dataya tanımlayalım, watch her bir değişken değiştiğinde çalışır, watch içine yazdığımız cel, fah ve kel data da tanımlı, bu watch içindeki func. bunlara bağlı dolayısıyla bunlardaki değişiklik yani herhengibir inputa girdiğimiz değer değiştiğinde watch bunları izleidği için hemen değiştiryor
 
+stillendirme
+dinamik ve static olarak iki tür, sttic olan her durumda aynı olanstillendirme, dinamik ise dışarıdan gelen bir şeylere bağlı olarak değişendir
+
+*************
+componentler
+**************
+
+
+
+
+
 
 
 
