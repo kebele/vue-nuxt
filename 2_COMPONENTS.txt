@@ -1,0 +1,29 @@
+Components
+
+* bir compu projeye ekleyeceğimizde onun export edilmesi, kullanacağımız comp içine de import edilmesi ve yine kullanacağımız yerde components : {}e eklenmesi gerekli
+
+    <template>
+  <div>
+    <HelloWorld /> 
+  </div>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld'
+export default {
+  data() {
+    return {};
+  },
+  components : {
+    HelloWorld
+  }
+};
+</script>
+
+<style></style>
+
+* comp a veri yollama, Post.vue hazırladık, buna App.vue'dan content isimli bir veri yollayalım, App.vue da 
+    <Post content="real madrid"></Post>
+Post compuna content key i ile real madrid verisini yolluyoruz, bunu Post.vue dan almak içine
+    script içine props : { content }
+yaptık yani content adında bir props buraya gelecek, conrada template içinde bu veriyi nerede kullanacaksak oraya {{ content }} yazıyoruz.

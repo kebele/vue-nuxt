@@ -182,9 +182,6 @@ watch ile ornek yapalım, termometre çevirisi yapalım, celcius cel, fahrenheit
 stillendirme
 dinamik ve static olarak iki tür, sttic olan her durumda aynı olanstillendirme, dinamik ise dışarıdan gelen bir şeylere bağlı olarak değişendir
 
-*************
-componentler
-**************
 
 
 
