@@ -24,6 +24,33 @@ export default {
 
 * comp a veri yollama, Post.vue hazırladık, buna App.vue'dan content isimli bir veri yollayalım, App.vue da 
     <Post content="real madrid"></Post>
-Post compuna content key i ile real madrid verisini yolluyoruz, bunu Post.vue dan almak içine
+Post compuna content key i ile real madrid verisini yolluyoruz, bunu Post.vue dan almak için
     script içine props : { content }
-yaptık yani content adında bir props buraya gelecek, conrada template içinde bu veriyi nerede kullanacaksak oraya {{ content }} yazıyoruz.
+yaptık yani content adında bir props buraya gelecek, sonrada template içinde bu veriyi nerede kullanacaksak oraya {{ content }} yazıyoruz.
+
+*addNewContent(){
+    this.content.push({number : 5, content : 'five'})
+}
+methods a ekledik ve template e bir buton koyup buonada bu func u ekledik, 
+butona bastıkça object pushluyor
+
+* şimdi Post compun kendisini v-for ile dönelim; App.vue da 
+    <post v-for="(item,index) in content" :key="index" :item="item"></post>
+post comp içine :item="item" şeklinde veri göndereceğimizi söyledik,
+Post.vue içine props içine item : Object belirttik, buraya item adında bir veri gelecek bunun türü Object dedik ve template i de
+    <h2>{{ item.number }}</h2>
+    <h2>{{ item.content }}</h2>
+şeklinde hazırladık, sıkıntısız çalışıyor, 
+
+* birde html gönderelim, dataya value adında bir html tanımlayalım
+    value : '<h3>Value</h3>
+    template de compu aşağıdaki gibi düzenleyelim
+    <post v-for="(item,index) in content" :key="index" :item="item" :value="value"></post>
+Post.vue da da props dan value yu karşılayalım ve template ine yazdıralım, 
+    <div v-html="value"></div>
+problem yok
+
+* şu anda kadar veri göndermeyi parent to child şeklinde yaptık, şimdi $emit ile child to parent veri yollayalım, 
+
+
+
