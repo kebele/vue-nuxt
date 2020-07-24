@@ -50,7 +50,29 @@ Post.vue da da props dan value yu karşılayalım ve template ine yazdıralım,
     <div v-html="value"></div>
 problem yok
 
-* şu anda kadar veri göndermeyi parent to child şeklinde yaptık, şimdi $emit ile child to parent veri yollayalım, 
+* şu anda kadar veri göndermeyi parent to child şeklinde yaptık, bunu props ile yaptık, şimdi $emit ile child to parent veri yollayalım, ProductPage.vue oluşturalım, yapacağımız şey child içindeki inputa bir şey yazıldığında bunun ana comp içindeki spanda ekrana yazdırılması, 
+
+ProductPage.vue (child) template
+    <input type="text" v-model="inputValue" @keyup="sendData">
+v-model="inputValue" data da inputValue siimli bir değ. oluşturduk bunuda v-model ile inputa bağladık, inputtaki değer buna atanacak
+@keyup klavyeye her basıldığında sendData isimli func çalışacak, 
+    sendData(){
+            this.$emit('sendToData',this.inputValue)
+    }
+bu func ise inputValue değerini sendToData key i ile birlikte dış alemlere emitleyecek
+
+şimdi App.vue ya gelelim, burada ProductPage i import edeceğiz, artık buu comp olarak kullanabiliriz ve bundna emitlenenleri de doğal olarak alabiliriz, 
+template kısmı
+    <ProductPage @sendToData="sendTo = $event"></ProductPage>
+    <span>{{ sendTo }}</span>
+ProductPage comp içinde sendToData key i ile emitlenmiş veriyi $event olarak aldık ve bunu data da tanımladığımız sendTo ya atadık ve şimdi de emitlenmiş olan veriyi $event olarak buna atadık. Sonrada sendTo yu span içine yazdırdık
+
+
+
+
+
+
+
 
 
 

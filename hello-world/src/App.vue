@@ -3,11 +3,16 @@
     <!-- <post content="real madrid"></post> -->
     <!-- <post :content="content"></post> -->
     <post v-for="(item,index) in content" :key="index" :item="item" :value="value"></post>
+
+    <ProductPage @sendToData="sendTo = $event"></ProductPage>
+    <span>{{ sendTo }}</span>
   </div>
 </template>
 
 <script>
 import Post from './components/Post'
+import ProductPage from './components/ProductPage'
+
 export default {
   data() {
     return {
@@ -17,11 +22,13 @@ export default {
         {number : 3, content:'three'},
         {number : 4, content:'four'},
       ],
-      value : '<h3>Value</h3>'
+      value : '<h3>Value</h3>',
+      sendTo : '',
     };
   },
   components : {
     Post,
+    ProductPage,
   }
 };
 </script>
