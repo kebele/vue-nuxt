@@ -6,6 +6,14 @@
 
     <ProductPage @sendToData="sendTo = $event"></ProductPage>
     <span>{{ sendTo }}</span>
+    <br>
+
+    {{cardValue.length}}
+    <br>
+    {{cardValue}}
+
+      <ProductPage product="a" @updateValue="updateMainComponent($event)"></ProductPage>
+
   </div>
 </template>
 
@@ -24,12 +32,18 @@ export default {
       ],
       value : '<h3>Value</h3>',
       sendTo : '',
+      cardValue : [1,2,'a',4]
     };
   },
   components : {
     Post,
     ProductPage,
-  }
+  },
+  methods: {
+    updateMainComponent(e){
+      this.cardValue.push(e)
+    }
+  },
 };
 </script>
 

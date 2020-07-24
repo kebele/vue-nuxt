@@ -67,6 +67,11 @@ template kısmı
     <span>{{ sendTo }}</span>
 ProductPage comp içinde sendToData key i ile emitlenmiş veriyi $event olarak aldık ve bunu data da tanımladığımız sendTo ya atadık ve şimdi de emitlenmiş olan veriyi $event olarak buna atadık. Sonrada sendTo yu span içine yazdırdık
 
+* cardValue adında bir array oluşturalım, bunun içinde 4 eleman var, productPage.vue da bir buton yapalım, bu botun her tıklamada cardValue[]'a bir eleman eklesin, App.vue dan productPage.vue ya props olarak bir product gelecek, bu product ı addToCard(){} updatevalue key i ile emitleyecek, App.vue dan da bunu @updateValue="updateMainComponent($event) olarak aldık ve updateMainComponent adında bir func oluşturduk, buraaya veri geldiğinde bu func çalışacak ve product larak ProductPage.vue ya gönderdiğimiz oradan prosp ile aldığımız ve tekrar oradan bize bu func içingelen veriyi array imize pushlayan func. çalışacak, $emit alt func dan veri üste göbderilir, üsttende $event ile alınır ve kullanılır
+
+* callback func ileveri gönderimi; 
+
+
 
 
 
