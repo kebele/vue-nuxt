@@ -118,7 +118,31 @@ eventBus.$on ile alıyoruz, burada aldığımız veriyi bir func içinde kulland
     <component :is="currentTab"></component>
 <component></component> kullanımına dikkat :is="" kullanımı özellikle
 
-*  componentlerin global olarak kayıt edilmesi; 
+*  componentlerin global olarak kayıt edilmesi; her seferiğnde kullanacağımız componentlerti kullanacağımız yerde import etmek components nesnesine eklemek vs vakit alan bir şey bunun için components içine globalComponents.js dosyası açarız ve buraya One, Two, Three yi (mesela) import edelim, 
+    globalComponents.js içi 
+        import One from './One.vue'
+        import Two from './Two.vue'
+        import Three from './Three.vue'
+
+    export default {
+        "first" : One,
+        "second" : Two,
+        "third" : Three,
+    }
+
+bunu App.vue da kullanmak için bunların importlarını kaldırıp bunun yerine globalComponents i import edeceğiz ve 
+components : {
+    ...globalComponents
+}
+
+diyeceğiz, bir yöntem daha va r bunda da main.js içine componenti normal kaydedeceğiz, One.vue yu bu şekilde yapalım, main.js içine ;
+    import One from './components/One';
+    
+    Vue.component('first', One)
+
+    problem yok, en güzel kullanım globalComponents.js kullanımı çünkü hepsi bir arada liste şeklinde bulunuyor, yönetmek çok daha kolay, 
+
+    * props larda veri akışı;  
 
 
 

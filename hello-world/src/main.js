@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import One from './components/One';
+    
+Vue.component( 'first', One)
+
 export const eventBus = new Vue();
 
 Vue.config.productionTip = false

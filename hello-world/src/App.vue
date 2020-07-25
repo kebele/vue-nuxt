@@ -37,9 +37,11 @@ import ProductPage from './components/ProductPage'
 import Big from './components/Big'
 import Small from './components/Small'
 import Try from './components/Try'
-import One from './components/One'
-import Two from './components/Two'
-import Three from './components/Three'
+//aşağıdakileri globalComponents kullanımı ile yaptık
+// import One from './components/One'
+// import Two from './components/Two'
+// import Three from './components/Three'
+import globalComponents from './components/globalComponents'
 
 export default {
   data() {
@@ -65,9 +67,11 @@ export default {
     Big,
     Small,
     Try,
-    "first" : One,
-    "second" : Two,
-    "third" : Three,
+    //aşağıyı global components şeklinde yaptık
+    // "first" : One,
+    // "second" : Two,
+    // "third" : Three,
+    ...globalComponents,
 
   },
   methods: {
