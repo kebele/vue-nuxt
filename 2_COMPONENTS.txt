@@ -106,7 +106,19 @@ export default {
     });
   }
 };
-eventBus.$on ile alıyoruz, burada aldığımız veriyi bir func içinde kullmandığımza dikkat, 
+eventBus.$on ile alıyoruz, burada aldığımız veriyi bir func içinde kullandığımza dikkat, şimdi App.vue ya gidip iki comp uda import ve components nesnesine ekleyelim, deneyelim sıkıntı yok, eventBus basit uygulamalarda makul ancak proje büyüdükçe ortalık karışacaktır
+
+* slot ile veri iletimi, Try.vue adında bir comp oluşturalım, sonrada bunu App.vue içinde import ve components e ekleyelim, şimdi Try.vue içine <slot/> ekleyeceğiz, şimdi App.vue da <Try>xyz</Try> arasına ne ytazarsak bu Try.vue da <slot/> olan yere o yazacak, burada meseka xyz yazdık, slot içinde sadece text değil html de gönderebiliriz, App.vue daki kullanıma dikkat, data(){} daki vs.html kodunu data içinde tanımladığımız değişkenin value su olarak hazırladık, template deki kullanım ise ,
+    <Try v-html="slotValue"></Try>
+şeklinde
+
+* dinamik component kullanımın; 3 tane component oluşturulalım, sonrada import ve components ekleyelim, eklerken bunlara birde isim verelim, first, second, third şekliden artık bunları <first></first> şekilnde kullanabiliriz, yapacağımız şey bir buton ekleyip bununla bu 3 elementin sırayla dönmesi, bunun için daat nın içinde currentTab : 'first' şeklinde ve tabs : [] oluşturalım, tanplate e de v-for ile...
+    
+    <button v-for="tab in tabs" :key="tab" @click="currentTab = tab">{{ tab }}</button>
+    <component :is="currentTab"></component>
+<component></component> kullanımına dikkat :is="" kullanımı özellikle
+
+*  componentlerin global olarak kayıt edilmesi; 
 
 
 

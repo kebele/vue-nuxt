@@ -1,6 +1,7 @@
 <template>
     <div>
         <span>this is big</span>
+        <br>
         <label for="">
             <input type="text" v-model="title" @keyup="eventBusFunc">
         </label>
