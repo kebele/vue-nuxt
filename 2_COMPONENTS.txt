@@ -79,7 +79,34 @@ her tuşa bastığımızda bu çalışacak, bu App.vue dan prop olarak gelen myC
 
 * event bus kullanımı, child to child, yukarıdakiler ya chilt to parent veya parent to child dı,
 önce main.js de 
+    export const eventBus = new Vue();
+yeni bir vue açalım, iki tane yeni comp yapalım, Big.vue ve Small.vue
+Big den Small a veri yollayalım, iki compu dahazılayalım ve Big.vue ya main.js de hazırladığımız eventBus ı buraya import edelim, 
+    import { eventBus } from '../main'
+burada { eventBus } şeklinde yazmamızın sebebi bütün main.js i değil sadece eventBus ı import ediyoruz, inputa ve data arasına v-model ile title ilşikisini kuralım ve keyup ile her basıldığında eventBusFunc çalışacak, bunu methos da hazılayalım, 
+    eventBusFunc(){
+        eventBus.$emit("fromBig", this.title)
+    }
+fromBig key i ile eventBus a title bilgisini gönderiyoruz, şimdi gidip Small.vue da bunu yakalayalım, Small.vue da  <template>
+  
+    <span>{{ message }}</span>
 
+<script>
+import { eventBus } from "../main";
+
+export default {
+  data() {
+    return {
+      message: ""
+    };
+  },
+  created() {
+    eventBus.$on("fromBig", title => {
+      this.message = title;
+    });
+  }
+};
+eventBus.$on ile alıyoruz, burada aldığımız veriyi bir func içinde kullmandığımza dikkat, 
 
 
 
