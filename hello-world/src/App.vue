@@ -28,6 +28,36 @@
       <h4>dinamik component kullanımı</h4>
       <button v-for="tab in tabs" :key="tab" @click="currentTab = tab">{{ tab }}</button>
       <component :is="currentTab"></component>
+      <br>
+      <h4>props larda veri akışı</h4>
+      <!-- <first title-big="this is title"></first>
+      <br>
+      <first :title-big="titleValue"></first> -->
+      <br>
+      <h4>v-slot kullanımı</h4>
+      <CompA>
+        this is slot data
+      </CompA>
+      <br>
+      <CompA>
+        <template v-slot:title>
+          <h2>this is title</h2>
+        </template>
+        <template v-slot:content>
+          <p>this is content</p>
+        </template>
+      </CompA>
+      <br>
+      <CompA></CompA>
+      <br>
+      <CompA>
+        <template #content="{person : value}">
+          <h2>this is content</h2>
+          <br>
+          {{value.name}}
+        </template>
+      </CompA>
+      
   </div>
 </template>
 
@@ -42,6 +72,7 @@ import Try from './components/Try'
 // import Two from './components/Two'
 // import Three from './components/Three'
 import globalComponents from './components/globalComponents'
+import CompA from './components/CompA'
 
 export default {
   data() {
@@ -59,6 +90,7 @@ export default {
       slotValue : '<h3>bu bir html slot kullanımıdır.</h3>',
       currentTab : 'first',
       tabs : ['first', 'second','third'],
+      titleValue : 'bu da data içinde tanımladığımız dinamik bir veri, ',
     };
   },
   components : {
@@ -72,6 +104,7 @@ export default {
     // "second" : Two,
     // "third" : Three,
     ...globalComponents,
+    CompA,
 
   },
   methods: {

@@ -142,8 +142,44 @@ diyeceğiz, bir yöntem daha va r bunda da main.js içine componenti normal kayd
 
     problem yok, en güzel kullanım globalComponents.js kullanımı çünkü hepsi bir arada liste şeklinde bulunuyor, yönetmek çok daha kolay, 
 
-    * props larda veri akışı;  
+    * props larda veri akışı;  first comp a bir props yollayalım title-big olarak, eğer statik bir props göndereceksek bunu normal herhangibir değere bağlamadan yollayabiliriz, ancak dinamik bir değer yollayacaksalk oz aana bunu v-bind ile bağlamamaı zgerekir bunu da data nın içierisnde bir değeilşklmjen  tanımlayarak yaparız,  statikte bind etmeye gerek yok, dinamikte bind etmeli ve data da bir değişkene beğlamalıyız, değer bir değişken olarak yollanacaksa dinamik, props larda veri akışı yolu parent to child dır, Vue genellikle props lar üzerinden değişiklikler yarine methods ve/veya computed üzerinden gitmemizi tavsiye eder, mesela şimdi prop parenttan geliyor biz bunu child içinde mesela bir buton yaptık ve bu butyon ile prop dan gelen titleBig i değiştirelim, bu durumda çalışır ancak vue uyarı verir, bu durumda  kaçınmak için dataya yeni bir deği tanımlayıp butonla tatiklediğiiz işlemde bu değ. değerini değiştiririz, oradan yaparız bu durumda hata almayız, 
 
+    * propslarda validation; parenttan gönderdiğimiz prop child içinde kontrol edilecek, bunun için props u object şeklinde hazırlayacağız, 
+        props : {
+        titleBig : {
+            type : String, Number,
+            required : true,
+            default : 'default value'
+        }
+    },
+
+    titleBig String veya Number olmalı ve mutlaka gönderilmeli, burada bir diğer konu parenttan yollarken kebapCase kulandık buradan karşılaşken camelcase yaptık, sıkıntı yok, ayrıca eğer props yollanmazsa default bir değerde belirtelebilirz, bu şart olmadığı zamanlarda kullanılır, buraya bir func da tanımlayabiliriz, burada bir hata gelebilir console da, required dan kaynaklanan, kontrollerimiz bir func da olabilir validator(){} hazılayalım, koda bak, bu hali ile hata alırız validator a uymuyor şeklinde hata aldık, 
+
+    * v-slot kullanımı, yeni bir component yapalım, CompA.vue, App.vue ya import ve components e ekleme, slot ile veriyi App.vue dan yollayalım, App.vue
+        <CompA>
+        this is slot data
+      </CompA>
+    CompA.vue dan yakalayalım, 
+        <slot></slot>
+    Parenttan gelen slot verisi bu slotlar arasında yer alacak, her seferinde farklı veride yollayabiliriz App.vue dan, component mantığıda o zaten, slotlara name de verebiliriz, 
+        <slot name="title"></slot>
+      <slot name="content"></slot>
+    App.vue dan yollarken 
+        <CompA>
+        <template v-slot:title>
+          <h2>this is title</h2>
+        </template>
+        <template v-slot:content>
+          <p>this is content</p>
+        </template>
+      </CompA>
+    v-slot kısaltması olarak # kullanılabilir, #content şeklinde, eğer slot için bir veri gelmezse CompA da slot arasında default bir değerde yazabiliriz, <slot ame="content> default bir değer</slot> şeklinde içerideki template e dışarıdan ulaşılamaz, data yoluyla ulaşamayız, componentin scope u kendisine ait, slot un scope u kendisine ait, CompA.vue da data da person nesnesi oluşturduk ve slot ta buun age ini yazdırmak istedik bu şekilde sıkıntısız CompA daki dataya ulaştık, ancak aynı veriye parenttan yani App.vue içinden ulaşamayız, buna ulaşmak için bunu parenta yollamalıyız, 
+    TEKRARLA
+    TEKRARLA
+    TEKRARLA
+    TEKRARLA
+
+    * componentler arası dinamik geçiş yapmak, 
 
 
 
