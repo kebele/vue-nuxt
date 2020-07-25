@@ -13,7 +13,9 @@
     {{cardValue}}
 
       <ProductPage product="a" @updateValue="updateMainComponent($event)"></ProductPage>
-
+      <br>
+      <ProductPage :myCallbackFunction="otherFunction" :message="deger"/>
+        <span> {{ deger }}</span>
   </div>
 </template>
 
@@ -32,7 +34,8 @@ export default {
       ],
       value : '<h3>Value</h3>',
       sendTo : '',
-      cardValue : [1,2,'a',4]
+      cardValue : [1,2,'a',4],
+      deger : ''
     };
   },
   components : {
@@ -42,6 +45,9 @@ export default {
   methods: {
     updateMainComponent(e){
       this.cardValue.push(e)
+    },
+    otherFunction(message){
+      this.deger = message
     }
   },
 };
