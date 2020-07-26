@@ -16,4 +16,8 @@ local storage - session storage - cookies
 
 * ls ye sadece string veri kaydedilir, ancak stringfy ile karmaşık verilerde stringe çevrilip ls ye kaydedilebilir, dataya foo : { name : 'vue', age : 34}, tanımladık, save butonua bastığımızda bu sefer localStorage.setItem('input-value', JSON.stringify(this.foo)); çalışacak, (önceki kodları yoruma aldım), birde bunu object olarak geri getirelim bunun için parse komutu kullanılır; this.newValue = JSON.parse(localStorage.getItem('input-value')) şeklinde key değeri verilerek geri getirilir, 
 
-* ls ye direk kayıt yaptık bu bir güvenlik problemi oluşturabilir, 
+* ls ye direk kayıt yaptık bu bir güvenlik problemi oluşturabilir, bunun için kullanabileceğimiz bir kütüphane var crypto.js; https://www.npmjs.com/package/crypto-js adresinde gerekli bilgi var kurulumu;  npm install crypto-js 
+
+* yeni bir App.vue yapalım, eskisini App1.vue şeklinde tutalım, yukarıdaki adresten kullanımına bakabiliriz, methods daki kullanıma dikkat, 
+
+* Cookies, bcrypt, jsonWebToken konuları;  cookie (çerez) bir web sayfası ziyaret edildiğinde tarayıcıdaki kullanıcı bilgilerinin depolandığı küçük dosyalar, kullanıcıları takip etmek, sayfadaki davranışlarını izlemek ve ona göre içerik sunmak, e ticaret sitelerinde vs kullanılır, App.vue yapalım, (crypto olanıApp2.vue olarak saklayıp), vue cookies kütüphansi https://www.npmjs.com/package/vue-cookies, bunu ekleyelim npm install vue-cookies --save 
