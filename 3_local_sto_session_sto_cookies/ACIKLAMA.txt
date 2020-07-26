@@ -1,0 +1,19 @@
+local storage - session storage - cookies
+
+* şimdiye kadar refresh de veriler siiniyor, bunu engellemek için ya bir db ye kayıt veya tarayıcının içine kayıt, tarayıcnın içine kayıtta; 3 metod var, local storage, session storage, cookies, local 5-10mb boyutlu, manuel veya js ile silmedikçe kayıt aldında, session 5mb boyutlu tarayıcı açık kaldıkça silinmez kapatılınca silinir, cookie ise tab kapatıldığında veya ayarlama nasılsa o zaman diliminde silnir, 4kb lik çok küçük alanı var,
+
+* bunlar tarayıcı da application sekmesinde görülür, 
+
+* burada bir input, bir buton ile inputtan gelen veriyi local storage (ls) ye kaydedelim
+
+* data da value ve newValue tanımladık, inputu v-model ile value ya bağladık, butonuda saveValue methoduna bağladık, butona tıkladığımızda inputtan aldığı value değerini ls ye input-value key i ile kaydedecek ve inputu boşaltacak
+
+* dataya koymuş old. newValue yu bir spana verdik, mounted life cycle methodunu hazırladık buna göre component mount old. ls de input-value key i varsa onun değerini alıp newValue ya atayacak ve böylelikle span içinde newValue değeri görünecek...
+
+* session storage da aynı şekilde kodda local yazan yerlere session yazdığımızda bu sefer session storage olur
+
+* silme için bir butona removeLocalData ekledik ve methodunda localStorage.removeItem('input-value'); dedik, yani sadece key i gönderdik, butona tıklandığında ls den o key ve değeri silinir, ls deki herşeyi silmek için ise localStorage.clear() kullanılır, 
+
+* ls ye sadece string veri kaydedilir, ancak stringfy ile karmaşık verilerde stringe çevrilip ls ye kaydedilebilir, dataya foo : { name : 'vue', age : 34}, tanımladık, save butonua bastığımızda bu sefer localStorage.setItem('input-value', JSON.stringify(this.foo)); çalışacak, (önceki kodları yoruma aldım), birde bunu object olarak geri getirelim bunun için parse komutu kullanılır; this.newValue = JSON.parse(localStorage.getItem('input-value')) şeklinde key değeri verilerek geri getirilir, 
+
+* ls ye direk kayıt yaptık bu bir güvenlik problemi oluşturabilir, 
