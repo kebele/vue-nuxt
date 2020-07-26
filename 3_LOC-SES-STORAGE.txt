@@ -20,4 +20,14 @@ local storage - session storage - cookies
 
 * yeni bir App.vue yapalım, eskisini App1.vue şeklinde tutalım, yukarıdaki adresten kullanımına bakabiliriz, methods daki kullanıma dikkat, 
 
-* Cookies, bcrypt, jsonWebToken konuları;  cookie (çerez) bir web sayfası ziyaret edildiğinde tarayıcıdaki kullanıcı bilgilerinin depolandığı küçük dosyalar, kullanıcıları takip etmek, sayfadaki davranışlarını izlemek ve ona göre içerik sunmak, e ticaret sitelerinde vs kullanılır, App.vue yapalım, (crypto olanıApp2.vue olarak saklayıp), vue cookies kütüphansi https://www.npmjs.com/package/vue-cookies, bunu ekleyelim npm install vue-cookies --save 
+* Cookies, bcrypt, jsonWebToken konuları;  cookie (çerez) bir web sayfası ziyaret edildiğinde tarayıcıdaki kullanıcı bilgilerinin depolandığı küçük dosyalar, kullanıcıları takip etmek, sayfadaki davranışlarını izlemek ve ona göre içerik sunmak, e ticaret sitelerinde vs kullanılır, cookies ler application sekmesinde olur, App.vue yapalım, (crypto olanıApp2.vue olarak saklayıp), vue cookies kütüphansi https://www.npmjs.com/package/vue-cookies, bunu ekleyelim npm install vue-cookies --save kurulum sonrası main.js e kod ekleyeceğiz, 
+    import VueCookies from 'vue-cookies'
+    Vue.use(VueCookies)
+
+* kullanımına npm sayfasından bakacağız, kaydederken, silerken vs. nasıl yapacağımız, inputtan gelecek elemanı cookie olarak kaydedelim, gerekli açıklamalar codun içinde de var, cookie kayıt için
+    this.$cookies.set("token",this.userName,"30MIN")
+cookie silmek için
+    this.$cookies.remove("token");
+buda aynı şekilde başka bir buton ve method ile yaptık
+
+* çoğu zaman token ı geldiği şekilde kaydetmeyiz bunu şifreleriz,  
