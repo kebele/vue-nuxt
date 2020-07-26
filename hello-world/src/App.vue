@@ -57,7 +57,12 @@
           {{value.name}}
         </template>
       </CompA>
-      
+      <br>
+      <h4>componentler arası dinamik geçiş</h4>
+      <button v-for="tabX in tabsX" :key="tabX" @click="currentTabX = tabX">{{tabX}}</button>
+      <keep-alive>
+        <component :is="currentTabX"></component>
+      </keep-alive>
   </div>
 </template>
 
@@ -73,6 +78,8 @@ import Try from './components/Try'
 // import Three from './components/Three'
 import globalComponents from './components/globalComponents'
 import CompA from './components/CompA'
+import CompX from './components/CompX'
+import CompY from './components/CompY'
 
 export default {
   data() {
@@ -90,7 +97,9 @@ export default {
       slotValue : '<h3>bu bir html slot kullanımıdır.</h3>',
       currentTab : 'first',
       tabs : ['first', 'second','third'],
-      titleValue : 'bu da data içinde tanımladığımız dinamik bir veri, ',
+      titleValue : 'bu da data içinde tanımladığımız dinamik bir veri',
+      currentTabX : 'CompA',
+      tabsX : ['CompX', 'CompY']
     };
   },
   components : {
@@ -105,6 +114,8 @@ export default {
     // "third" : Three,
     ...globalComponents,
     CompA,
+    CompX,
+    CompY,
 
   },
   methods: {

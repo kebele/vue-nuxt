@@ -179,7 +179,24 @@ diyeceğiz, bir yöntem daha va r bunda da main.js içine componenti normal kayd
     TEKRARLA
     TEKRARLA
 
-    * componentler arası dinamik geçiş yapmak, 
+    * componentler arası dinamik geçiş yapmak, CompX ve CompY yapalım, compX de bir liste yapacağız ve o listeyi döneceğiz, 
+        <ul>
+            <li v-for="post in posts" :key="post.id" @click="selectedPost = post">
+                {{post.title}}
+            </li>
+        </ul>
+    ve veriyi gösterecek div
+        <div v-if="selectedPost">
+      <h3>{{ selectedPost.title }}</h3>
+      <div v-html="selectedPost.content"></div>
+    </div>
+App.vue da ise CompX,CompY import-components ekleme işlemleri sonrası 
+    <h4>componentler arası dinamik geçiş</h4>
+      <button v-for="tabX in tabsX" :key="tabX" @click="currentTabX = tabX">{{tabX}}</button>
+      <keep-alive>
+        <component :is="currentTabX"></component>
+      </keep-alive>
+    keep alive ekrandaki comp değişsede geri geldiğimizde verinin son halinde kalmasını sağlar, 
 
 
 
