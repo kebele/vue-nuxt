@@ -40,21 +40,37 @@
           </label>
         </div>
         <div class="calculateArea">
-          <button class="calculateButton">hesapla</button>
+          <button
+            class="calculateButton"
+            @click="interestCalculation()"
+            :disabled="buttonDisable"
+            :style="[buttonDisable ? disabledStyle : '']"
+          >hesapla</button>
         </div>
       </div>
     </div>
-    <div class="calculateResult">
+    <div class="calculateResult" v-if="result !== 0">
       <span class="title">calculation result</span>
       <label for class="outText">
         if you invested ${{capital}} now, {{ termValue }} later, you get
         <span
           class="resultText"
-        >{{ result }}</span>
+        >${{ result }}</span>
       </label>
     </div>
   </div>
+  <!-- 
+    stil ve hesaplamalar vs tamamladıktan sonra yapacağımız şey, eğer gerekli alnalr boş ise butona tıklanmasın doğal olarak hesaplamada yapılmasın, 
+    bunu computed içinde butonu disable yapalım, buttonDisable hazırladık buna göre vrdiğimiz alnalrdan herhangibiri boş ise o zaman bu computed true dönecek, template de de buton içine disabled parametresini dinamik veriyoruz ve bunuda computed daki buttonDisable a eşitliyoruz, yani eğer computed dan true dönerse o zaman button disabled olacak, aynı zamanda bu durumun stiline değiştirelim, data içine disabledStyle : { background : #cccccc}, template deki butonun içine ise koşullu bir style ekleyeceğiz, :style="[buttonDisable ? disabledStyle : '']"
+    şimdi calculationResult kısmını sonuca göre açılır kapanır hale getirelim, 
+    bunun için v-show veya v-if kullanıyoruz, v-if="result !== 0" ise göster, değilse gösterme, aynısını v-show ile de yapabilirdik, 
+
+
+  -->
 </template>
+
+
+
 
 <script>
 export default {
@@ -65,8 +81,53 @@ export default {
       rateType: "Yearly",
       termArray: ["Year", "Month", "day"],
       term: "Year",
-      termValue: 0
+      termValue: 0,
+      result: 0,
+      disabledStyle: { background: "#cccccc" }
     };
+  },
+  computed: {
+    computedTermValue() {
+      if (this.rateType === "Yearly") {
+        if (this.term === "Year") {
+          return this.termValue;
+        } else if (this.term === "Month") {
+          return this.termValue / 12;
+        } else {
+          return this.termValue / 360;
+        }
+      } else if (this.rateType === "Monthly") {
+        if (this.term === "Year") {
+          return this.termValue * 12;
+        } else if (this.term === "Month") {
+          return this.termValue;
+        } else {
+          return this.termValue / 30;
+        }
+      } else {
+        if (this.term === "Year") {
+          return this.termValue * 360;
+        } else if (this.term === "Month") {
+          return this.termValue * 30;
+        } else {
+          return this.termValue;
+        }
+      }
+    },
+    buttonDisable() {
+      return this.termValue == 0 || this.rate == 0 || this.result === null;
+    }
+  },
+  methods: {
+    interestCalculation() {
+      const result =
+        this.capital * Math.pow(1 + this.rate * 0.01, this.computedTermValue);
+      // console.log(result);
+      this.result = parseInt(result);
+      //burada tanımladığımız result != data daki result
+      console.log(this.result);
+      return result;
+    }
   }
 };
 </script>
@@ -202,6 +263,7 @@ export default {
 
 .outText {
   color: #313629;
+  margin-top: 20px;
 }
 
 .resultText {
