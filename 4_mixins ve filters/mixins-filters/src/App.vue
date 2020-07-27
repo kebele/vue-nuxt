@@ -1,17 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="hello">mixin calistir</button>
+    <br>
+    {{say}}
+    <br>
+    {{ 'selamlar' | capitalize }}
+    <br>
+    {{ 'real madrid' | reverseValue | capitalize}}
+    <br>
+    {{ 'barcelona' | newCapitalize}}
+    <br>
+    <span>{{ 20000 | currency }}</span>
+    <br>
+    <span>{{ someDate | moment("dddd, MMMM Do YYYY") }}</span>
+    <br>
+    <span>{{ new Date() | moment("dddd, MMMM Do YYYY") }}</span>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { newMixin } from './newMixin'
 
 export default {
-  name: 'App',
+  mixins : [newMixin],
   components: {
-    HelloWorld
+    
+  },
+  data(){
+    return {
+      someDate : '12.12.2015',
+    }
+  }, 
+  filters:{
+    capitalize(value){
+      if(!value)''; // boşsa hiç bir şey yapma
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    },
+    reverseValue(value){
+      return value.split('').reverse().join('');
+    }
+
   }
 }
 </script>

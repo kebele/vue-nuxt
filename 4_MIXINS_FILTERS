@@ -1,3 +1,55 @@
 mixins - filters
 
-* 
+* mixins vue bileşenlerinin componentlerin, functions vb. lerinin  yeniden kullanılabilmesi için bir yoldur, birden fazla componentin ortak özellikler paylaştığı durumlarda kulanılır, bir comp mixins kullandığında bu mixin içindeki datalar, methodlar, computedler vb. componentin kendi nitelikleriye birleşir, 
+
+* newMixin.js yaptık içine export const newMixin = { data(){}, methods:{....}} hazırladık (koda bak), sonra bunu App.vue içine import ettik, 
+    import { newMixin } from './newMixin'
+
+
+* export default içine mixins : [newMixin], yapıyoruz, mixins ler [...] dir, template e
+
+* mixin lerde ne varsa ona componentten ulaşılabilir, data, methods, computed, life cycle, vb. mixin in life cycle ları componetin kendi yaşam döngülerinden önce çağrılır, sonra componentinkiler çalışır, arada çatışma olursa componentin ki asıl olarak çalışır, 
+
+* mixins ler global olarakta çalışabilir bunu yapmak için main.js de import ederiz ve new Vue içine mixins : [newMixin], yaparız, ancak global kullanım pek tavsiye edilmez hata çıkarmaya yatkın, 
+
+* filters bir verinin aslını değiştirmeden görüntüsünde bazı değişiklikler yapmak, 
+    filters:{
+    capitalize(value){
+      if(!value)''; // boşsa hiç bir şey yapma
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+tanımladık, template de kullanırken de
+    {{ 'selamlar' | capitalize }}
+şeklinde kullandık. 
+
+* filters da global olarak tanımlanabilir, 
+    Vue.filter('newCapitalize', (value)=>{
+  if(!value)''; // boşsa hiç bir şey yapma
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1);
+})
+kullanımı; {{ 'barcelona' | newCapitalize}}
+
+* dış kaynaklı filter'lar, npm den bazı dış kaynak filter larını kullanalım, mesela https://www.npmjs.com/package/vue-currency-filter , kuralım; npm i vue-currency-filter 
+nasıl kullanılacağı mız sayfada açıklanmış main.je e imort et, 
+    import VueCurrencyFilter from 'vue-currency-filter'
+    Vue.use(VueCurrencyFilter)
+// or with custom config
+Vue.use(VueCurrencyFilter, {
+  symbol : '$',
+  thousandsSeparator: '.',
+  fractionCount: 2,
+  fractionSeparator: ',',
+  symbolPosition: 'front',
+  symbolSpacing: true
+})
+
+App.vue template de; <span>{{ 20000 | currency }}</span>
+3 basamağı ayıracak
+
+* ayrıca birde vue-moment var tarihler ile ilgili, npm i vue-moment ile kuracağız, Vue.use(require('vue-moment')); main.js e, App.vue da ise 
+<span>{{ someDate | moment("dddd, MMMM Do YYYY") }}</span>
+şeklinde, npm sayfasında çok çeşitli kullanım örnekleri var
+
+* Ayrıca daha önceden vue da olup sonradan kaldırılan filters lara vue2 filters ile ulaşabiliriz, https://www.npmjs.com/package/vue2-filters
