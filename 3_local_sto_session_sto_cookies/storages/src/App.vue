@@ -14,6 +14,8 @@
     <button @click="compareBcrypt">bcrypt karşılaştır</button>
     <br>
     <button @click="tokenJwt">j w t</button>
+    <br>
+    <button @click="decodedToken">decode j w t</button>
   </div>
 </template>
 
@@ -26,7 +28,8 @@ export default {
     return {
       userName: "",
       hashValue: "",
-      privateKey : '1233344'
+      privateKey : '1233344',
+      token : null,
     };
   },
   methods: {
@@ -84,13 +87,16 @@ export default {
     },
     tokenJwt(){
       // const token = jwt.sign({ foo: 'bar' }, 'shhhhh'); //şablon
-      const token = jwt.sign({ user: this.userName }, this.privateKey);
-      console.log(token);
+      this.token = jwt.sign({ user: this.userName }, this.privateKey);
+      console.log(this.token);
       /* burada butona bastığımızda bize token ı verecek bunu alıp jwt.io sitesine yapıştırdığımızda bu site bizim bu token ı çözer ve içinde olanları bize gösterir , bazı değişiklikler yapalım*/
     },
     /* decode edilmiş halinide yazdırabiliriz */
-    decodeJwt(){
-      
+    decodedToken(){
+      //şablon
+      //const decoded = jwt.verify(token, 'shhhhh');
+      const decoded = jwt.verify(this.token, this.privateKey);
+      console.log(decoded);
     }
   }
 };
