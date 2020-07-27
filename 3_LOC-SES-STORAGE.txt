@@ -30,4 +30,6 @@ cookie silmek için
     this.$cookies.remove("token");
 buda aynı şekilde başka bir buton ve method ile yaptık
 
-* çoğu zaman token ı geldiği şekilde kaydetmeyiz bunu şifreleriz,  bunun içinde bazı kütüphaneler var bcrypt bunlardan biri, https://www.npmjs.com/package/bcryptjs genellikle parola saklamak için, npm install bcryptjs ile kurulur, App.vue ya import edelim, daha sonra bcryptToken(){...} şeklinde methodumuzu hazırlayacağız, açıklamalar kodun üzerinde, 
+* çoğu zaman token ı geldiği şekilde kaydetmeyiz bunu şifreleriz,  bunun içinde bazı kütüphaneler var bcrypt bunlardan biri, https://www.npmjs.com/package/bcryptjs genellikle parola saklamak için, npm install bcryptjs ile kurulur, App.vue ya import edelim, daha sonra bcryptToken(){...} şeklinde methodumuzu hazırlayacağız, açıklamalar kodun üzerinde, bcryptjs nin daha bir çok özelliğpi var ancak temek özelliği paroılayı kriptleme, hash lama vb.
+
+* bir bakşa şifremeel jsonwebtoken, buda npm de https://www.npmjs.com/package/jsonwebtoken, haberleşen iki veya daha fazla siistem atasında kullanıcı doğrulama, tanıma, veri bütünlüğü sağlamai bilgi güzebliğini sağlama, benzer işleri yapan paketlere göre bazı avantajları var, json formatı kullanıyor, url üzerinde taşınabiliyor, cookie kullanmam zorunluğu yok, serverless çalışıyor, birden çok backend ile çalışabiliyor, doğrulama işlemi daha hızlı, doğrulama için db ile bağlantıya ihtiyacı yok, koılayca ölçeklenebiliyor, npm install jsonwebtoken ile kuralım notlar kodun üzerinde, 

@@ -12,17 +12,21 @@
     <br />
     <!-- <button @click="compareBcrypt(userName, hashValue)">bcrypt karşılaştır</button> -->
     <button @click="compareBcrypt">bcrypt karşılaştır</button>
+    <br>
+    <button @click="tokenJwt">j w t</button>
   </div>
 </template>
 
 <script>
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken"
 
 export default {
   data() {
     return {
       userName: "",
-      hashValue: ""
+      hashValue: "",
+      privateKey : '1233344'
     };
   },
   methods: {
@@ -77,6 +81,16 @@ export default {
           console.log("karşılaştırma başarılı");
         }
       });
+    },
+    tokenJwt(){
+      // const token = jwt.sign({ foo: 'bar' }, 'shhhhh'); //şablon
+      const token = jwt.sign({ user: this.userName }, this.privateKey);
+      console.log(token);
+      /* burada butona bastığımızda bize token ı verecek bunu alıp jwt.io sitesine yapıştırdığımızda bu site bizim bu token ı çözer ve içinde olanları bize gösterir , bazı değişiklikler yapalım*/
+    },
+    /* decode edilmiş halinide yazdırabiliriz */
+    decodeJwt(){
+      
     }
   }
 };
