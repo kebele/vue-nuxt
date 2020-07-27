@@ -30,4 +30,4 @@ cookie silmek için
     this.$cookies.remove("token");
 buda aynı şekilde başka bir buton ve method ile yaptık
 
-* çoğu zaman token ı geldiği şekilde kaydetmeyiz bunu şifreleriz,  bunun içinde bazı kütüphaneler var bcrypt bunlardan biri, https://www.npmjs.com/package/bcryptjs genellikle parola saklamak için, npm install bcryptjs ile kurulur, App.vue ya import edelim, daha sonra bcryptToken(){...} şeklinde methodumuzu hazırlayacağız, 
+* çoğu zaman token ı geldiği şekilde kaydetmeyiz bunu şifreleriz,  bunun içinde bazı kütüphaneler var bcrypt bunlardan biri, https://www.npmjs.com/package/bcryptjs genellikle parola saklamak için, npm install bcryptjs ile kurulur, App.vue ya import edelim, daha sonra bcryptToken(){...} şeklinde methodumuzu hazırlayacağız, açıklamalar kodun üzerinde, 
