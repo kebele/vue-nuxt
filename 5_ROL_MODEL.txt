@@ -1,3 +1,7 @@
 rol model uygulaması, bootstrap vue ile
 
-* 
+* https://bootstrap-vue.org/docs, getting started daki (vue cli 3 olanı daha güzel, bununla main.js ayarlarını vs de kendisi yapıyor) yönerge ile bootstrap-vue yu projeye ekleyelim, template projeyi temizleyelim, 
+
+*  https://bootstrap-vue.org adresinden herhangibir componenti alıp ekleyelim, mesela modal alalım, problem yok, projeye geçelim
+
+* ana çerçeve olacak olan layout koyalım, componentleri oluşturalım, 
