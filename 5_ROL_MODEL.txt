@@ -124,7 +124,16 @@ yani card array ine git activeNUmber ıncı elamna git ve onun [x] indisini bura
     }
 yani tam toggle yapacak, modeli görünmez yapacak ve activeNumber ı tıklanmadan önceki değere çekecek.Bunu toggle tuışuna yapmıştık, buna dikkat, close tuşuna ihtiyacımız olmadığından kaldırdık, toggle a da update role model diyelim
 
-* şimdi sırada update eklranı geldiğinde yapılan değişiklikleri emit ile kaydetmeye geldi,
+* şimdi sırada update eklranı geldiğinde yapılan değişiklikleri emit ile kaydetmeye geldi,burada da daha önce yaptığımız gibi a yı tanımlayıp yollayalım, closeModel içinde a olarak yollayalım, bunu App.vue da yakalayan methodumuz updateOkey di bunu template içinde yakalarken parametre olarak kullanacağımızdan 
+    @closeModel="updateOkey($event)"/>
+şeklinde alacağız ve 
+    updateOkey(e){
+      this.card.splice(activeNumber,1,e)
+      this.showModel = false
+      this.activeNumber = -1
+    }
+şeklinde olacak, a olarak UpdateMOdelCard dan emitlediğimiz veriyi burada yakaladık ve this.card.splice(activeNumber,1,e) şeklinde yani activeNUmber indisli elemandan itibaren 1 tane sil yani knedisini sil ve yerine gelen e yi koy diyoruz,
+
 
 
 

@@ -73,8 +73,9 @@ export default {
     toggleModal() {
       // We pass the ID of the button that we want to return focus to
       // when the modal has hidden
+      const a = [this.modelName, this.modelJob, this.modelNationality, this.modelBirthday, this.modelAbout, this.modelPic, this.tags]
       this.$refs["my-modal"].toggle("#toggle-btn");
-      this.$emit("closeModel")
+      this.$emit("closeModel",a)
     },
   },
   mounted() {

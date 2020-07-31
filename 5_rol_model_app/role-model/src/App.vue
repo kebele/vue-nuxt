@@ -27,7 +27,7 @@
             :modelAbout="card[activeNumber][4]"
             :modelPic="card[activeNumber][5]"
             :tags="card[activeNumber][6]" v-if="showModel"
-            @closeModel="updateOkey()"/>
+            @closeModel="updateOkey($event)"/>
         </b-col>
       </b-row>
     </b-container>
@@ -58,7 +58,8 @@ export default {
       this.activeNumber = e
       console.log(e)
     },
-    updateOkey(){
+    updateOkey(e){
+      this.card.splice(this.activeNumber,1,e)
       this.showModel = false
       this.activeNumber = -1
     }
