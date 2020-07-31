@@ -134,6 +134,13 @@ yani tam toggle yapacak, modeli görünmez yapacak ve activeNumber ı tıklanmad
     }
 şeklinde olacak, a olarak UpdateMOdelCard dan emitlediğimiz veriyi burada yakaladık ve this.card.splice(activeNumber,1,e) şeklinde yani activeNUmber indisli elemandan itibaren 1 tane sil yani knedisini sil ve yerine gelen e yi koy diyoruz,
 
+*.....
+
+* delete e işlev kazandıralım, DeleteModelCard.vue oluşturalım, UpdateModelCard.vue için kopyalayıp gerelsiz kısımları silelim,
+
+EKLENMELİ, kod tamam açıklamaları yapmadım
+
+
 
 
 

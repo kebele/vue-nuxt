@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal ref="my-modal" hide-footer title="Using Component Methods">
+    <b-modal @hidden="hideModal()" ref="my-modal" hide-footer title="Using Component Methods">
       <b-form-input
         class="mt-2"
         v-model="modelName"
@@ -69,6 +69,7 @@ export default {
     },
     hideModal() {
       this.$refs["my-modal"].hide();
+      this.$emit('hideUpdateModel')
     },
     toggleModal() {
       // We pass the ID of the button that we want to return focus to
