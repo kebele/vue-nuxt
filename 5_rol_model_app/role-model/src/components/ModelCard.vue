@@ -16,7 +16,7 @@
         {{ modelAbout }}
       </b-card-text>
       <div class="tagsClass">
-        <b-card-text v-for="(i, index) in tags" :key="index" class="tagsText">
+        <b-card-text v-for="(i, index) in tags" class="tagsText" :key="index">
           #{{ i }}
         </b-card-text>
       </div>
@@ -38,7 +38,8 @@ export default {
       modelBirthday : String,
       modelAbout : String,
       modelPic : String,
-      tags : Array
+      tags : Array,
+      index : Number
   },
   data() {
     return {
@@ -47,7 +48,8 @@ export default {
   },
   methods: {
       updateEmitIndex(){
-          this.$emit("updateEmitIndex", this.index)
+          this.$emit('updateEmitIndex', this.index)
+          
       }
   },
 };

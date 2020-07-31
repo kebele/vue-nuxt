@@ -34,6 +34,7 @@ problem yok, hepsini aldık, şimdi bu aldıklarımızla modelCard yapacağız, 
     <ModelCard
             v-for="item in card"
             :key="item"
+            :index="index
             :modelName="item[0]"
             :modelJob="item[1]"
             :modelNationality="item[2]"
@@ -72,7 +73,8 @@ problem yok, hepsini aldık, şimdi bu aldıklarımızla modelCard yapacağız, 
       modelBirthday : String,
       modelAbout : String,
       modelPic : String,
-      tags : Array
+      tags : Array,
+      index : Number
   },
 
   artık template de kulalnabiliriz,
@@ -92,3 +94,40 @@ problem yok, hepsini aldık, şimdi bu aldıklarımızla modelCard yapacağız, 
           this.$emit("updateEmitIndex", this.index)
       }
 App.vue dan bunu @updateEmitIndex olarak template içinde <ModelCard @updateEmitIndex="activeIndex = $event"/> içinde yakalayacağız, burada yakaladığımız index'i activeIndex diye methods da  tanımladığımız func a parametre olarak yolluyoruz, 
+
+* AddRoleModel.vue i içindeki inputları UpdateModelCard içine taşıyalım, update ederken değiştirebilmek için daha sonra da bunları card arrayindeki bilgilree bağlayacağız, bunun için App.vue dan ModfelCard.vue ya props olarak yollanan verilere ihtiyacımız var bunların aynısını UpdateModelCard içinde alıp burada template e bind edeceğiz, şimdi bunu yapabilmemiz için App.vue daki değerleri alabilmemiz için activeNumber = -1 diye bir eğer tanımlayacağız bunuda activeIndex(){..} içinde e ye eşitleyeceğiz, 
+    activeIndex(e){
+      this.showModel = true;
+      this.activeNumber = e
+      console.log(e)
+    }
+burada yaptığımız şey, tıkladığımız kartın card[ arrayindeki ait olduğu index i çekmek bu index e göre diğer bilgilerini çekebileceğiz çünkü, , activeNUmber ı -1 almamızın sebebi eğer array boş ise onun index i -1 olur, App.vue da <UpdateModelCard /> içine bir üstteki <ModelCard/> içinde yaptığımız gibi verileri içine koyacağız, burada farklı olarak bir üstte v-for ile döndüğümüzde item ları yazdırırken burada herhangibir v-for olmadığından sadece active kartın index i lazım old. onu da aşağıda methoddan aldığımızdan ve data da activeNumber a eşitlediğimizden burada item ifadesi yerine card[activeNumber] ifadesi koyacağız, klasir array deki bir ememanı gösterme notasyonu, 
+    <UpdateModelCard 
+            :modelName="card[activeNumber][0]"
+            :modelJob="card[activeNumber][1]"
+            :modelNationality="card[activeNumber][2]"
+            :modelBirthday="card[activeNumber][3]"
+            :modelAbout="card[activeNumber][4]"
+            :modelPic="card[activeNumber][5]"
+            :tags="card[activeNumber][6]" v-if="showModel"/>
+yani card array ine git activeNUmber ıncı elamna git ve onun [x] indisini buraya bağla, denemeyi yapalım, formu dolsurup gönderdiğimizde card update e tıkladığımzda büytün bilgileri çeerek geliyor, sıkıntı yok, uypdate formunu kapattıoğoımızad a bu sefer yebğden tıkladığumızda bu sefer açılmıyor bunu çözmeemis lazım, bunu için UpdateMOdel Card.vue ya gidip toggleModal(){..} içine bir emit yazalım, 
+    toggleModal() {
+      // We pass the ID of the button that we want to return focus to
+      // when the modal has hidden
+      this.$refs["my-modal"].toggle("#toggle-btn");
+      this.$emit("closeModel")
+    },
+şimdi bunu App.vue da comp içinden yakalayalım, comp içinde @closeModel="updateOkey()" şeklinde bu emit old. updateOkey(){..} çalıştısın, 
+    updateOkey(){
+      this.showModel = false
+      this.activeNumber = -1
+    }
+yani tam toggle yapacak, modeli görünmez yapacak ve activeNumber ı tıklanmadan önceki değere çekecek.Bunu toggle tuışuna yapmıştık, buna dikkat, close tuşuna ihtiyacımız olmadığından kaldırdık, toggle a da update role model diyelim
+
+* şimdi sırada update eklranı geldiğinde yapılan değişiklikleri emit ile kaydetmeye geldi,
+
+
+
+
+* 
+

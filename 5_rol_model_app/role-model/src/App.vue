@@ -9,6 +9,7 @@
           <ModelCard
             v-for="(item, index) in card"
             :key="index"
+            :index="index"
             :modelName="item[0]"
             :modelJob="item[1]"
             :modelNationality="item[2]"
@@ -18,7 +19,15 @@
             :tags="item[6]"
             @updateEmitIndex="activeIndex($event)"
           />
-          <UpdateModelCard v-if="showModel"/>
+          <UpdateModelCard 
+            :modelName="card[activeNumber][0]"
+            :modelJob="card[activeNumber][1]"
+            :modelNationality="card[activeNumber][2]"
+            :modelBirthday="card[activeNumber][3]"
+            :modelAbout="card[activeNumber][4]"
+            :modelPic="card[activeNumber][5]"
+            :tags="card[activeNumber][6]" v-if="showModel"
+            @closeModel="updateOkey()"/>
         </b-col>
       </b-row>
     </b-container>
@@ -36,6 +45,7 @@ export default {
     return {
       card: [],
       showModel : false,
+      activeNumber : -1,
     };
   },
   methods: {
@@ -45,7 +55,12 @@ export default {
     },
     activeIndex(e){
       this.showModel = true;
+      this.activeNumber = e
       console.log(e)
+    },
+    updateOkey(){
+      this.showModel = false
+      this.activeNumber = -1
     }
   },
 };
