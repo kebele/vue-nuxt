@@ -4,4 +4,91 @@ rol model uygulaması, bootstrap vue ile
 
 *  https://bootstrap-vue.org adresinden herhangibir componenti alıp ekleyelim, mesela modal alalım, problem yok, projeye geçelim
 
-* ana çerçeve olacak olan layout koyalım, componentleri oluşturalım, 
+* ana çerçeve olacak olan layout koyalım, componentleri oluşturalım, AddRoleModel.vue verileri gireceğimiz component, tasarımını yaptık, datadaki değişkenlerini bağlantılarını vs.
+
+* ModelCard.vue da oluşacak kart compu bunuda bootstrapvue dan card olarak aldık,
+
+*bu7 componentleri tek tek import etmektense globalComponents.js ye import edip oradan export default {x,y,z} dağıtalım, bunları kullancağımız yerde mesela App.vue da import edeceğimiz şey globalComponents.js dosyası ve components içine de 
+...globalComponents, diyeceğiz
+
+* App.vue da ModelCard ı da ilgili old. yere koyalım, ModelCard.vue da görünümü tamamalayalım
+
+* AddRoleModel içindeki sendRoleModel(){} i düzenleyelim
+    sendRoleModel(){        
+        const a = [this.modelName, this.modelJob, this.modelNationality, this.modelBirthday, this.modelAbout, this.modelPic, this.tags]
+
+        //a yı aşağıdaki şekilde emitleyelim, yani yayalım, bunu App.vue da <AddRoleModel /> de yakalayacağız
+        // <AddRoleModel @fromAddRoleModel="updateCard($event)"/>
+
+        this.$emit("fromAddRoleModel", a)
+      }
+
+şimdi bunu App.vue dan yakalayalım, template de comp içinde 
+    <AddRoleModel @fromAddRoleModel="updateCard($event)"/>
+script içinde data da card:[] oluşturalım ve methods da da updateCard(){} hazırlayalım
+    updateCard(e){
+      this.card.push(e);
+      console.log(this.card)
+    }
+problem yok, hepsini aldık, şimdi bu aldıklarımızla modelCard yapacağız, card:[] içindeki elemenlar kadar modelCard döneceğiz, 
+    <ModelCard
+            v-for="item in card"
+            :key="item"
+            :modelName="item[0]"
+            :modelJob="item[1]"
+            :modelNationality="item[2]"
+            :modelBirthday="item[3]"
+            :modelAbout="item[4]"
+            :modelPic="item[5]"
+            :tags="item[6]"
+          />
+şeklinde hazırladık, card array i içini alıyoruz ve ModelCard compuna gönderiyoruz şimdi bunu props olarak modelCard içinden alacağız
+
+* ModelCard.vue içinde
+    props: {
+      modelName : String,
+      modelJob : String,
+      modelNationality : String,
+      modelBirthday : String,
+      modelAbout : String,
+      modelPic : String,
+      tags : Array
+  },
+
+  ekledik böylelikle template kısmında {{modelName}} şeklinde bunları (yani App.vue dan gelen bilgileri) geçirebileceğiz, 
+
+* * * * * * ÖZETLERSEK * * * * * * 
+  * özetlersek yaptığımız şey, App.vue da template de sol kısımda AddRoleModel.vue çalışıyor bu bir input form, forma ver girdikçe bunlar bu comp un data kısmında bilgileri dolduruyor, 
+  sonra bul bilgileri butona bağladığımız sendRoleModel(){} methodu ile bir array halinde (a = [] a adında bir array) $emit liyoruz, emitlerken verdiğimiz isim fromAddRoleModel
+    this.$emit("fromAddRoleModel", a)
+şimdi biz butona basarak bu array i emitledik yaydık yani, bu verileri App.vue içindeki 
+    <AddRoleModel @fromAddRoleModel="updateCard($event)" /> 
+şeklinde @fromAddRoleModel="updateCard($event)" 
+şeklinde yakalıyoruz, burada da yakaladığımız verileri updateCard($event) methoduna yolluyoruz, bu methodun yaptığıu şeyde data da card:[] diye tanıladığımız array e bu gelen verileri push lamak, artık verilerimiz card [] i içinde ve modelCard compu içnde kullanılabilir durumda bunları v-for ile card array ı ile ilşkilendirdik ve içeriklerini bind ettik, artık ModelCard.vue da kullanabilir durumda, şimdi ModelCard.vue ya gidip bunları props olarak almalıyız,
+    props: {
+      modelName : String,
+      modelJob : String,
+      modelNationality : String,
+      modelBirthday : String,
+      modelAbout : String,
+      modelPic : String,
+      tags : Array
+  },
+
+  artık template de kulalnabiliriz,
+  * * * * * OLAY BU * * * * * 
+
+* style ile biraz daha uğraşalım, 
+
+* iki buton koyduk, update ve delete, bunlara tıklayınca olacakları ayarlayalım, update ile başlayakım, istediğimiz update a tıklayınca düzenleme yapabileceğimiz bir modal açılsın, bunun için yeni bir component yapacağız UpdateModelCard.vue ve bunun içine bootstrapvue dan modal componentini yapıştıracağız
+
+* istediğimiz şey component DOM a eklendikten sonra showModal(){} çalışsın istiyoruz, bunun için mounted(){..} kullanacağız
+    mounted() {
+        this.showModal()
+    },
+
+* globalComponents.js e import edelim, artık extradan App.vue ya import ettmemize gerek yok, direkt kullanabiliriz, şimdi ModelCard.vue da update butonuna basıldığında bir emit fırlatalım, 
+    updateEmit(){
+          this.$emit("updateEmitIndex", this.index)
+      }
+App.vue dan bunu @updateEmitIndex olarak template içinde <ModelCard @updateEmitIndex="activeIndex = $event"/> içinde yakalayacağız, burada yakaladığımız index'i activeIndex diye methods da  tanımladığımız func a parametre olarak yolluyoruz, 
