@@ -21,7 +21,7 @@
         </b-card-text>
       </div>
       <div class="bottomButtons">
-            <b-button @click="updateEmit()" variant="outline-success">update</b-button>
+            <b-button @click="updateEmitIndex()" variant="outline-success">update</b-button>
             <b-button variant="outline-danger">delete</b-button>
       </div>
       
@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {
-      updateEmit(){
+      updateEmitIndex(){
           this.$emit("updateEmitIndex", this.index)
       }
   },

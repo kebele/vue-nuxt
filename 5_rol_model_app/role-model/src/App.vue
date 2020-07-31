@@ -3,7 +3,7 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="4">
-          <AddRoleModel @fromAddRoleModel="activeIndex($event)" />
+          <AddRoleModel @fromAddRoleModel="updateCard($event)" />
         </b-col>
         <b-col sm="8">
           <ModelCard
