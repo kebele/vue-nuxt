@@ -1,0 +1,37 @@
+animasyonlar - transitionlar
+
+* animasyonlar 
+    <transition name="fade">
+      <span v-if="show">hello</span>
+    </transition>
+şeklinde template
+    .fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+şeklinde de style olarak kullanılır, animasyonlarda 4 aşama var
+enter, enter-active, leave-active, leave-to, üstte kullanımı belli, bir den çok animasyon elemanı olacakda <transition-group></transition-group>
+kullanılır, birden fazla animasyon için ise sıralama belirleyebiliriz, biri bitince diğeri vb.
+
+* 
+    <transition name="bounce" @leave="leave()" @before-enter="beforeEnter()">
+      <p v-if="show">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit et fugiat facere voluptas sit sint adipisci deleniti accusamus molestiae porro?</p>
+    </transition>
+şeklkinde hazırlayıp methods da bu func. tanımlayıp da animasyon verilebilir
+
+methods : {
+    leave(el, done){
+        xxxx
+        done()
+    }
+}
+
+şeklinde kullanımla da yapılabilr ancak efektif olan css kodları ile yapmaktır, 
+
+* componentler arası geçişte de animasyonlar yapılabilir
+
+* animasyon kaynak kodları klasöründe kaynak kodlar var
