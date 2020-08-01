@@ -37,4 +37,13 @@ methods : {
 * animasyon kaynak kodları klasöründe kaynak kodlar var
 
 * js içinden animasyon yazabilmek içinhttps://www.npmjs.com/package/velocity-animate adresinden velocityjs kütüphanesini kurmalıyız
+http://velocityjs.org/
+
+*   elemanların animasyonu, yani elemanların değeri değiştiğinde değeri animasyonla göstermek, 
+  gsap
+  https://www.npmjs.com/package/gsap
+  npm install gsap ile kuralım
+
+* 
+
 
