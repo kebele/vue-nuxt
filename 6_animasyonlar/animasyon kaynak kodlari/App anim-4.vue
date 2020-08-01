@@ -4,7 +4,7 @@
     <button @click="add">add</button>
     <button @click="remove">remove</button>
     <transition-group name="list" tag="p">
-      <span v-for="(item, index) in items" :key="index" class="list-item">{{
+      <span v-for="(item, index) in items" :key="index" class="list-item" >{{
         item
       }}</span>
     </transition-group>
@@ -30,6 +30,7 @@ export default {
       this.items.splice(this.randomIndex(), 1);
     },
     shuffle() {
+      //random sıralama yapacak
       this.items.sort(() => Math.random() - 0.5);
       console.log(this.items);
     },
@@ -40,6 +41,7 @@ export default {
 <style>
 .list-item {
   display: inline-block;
+  /* animasyon yapabilmesi için inline-block olmalı */
   margin-right: 25px;
 }
 .list-enter-active,
@@ -51,7 +53,7 @@ export default {
   opacity: 0;
   transform: translateY(30px);
 }
-.list-move {
+.list-move{
   transition: transform 1s;
 }
 </style>

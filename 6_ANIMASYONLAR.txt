@@ -35,3 +35,6 @@ methods : {
 * componentler arası geçişte de animasyonlar yapılabilir
 
 * animasyon kaynak kodları klasöründe kaynak kodlar var
+
+* js içinden animasyon yazabilmek içinhttps://www.npmjs.com/package/velocity-animate adresinden velocityjs kütüphanesini kurmalıyız
+

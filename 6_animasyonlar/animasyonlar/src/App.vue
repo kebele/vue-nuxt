@@ -1,57 +1,57 @@
 <template>
   <div id="app">
-    <button @click="shuffle">shuffle</button>
-    <button @click="add">add</button>
-    <button @click="remove">remove</button>
-    <transition-group name="list" tag="p">
-      <span v-for="(item, index) in items" :key="index" class="list-item">{{
-        item
-      }}</span>
+    <input v-model="query"/>
+    <transition-group name="list" tag="ul" :css="false" @before-enter="beforeEnter" @enter="enter" @leave="leave">
+      <li  v-for="item in computedList" :key="item.msg">
+        {{item.msg}}
+      </li>
     </transition-group>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
+import Velocity from "velocity-animate"
+export default { 
+ data() {
     return {
-      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      nextNum: 10,
-    };
-  },
+     query:'',
+     list:[
+       {msg:'apple'},
+       {msg:'pear'},
+       {msg:'orange'},
+       {msg:'banana'},
+       {msg:'watermelon'},
+     ]
+    }
+  }, 
+  computed: {
+    computedList(){
+      return this.list.filter((item)=>{
+        return item.msg.toLowerCase().indexOf(this.query.toLowerCase()) !==-1
+      })
+    }
+  },  
   methods: {
-    randomIndex() {
-      return Math.floor(Math.random() * this.items.length);
+    beforeEnter(el){
+      el.style.opacity = 0
+      el.style.height = 0
     },
-    add() {
-      this.items.splice(this.randomIndex(), 0, this.nextNum++);
+    enter(el,done){
+      const delay = 400;
+      setTimeout(()=>{
+        Velocity(el,{opacity:1,height:"1.6em"},{complate:done})
+      },delay)
     },
-    remove() {
-      this.items.splice(this.randomIndex(), 1);
-    },
-    shuffle() {
-      this.items.sort(() => Math.random() - 0.5);
-      console.log(this.items);
+    leave(el,done){
+      const delay = 400;
+      setTimeout(()=>{
+        Velocity(el,{opacity:0,height:0},{complate:done})
+      },delay)
     },
   },
-};
+}
 </script>
 
 <style>
-.list-item {
-  display: inline-block;
-  margin-right: 25px;
-}
-.list-enter-active,
-.list-leave-active {
-  transition: all 2s;
-}
-.list-enter,
-.list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.list-move {
-  transition: transform 1s;
-}
+
 </style>
