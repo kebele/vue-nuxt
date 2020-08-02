@@ -1,0 +1,5 @@
+vue resuorce
+
+* dışarıyla bağlantı kurmak için kullanılır, alternatifi ve belkide dahai iyisi axios tur, kablosuz kedi eğitim notlarında onunla iligli bilgilerde var, ag bağlantısı kısaca 
+
+* https://www.npmjs.com/package/vue-resource adresinde tafsilatı var, 
