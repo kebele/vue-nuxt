@@ -145,5 +145,9 @@ EKLENMELİ, kod tamam açıklamaları yapmadım
 
 
 
+* Animasyon ekleyelim, container ları silip comp ların hepsini <transition-group></transition-group> içine aldık, css kısmını container için yaptığımzı bu sefer trs grup içinde yaptık, deyaları kodda var, ancak şu anda butonlarımız çalışmıyor, bunun sebebi transition group daki her elemanın kendine ait bir key i olmalıdır bunun için key ekleyen bir func hazırlayacağız,
+
+* dataya randomKey : Math.random() atadık bunuda her bir elemana bağlayalım, :key="randomKey" şeklinde update hemde delete comp larına kyduk, modelCard a koymadık çünkü orada zaten bir key değeri var.
+
 * 
 
