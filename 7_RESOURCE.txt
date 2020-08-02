@@ -2,4 +2,33 @@ vue resuorce
 
 * dışarıyla bağlantı kurmak için kullanılır, alternatifi ve belkide dahai iyisi axios tur, kablosuz kedi eğitim notlarında onunla iligli bilgilerde var, ag bağlantısı kısaca 
 
-* https://www.npmjs.com/package/vue-resource adresinde tafsilatı var, 
+* https://www.npmjs.com/package/vue-resource adresinde tafsilatı var, npm install vue-resource ile projeye ekliyoruz
+
+* get getirmek için post yollamak için, 
+    {
+  // GET /someUrl
+  this.$http.get('/someUrl').then(response => {
+ 
+    // get body data
+    this.someData = response.body;
+ 
+  }, response => {
+    // error callback
+  });
+}
+
+şeklinde genel bir kullanımı var, 
+get(url, [config])
+head(url, [config])
+delete(url, [config])
+jsonp(url, [config])
+post(url, [body], [config])
+put(url, [body], [config])
+patch(url, [body], [config])
+en çok get, post, delete, put kullanılıyor
+
+* https://reqres.in/ bu bir fake api burayı kullanacağız, 
+
+*burada life cycle lardan birini kullanıp bir get isteği yapalım, uygulama mount olduğunda .... koda bak
+
+* main.js de vueresource u kaydetmeliyiz, 
