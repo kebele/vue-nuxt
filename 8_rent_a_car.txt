@@ -3,3 +3,9 @@ rent a car uygulaması
 * burada proje oluştururken vue ui kullanırsak projeyi bir gui ile oluştururuz, bizi kendisi gui üzerinden yönlendirir, brde bootstrap vue yu projeye ekleyelim, bunu cli üzerinden ekleyelim, yeni terminal açıp, 
 
 * vue add bootstrap-vue ekleyip sonrasında npm run serve ile projeyi başlatalım, 
+
+* App.vue yu temizleyelim, ve  https://bootstrap-vue.org/docs/components den parçaları alalım, navbar, Navbar.vue yaptık, globalComponents.js yaptık buraya Navbar ı impor edip export yaptık ve App.vue ya globalComponents i import ettik, 
+
+* Navbarı düzenleme yaptık, buton eklemek için pluginss deki bootstrap a web sayfasında usage altındaki kodları koyacağız,
+
+* 
