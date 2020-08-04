@@ -31,4 +31,24 @@ en çok get, post, delete, put kullanılıyor
 
 *burada life cycle lardan birini kullanıp bir get isteği yapalım, uygulama mount olduğunda .... koda bak
 
-* main.js de vueresource u kaydetmeliyiz, 
+* main.js de vueresource u kaydetmeliyiz, sonrasında App.vue da mounted life cycle ına 
+  mounted() {
+    {
+      // GET /someUrl
+      this.$http.get("https://reqres.in/api/users").then(
+        (response) => {
+          // get body data
+          // this.someData = response.body;
+          console.log(response);
+        },
+        (response) => {
+          // error callback
+          console.log(response);
+        }
+      );
+    }
+  },
+
+  kodunu yazdık, beklediğimiz şey console aapiden users ları getirmesi, problemsi getirdi, 
+  bunları template içinde sıralatalım (ul - li ile) bununn  için life cycle ı beforeCreate ile değiştirelim ve template e bastıralım ancak öncesinde data içine bir items [] yapalım ve apiden aldıklarımızı items array ıne pushlayalım, 
+
