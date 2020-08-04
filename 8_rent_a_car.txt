@@ -1,0 +1,5 @@
+rent a car uygulaması
+
+* burada proje oluştururken vue ui kullanırsak projeyi bir gui ile oluştururuz, bizi kendisi gui üzerinden yönlendirir, brde bootstrap vue yu projeye ekleyelim, bunu cli üzerinden ekleyelim, yeni terminal açıp, 
+
+* vue add bootstrap-vue ekleyip sonrasında npm run serve ile projeyi başlatalım, 
