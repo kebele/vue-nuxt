@@ -8,4 +8,6 @@ rent a car uygulaması
 
 * Navbarı düzenleme yaptık, buton eklemek için pluginss deki bootstrap a web sayfasında usage altındaki kodları koyacağız,
 
+* MainContent.vue da style ilişkin düzenlemeler yaptık, burada önemli bir nokta :options="options" a array yollayabiliriz böylelikle v-for ile dönmek zorunda kalmayız, kullanım için koda bak
+
 * 
