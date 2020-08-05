@@ -8,6 +8,22 @@ rent a car uygulaması
 
 * Navbarı düzenleme yaptık, buton eklemek için pluginss deki bootstrap a web sayfasında usage altındaki kodları koyacağız,
 
-* MainContent.vue da style ilişkin düzenlemeler yaptık, burada önemli bir nokta :options="options" a array yollayabiliriz böylelikle v-for ile dönmek zorunda kalmayız, kullanım için koda bak
+* MainContent.vue da style ilişkin düzenlemeler yaptık, burada önemli bir nokta :options="options" a array yollayabiliriz böylelikle v-for ile dönmek zorunda kalmayız, kullanım için koda bak, style ve dataya bağlama kısımları tamam, şimdi route ayarlarını yapalım
 
-* 
+* projeyi vue ui ile kurarken router ı da eklemiştik, yapacağımız şey MainContent i ana comp olarak ayarlamak, bunuda index.js içinden yapacağız, MainContent.vue import sonrası home olarak mainContent i ayarlayacağız, deneeyi yapalım, App.vue daki template imiz artık aşağıdaki şekilde, ayrıca artık sayfalar components içinde değil views içinde olacak, views içinde sayfalar, components içinde de comp lar olacak, 
+
+<template>
+  <div id="app">
+   <Navbar></Navbar>
+   <!-- <MainContent></MainContent> -->
+   <router-view></router-view>
+  </div>
+</template>
+
+* Cars.vue ekleyelim views a,yani Cars sayfası olacak, Cars.vue içinde de CarCard.vue componenti olacak birbirlerine props ile bağlanacaklar, index.js de aşağıdaki history kısmı önemli,
+    const router = new VueRouter({
+  routes,
+  mode:'history'
+})
+
+* tıklama ile yönlendirme, search kısmı, @click="gotoRent" verelim, 

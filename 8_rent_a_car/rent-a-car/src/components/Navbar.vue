@@ -7,8 +7,8 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#"><b-icon icon="house"></b-icon> Home</b-nav-item>
-          <b-nav-item href="#">Rent</b-nav-item>
+          <b-nav-item href="/"><b-icon icon="house"></b-icon> Home</b-nav-item>
+          <b-nav-item href="/rent">Rent</b-nav-item>
           <b-nav-item href="#">Agreement</b-nav-item>
         </b-navbar-nav>
 

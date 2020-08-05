@@ -82,7 +82,7 @@
       ></b-form-datepicker>
       <b-form-timepicker v-model="pickTime" locale="en"></b-form-timepicker>
       </div>
-      <label for="example-datepicker">Choose a return date</label>
+      <label class="mt-2" for="example-datepicker">Choose a return date</label>
       <div class="timeClass">
           <b-form-datepicker
         id="example-datepicker"
@@ -91,7 +91,7 @@
       ></b-form-datepicker>
       <b-form-timepicker v-model="returnTime" locale="en"></b-form-timepicker>
       </div>
-      <b-button class="mt-3" block variant="outline-dark">Search</b-button>
+      <b-button class="mt-3" @click="gotoRent" block variant="outline-dark">Search</b-button>
     </b-form>
   </div>
 </template>
@@ -118,6 +118,11 @@ export default {
     onSlideEnd() {
       this.sliding = false;
     },
+    gotoRent(){
+        //this$router.push(location-nereye gidecek, başarılı olursa ne olacak, başarızı olursa ne olacak)
+        //this.$router.push('/rent') search e bastığımızda rent sayfasına yollar
+        
+    }
   },
 };
 </script>
@@ -130,7 +135,8 @@ export default {
 .formReservation {
   position: absolute;
   min-height: 360px;
-  max-height: 420px;
+  max-height: 440px;
+  max-width : 500px;
   background-color: rgba(255,255,255,0.7);
   padding: 15px;
   margin-top: -600px;
