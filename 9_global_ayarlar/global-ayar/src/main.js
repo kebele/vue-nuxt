@@ -36,6 +36,8 @@ Vue.use()
 // Vue.version = ...
 // versiyon şuysa şöyle yap vb...
 
+Vue.prototype.$http = axios 
+//burada yaptığımız şey $http kullandığımız her yerde axios u kullanacağız demek (tabi bu axios un projeye dahil edildiği durumda çalışır)
 
 new Vue({
   render: h => h(App),
