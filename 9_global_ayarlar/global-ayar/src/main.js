@@ -12,7 +12,9 @@ Vue.config.performance = true
 
 Vue.config.Vue.config.keyCodes = {
   // camelCase won`t work
-  mediaplaypause : 179
+  // mediaplaypause : 179
+  "media-play-pause" : 179
+  //bu yazım tarsıda üsttekiyle aynıdır
   // App.vue da bu tuşa bir func. bağladık, buna basıldığında o func çalışır
 }
 
