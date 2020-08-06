@@ -26,4 +26,8 @@ rent a car uygulaması
   mode:'history'
 })
 
-* tıklama ile yönlendirme, search kısmı, @click="gotoRent" verelim, 
+* tıklama ile yönlendirme, search kısmı, @click="gotoRent" verelim, açıklamanın devamı MainContent.vue da 
+
+* componentlerin içinde de kullanlabilecek props yntemleri var, CArs.vue ya gidelim, açıklama ve kullanımlar orada
+
+* middleware; index.js de açıklamalar, 

@@ -9,6 +9,8 @@
         <b-navbar-nav>
           <b-nav-item href="/"><b-icon icon="house"></b-icon> Home</b-nav-item>
           <b-nav-item href="/rent">Rent</b-nav-item>
+          <!-- <router-link to='/'>ana sayfa</router-link> 
+          böylede kullanılabilir-->
           <b-nav-item href="#">Agreement</b-nav-item>
         </b-navbar-nav>
 
