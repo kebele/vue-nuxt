@@ -1,5 +1,7 @@
 <template>
 <div class="cardContainer">
+    <!-- {{ title }} -->
+    {{ userData }}
     <car-card :item="item" class="carCardClass" v-for="i in 12" :key="i"></car-card>
 </div>
 </template>
@@ -9,6 +11,10 @@ import CarCard from '../components/CarCard'
 export default {
     components : {
         CarCard,
+    },
+    props : {
+        // title : String
+        userData : Array,
     },
     data(){
         return {

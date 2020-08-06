@@ -22,7 +22,8 @@ Vue.use(VueRouter)
   {
     path: '/rent',
     name: 'Rent',
-    component: Cars
+    component: Cars,
+    props : true
   },
 ]
 
