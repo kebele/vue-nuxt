@@ -88,7 +88,23 @@ burada hengi parametreler geliyor consolden bakalım,
 
 $route var olan route daki bilgilere ulaşmak için, normal route ise yönlendirme için
 
-* 
+* main.js de path içine isimde tanımlayabilriz, 
 
-* 
+* bazen bir url b,rden fala path ile eşleşebilir bu durumda eşleşme önce tanımlanan ile olur, 
+
+* route a alt yollarda tanımlanabilir, bunlara children denir compB için yapalım, main.js de ... Alert.vue ve Detail.vue olarak iki comp yaptık, main.js de import yapalım, router da path leri ayarlayalım, sonrasında adres satırına alert yada detail yazdığımızda o sayfaları getirir, alt path şere '/' ile başlamadığımıza dikkat eğer öyşle yaparsak bunlar kök gibi(pernt gibi algılanır) problem,  yani children path a / koyma, 
+
+* içiçe route da comp yeniden oluşturulmaz, yani life cycle lar tekrar çalışmaz, bu durumda değişiklikleri izlemek için, gidip gelinen yer object olarak görünür, hash id yi gösterir, meta html etiketi sayfayla ilgil bilgi vermek için vs. varsa onu gösterir, # ise bir id varsa onu işaret eder, query sorgu,  
+
+* benzer bir controlu beforeRouteUpdate ile de yapabiliriz;
+
+*App.vue ya gidelim, yönlendirme için kull. func. push ancak push farklı parametrelerde alır, koda bak, push yerine replace de kullanılır, push dan farkı replace ile yapılan yönlendirme tarayıcı geçmişimne kaydedilmez, 
+
+* route kontrolleri componentler içinden old. gibi komponentler dışında dan olabilir, bunud a main.js de yapabiliriz,, main.js e bak
+
+* yönlendirmelerde animasyonda kullanabiliriz, bunun için router-view ları transition tag ları arasına alır normal devam ederiz, 
+
+
+
+
      
