@@ -4,6 +4,7 @@
     <br>
     {{ this.$store.getters.getTitle}}
     <br>
+    <button @click="changeTitle()">change title</button>
   </div>
 </template>
 
@@ -11,7 +12,15 @@
 
 
 export default {
+  methods: {
+    changeTitle(){
+      //mutations çalıştırma
+      // this.$store.commit('setTitle', 'New Title')
 
+      //actions çalıştırma
+      this.$store.dispatch('setTitleActions', 'Big Title')
+    }
+  },
 }
 </script>
 
