@@ -2,7 +2,7 @@
   <div id="app">
     router çalışması
     <br>
-    <router-link to="/compa">go to component A</router-link><br>
+    <router-link :to="'/compa/' + id">go to component A</router-link><br>
     <router-link to="/compb">go to component B</router-link><br>
 
     <hr>
@@ -16,7 +16,11 @@
 
 
 export default {
- 
+ data(){
+   return {
+     id : 246,
+   }
+ }
 }
 </script>
 

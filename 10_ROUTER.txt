@@ -58,5 +58,37 @@ linklerle de bu şekilde
         background-color:orange;
     }
 
+* bazı sayfalarda mesela compa/username:lksdlkajl
+ vb kullanımlar olur, yani ayrı bir bilgi gider bunu yapmak için, ... mesela compa yanına id alsın path: '/compa/:id' olsun, bunu main.js de yani route ayarlarının olduğu yerde path in ne şekilde olacağnı belirttik App.vue ya gidip 
+    <router-link :to="'/compa' + id">go to component A</router-link><br>
+id verisini data dan alıyor
 
+* veriyi yani id yi CompA.vue içinden yakalayalım, CompA.vue içine 
+    {{ this.$route.params.id }}
 
+burada hengi parametreler geliyor consolden bakalım, 
+    <template>
+        <div>
+            comp A
+            <br>
+            <!-- {{ this.$route.params.id }} -->
+            <button @click="logConsole">parametreleri göster</button>
+        </div>
+    </template>
+
+    <script>
+    export default {
+        methods: {
+            logConsole(){
+                console.log(this.$route);
+            }
+        },
+    }
+    </script>
+
+$route var olan route daki bilgilere ulaşmak için, normal route ise yönlendirme için
+
+* 
+
+* 
+     

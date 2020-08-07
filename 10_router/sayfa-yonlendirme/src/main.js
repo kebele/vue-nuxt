@@ -9,10 +9,10 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode : history, //# işaretinden kurtulmak için
+  mode : 'history', //# işaretinden kurtulmak için
   routes : [
     {
-      path : '/compa',
+      path : '/compa/:id',
       component : CompA
     },
     {
