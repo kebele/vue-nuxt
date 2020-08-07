@@ -1,0 +1,51 @@
+state yönetimi vuex
+
+* npm install -s vuex
+
+* store klasörü oluşturacağız, içine index.js oluşturacağız (isim önemli değil) 
+    import Vue from 'vue'
+    import Vuex from 'vuex'
+
+    Vue.use(Vuex)
+    //Vue Vuex i kullansın
+
+
+    export const store = new Vuex.Store({
+        
+    })
+bundan sonra main.js e import yapacağız, böylelikle store her yerde ulaşılabilir/kullanılabilir hale gelecek
+    import Vue from 'vue'
+    import App from './App.vue'
+    import { store } from './store'
+
+    Vue.config.productionTip = false
+
+    new Vue({
+    store,
+    render: h => h(App),
+    }).$mount('#app')
+
+* store un içine öncelikle state ekleriz
+    export const store = new Vuex.Store({
+        state : {
+            title : 'message'
+        }
+    })
+bir state nesnemiz var ve içinde title değişkenimiz var, buna uygulamada her yerden erişebiliriz, mesela App.vue dan erişelim; App.vue da template den eriştik ve ekrana message geldi 
+    {{ this.$store.state.title }}
+
+* getters tanımlayalım, state i getirmek için ve bazı basit değişiklikleri yapmak için ancak daha çok statei getirmek için kullanılır, ayrıca getters içinde function kullanırız,
+    state : {
+        title : 'message'
+    },
+    getters : {
+        getTitle : (state)=>{
+            return state.title
+        }
+    }
+
+App.vue da getters kulanalım;
+    {{ this.$store.getters.getTitle}}
+burada basit değişikliklerde yapabiliridik,
+
+* mutations, 
