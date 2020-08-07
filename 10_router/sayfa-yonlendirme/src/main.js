@@ -11,20 +11,20 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 //yönlendirme kontrolleri içn
-router.beforeEach((to, from, next)=>{
-  //her route geçişinde bir kontrol yapabiliriz mesela authentication var mı yada başka bir şeyler
-  next()
-})
+// router.beforeEach((to, from, next)=>{
+//   //her route geçişinde bir kontrol yapabiliriz mesela authentication var mı yada başka bir şeyler
+//   next()
+// })
 
 // router.afterEach((to,from)=>{
 //   //yönlendirme sonrası işlemler için
 // })
 
-router.beforeResolve((to,from,next)=>{
-  //bu bütün komponentler ve alt componentler yüklendikten sonra çalışır, 
-  //async bir durum varsa bunun kullanılması iyi olur
-  next()
-})
+// router.beforeResolve((to,from,next)=>{
+//   //bu bütün komponentler ve alt componentler yüklendikten sonra çalışır, 
+//   //async bir durum varsa bunun kullanılması iyi olur
+//   next()
+// })
 
 //yukarıdaki tanımlamaları routes array i içinde de yapabiliriz
 
