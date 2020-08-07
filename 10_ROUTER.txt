@@ -1,0 +1,62 @@
+vue-router --- sayfa yönlendirme
+
+* vue create router
+cd router
+npm install vue-router -s
+main.js e aşağıyı ekle
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+* CompA.vue ve CompB.vue iki comp yaptık, main.js de bunları import ve yönlendirme yapalım, main.js dosyası
+    import Vue from 'vue'
+    import App from './App.vue'
+    import VueRouter from 'vue-router'
+
+    import CompA from './components/CompA.vue'
+    import CompB from './components/CompB.vue'
+
+    Vue.config.productionTip = false
+    Vue.use(VueRouter)
+
+    const router = new VueRouter({
+    routes : [
+        {
+        path : '/compa',
+        component : CompA
+        },
+        {
+        path : '/compb',
+        component : CompB
+        },
+    ]
+    })
+
+    new Vue({
+    router,
+    render: h => h(App),
+    }).$mount('#app')
+
+App.vue da da
+    <template>
+        router çalışması
+    <br>
+    <router-link to="/compa">go to component A</router-link><br>
+    <router-link to="/compb">go to component B</router-link><br>
+
+    <hr>
+    <router-view>
+
+    </router-view>
+    </template>
+şeklinde hazırladık artık adres satırına compa eklediğimizde CompA.vue içeriği <router-view>.....</router-view> arasında görünür, aynı şekilde compb yazdığımızda da ... veya linkleride koydum koda <router-link to="compa">got to comp A</router-link>
+linklerle de bu şekilde
+
+* actif olan linki gösterebilmekiiçn style da 
+     .router-link-active{
+        color: crimson;
+        background-color:orange;
+    }
+
+
+
