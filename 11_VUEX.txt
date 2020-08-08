@@ -111,5 +111,5 @@ mutations sync çalışır, zorlu işlerde actions kullanılır.
     }
 daha sonra index.js ye import ettik, 
 
-* 
+* Bir örnek yapalım, iki yeni comp yapacağız
     
