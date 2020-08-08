@@ -1,13 +1,21 @@
 <template>
   <div id="app">
-
+      <A></A>
+      <B></B>
 
 
   </div>
 </template>
 <script>
+import A from './components/A'
+import B from './components/B'
+
 export default {
 
+    components : {
+        A,
+        B,
+    }
 
 
 
@@ -21,5 +29,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: row;
 }
 </style>

@@ -111,5 +111,35 @@ mutations sync çalışır, zorlu işlerde actions kullanılır.
     }
 daha sonra index.js ye import ettik, 
 
-* Bir örnek yapalım, iki yeni comp yapacağız
+* Bir örnek yapalım, iki comp yaptık, A ve B, A da input ve send var, inputa yazdığımız datasında title a bağlı ve send butonu var, butona bağlı olarakta 
+    sendTitle(){
+            this.$store.dispatch('setTitleActions', this.title)
+        }
+    methodu çalışıyor, bu method store daki setTitleActions a title ı yabi inputa yazdığımızı yolluyor, istediğimiz ise B comp da inuta yazılan değerin 2.5 sn sonra görünmesi
+
+* butona basıldı ve inputa yazdığımız değer, store a geldi, geldiği yer SetTitleActions;
+    setTitleActions : (context, value) => {
+            setTimeout(() => {
+                context.commit('setTitle', value)
+            }, 2500);
+        }
+    burada yukarıdaki func. çalışıyor 2500ms sonra setTitle isimli func a (yani mutations daki setTitle a value yu yolluyor, bu arada mutations a bir şey commitlenir, actions a bir şey dispatch lenir)
+
+* mutations daki setTitle a gelen value; 
+    setTitle : (state, value) => {
+            state.title = value
+        }
+    state in value su olarak atanır, yani state i değiştirir, buradan da bir üste yani getters a gideriz;
+        getTitle: (state)=> {
+            return state.title
+        }
+    getTitle ın görevi state i göstermek zaten
+
+* B componentinin içinde sadece state görünecekti bunu da 
+    {{ this.$store.getters.getTitle}} 
+    ile görürüz, yani B içinde üstteki kod store daki getters içindeki getTitle ı göster demek, buda zaten state in yeni hali.
+
+* buradaki silsile normal vuex çalışma silsilesidir. Dokumantansyonunda da bu böyle 
+
+
     
