@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as getters from './getters'
+//* içindeki herşeye ulaş demek
 
 Vue.use(Vuex)
 //Vue Vuex i kullansın
@@ -11,14 +13,11 @@ export const store = new Vuex.Store({
       title : 'message'
   },
 //state i getirmek ve küçük değişiklikler, state e erişiyoruz
-  getters : {
-      getTitle : (state)=>{
-        return state.title
-      }
-  },
+  getters, 
 // hem state e erişiyoruz hemde dışarıdan bir değer alabiliyoruz
 //basit işlemler için
 // state deki verileri değiştirmek
+//getters ı ayrı dosya yaptık ve buraya import ettik
 
   mutations : {
       setTitle : (state, value) => {

@@ -97,7 +97,7 @@ mutations sync çalışır, zorlu işlerde actions kullanılır.
         }
     },
     // yüklü, işlemler için actions kullanılır, async çalışabilir,
-    //mutations lar tek başına kullnaılması önerilmiyor, actions ile tetiklenmesi öneriliyor  
+    //mutations lar tek başına kullnaılması önerilmiyor, actions ile tetiklenmesi öneriliyor, actions da mutations a gönderiyor,
     actions : {
         setTitleActions : (context, value) => {
             return context.commit('setTitle', value)
@@ -105,7 +105,11 @@ mutations sync çalışır, zorlu işlerde actions kullanılır.
     }
     })
 
-* buradaki getters, mutations vs. de ayrı js dosyalarına ayrılabilir.
+* buradaki getters, mutations vs. de ayrı js dosyalarına ayrılabilir. burada getters.js i store içine ayırdık, içine getters ı koyduk;
+    export const getTitle = (state)=>{
+      return state.title
+    }
+daha sonra index.js ye import ettik, 
 
 * 
     
