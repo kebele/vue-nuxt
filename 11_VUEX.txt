@@ -141,5 +141,15 @@ daha sonra index.js ye import ettik,
 
 * buradaki silsile normal vuex çalışma silsilesidir. Dokumantansyonunda da bu böyle 
 
+* B.vue dan da veri yollayalım, input açtık ve placeholder olarak hazırdaki state i kullandık, ayrıca inputa ver girilip enter a basıldığında sendTitle func çalışacak ve store daki setTitleActions ainputa yazdığımızı (yani title ı) yollayacak, store daki actions 2500ms sonra value sini mutations daki setTitle a yollayacak o da gettersa gönderecek ve state değişecek, ve B de yazdığımız değer yeni state olacak
+
+* şu anda A'dn B ye B den de A ya vuex ile veri yolladık, bunu yaparken henhangibir function  için App.vue ya ugramadık, A ve B de herhangibir importyapmadık, importluk işlemleri main.js de yaptık, yani ana componentimiz üzerinde bir işlem yapmadık. Vue in en doğru kullanımı bu, önce actions çalışacak actions mutations çalıştıracak mutataions state i değiştirecek değişmiş state verisinide biz getters ile alacağız. En doğru kullanım bu şekilde
+
+* 
+
+
+
+* 
+
 
     
