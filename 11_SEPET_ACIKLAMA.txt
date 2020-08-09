@@ -14,4 +14,4 @@ alış veriş sepeti uygulaması
         }
 * şimdi main.js de store u import edeceğiz böylelikle her yerden erişim ve kullanma hakkımız olacak
 
-* store > index.js i düzenlemeye başlayalım, getters, mutations, actions... 
+* componentlere başlayalım, Products.vue, 
