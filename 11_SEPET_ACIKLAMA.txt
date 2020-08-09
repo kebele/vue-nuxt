@@ -1,0 +1,17 @@
+alış veriş sepeti uygulaması
+
+* vue create sepet
+    cd sepet
+        npm i -s vuex vue-router
+    ile vuex ve vue-router yükledik
+
+* projeyi temizledikten sonra src > store > index.js oluşturalım. İçine state olarak card ve products isimli iki boş array koyalım, ayrıca assets içine productData.js olarak bir dosya oluşturalım bunun içinde de ürünlerin olduğu array olsun. UYgulama Ürünleri buradan alacak.
+
+* ProductData.js dosyası normal hayatta genellikle bir API olur, burada kolaylık olsun diye böyle, bu listeyi store da index.js de import edip product a atayacağız, yani ikinci array olarak
+       state: {
+        card : [],
+        products : productList,
+        }
+* şimdi main.js de store u import edeceğiz böylelikle her yerden erişim ve kullanma hakkımız olacak
+
+* store > index.js i düzenlemeye başlayalım, getters, mutations, actions... 
