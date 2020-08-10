@@ -14,4 +14,23 @@ alış veriş sepeti uygulaması
         }
 * şimdi main.js de store u import edeceğiz böylelikle her yerden erişim ve kullanma hakkımız olacak
 
-* componentlere başlayalım, Products.vue, template i hazırlayalım, açıklamalar Products.vue üzerinde
+* componentlere başlayalım, Products.vue, template i hazırlayalım, açıklamalar Products.vue üzerinde, data ya infos [] koyduk, state i computed a koyduk ve ...mapState['products'] şeklinde koyduk, diğer yöntem this.$store.state.products demekti, bizim yaptığımız daha çok kullanılıyor, daha sonra butona bağladığımız addToCart ı hazırladık, butona tıklayınca önce miktar kontrolu yapıyor yani sepette ürün miktarına bakıyor eğer 0 değilse seçilen ürünün id sinin değerini alıyor ve mevcut ürünler arrayine ekleyerek products[] ı güncelliyor, bunuda mutations daki addToCart methoduna product ı yollayarak yapıyor, ayrıca info da sayfada çıkacak uyarıyı ayarlıyor, "ürün sepete eklnedi" gibi uyarı veriyor, sonrada bu uyarı 3sn sonra sayfadan siliniyor ve aynı zamanda infos [] dan da siliniyor, eğer sepette ürün yoksa o zaman info = "geçerli bir ürün girin" i infos a pushluyor infos un lşength i 0 dan büyük hale geldiği için template deki kısımda class ekleniyor ve infos daki uyarı ekrana basılıyor
+
+* şimdi store da ayarlamalara başlayalım, seçilen ürünü products state ine eklenmesini mutationsdaki addaToCart yapıyordu bunu hazırlayalım, 
+mutations : {
+    addToCart({cart}, product){
+            //state deki sadece cart ı alıyoruz demek
+            const itemIndex = cart.findIndex(item => item.id === product.id)
+            //product ın id si hazırdaki cart [] da var mı?, yni sepette daha önceden aynı üründen eklenmiş mi
+            if(itemIndex === -1){
+                //sepette daha önceden aynı üründen eklenmediyse product u sepete ekle
+                cart.push(product)
+            } else {
+                //daha önceden sepette varsa miktarını arttıracağız, sepetteki ürünün id si ile ürüne erişip onun count unu; count seçilen ürünün id sinin value siydi, önceki product ın countunu alıp üstüne yeni count ekleyeceğiz,
+                // parseInt gelen değeri integer a çevirir
+                cart[itemIndex].count = cart[itemIndex].count + parseInt(product.count)
+            }
+        }
+}
+
+* bu noktada ayrı bir Cart.vue oluşturalım, daha açık olması için, 
