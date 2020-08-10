@@ -1,11 +1,43 @@
 <template>
     <div>
-        <h2>Cart</h2>    
+        <h2>Cart</h2>
+        <ul>
+            <li v-for="item in cart" :key="item.id">
+            <span class="item-name">
+                {{item.name}}
+                <button @click="deductItemCount(item)"> -1 </button>
+                <button @click="removeItem(item)"> X </button>
+            </span>
+            <span class="item-count">{{item.price}} * {{item.count}}</span>
+            <span class="item.amount">{{ formatCurrency(item.count * item.count) }}</span>
+        </li> 
+        </ul>
+        <div v-if="cart.length === 0">
+            <h2>no item</h2>
+        </div>
+        <div v-else>
+            <div class="total-amount">{{ formatCurrency(totalAmount) }}</div>
+            <button @click="clearAll">clear all</button>
+            <button>checkout</button>
+        </div>
+           
     </div>
 </template>
 <script>
+import { mapState, mapMutations, mapGetters} from 'vuex'
+//vuex den her şeyi değil bunları al demek için {} kullanılır
+
 export default {
-    
+    computed: {
+        ...mapState(['cart']),
+        ...mapGetters(['totalAmount'])
+    },
+    methods: {
+        formatCurrency(price){
+            return '$' + price.toFixed(2)
+        },
+        ...mapMutations([''])
+    },
 }
 </script>
 <style>

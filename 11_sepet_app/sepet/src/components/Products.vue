@@ -38,7 +38,7 @@ export default {
         }
     },
     computed: {
-        ...mapState['products']
+        ...mapState(['products'])
         //mesela burada bunu this.$store.state.products şeklinde de yazabiliridik, bu şekilde de aynı işi görür daha az karakter olmuş olur
     },
     methods: {
