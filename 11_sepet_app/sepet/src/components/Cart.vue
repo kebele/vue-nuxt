@@ -30,13 +30,17 @@ import { mapState, mapMutations, mapGetters} from 'vuex'
 export default {
     computed: {
         ...mapState(['cart']),
+        //spread olarak mapState den cart ı alacağız
         ...mapGetters(['totalAmount'])
+        //getters içinden totalAmount u alacağız, bunları value gibi kullanabiliriz artık
     },
     methods: {
         formatCurrency(price){
+            //gelen elemanın (cart ve cart a da productList ten geliyor) fiyatını bir formata sokmak, $25.34 gibi
             return '$' + price.toFixed(2)
         },
-        ...mapMutations([''])
+        ...mapMutations(['deductItemCount', 'removeItem', 'clearAll'])
+        //yukarıda template de bulunan func ları bu şekilde yazdık, artık bunlar mutations da tanımlanmış gibiler, şimdi bunları index.js de yani store da oluşturalım, normalde methods olarak burada oluşturuyorduk ancak işlemleri state ile ilgili old. için index.js de oluşturmak daha mantıklı
     },
 }
 </script>

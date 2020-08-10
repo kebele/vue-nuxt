@@ -34,3 +34,5 @@ mutations : {
 }
 
 * bu noktada ayrı bir Cart.vue oluşturalım, daha açık olması için, sepetteki elemanları dönecek her elemanın li sinde silme ve azaltma butonları olacak, toplam harcama ve hepsini sil gibi ayrı butonlarda olacak, template i tamamladık
+
+* script te ilk yapacağımız şey vuex den lazım olnaları import etmek, bunları, mapState, mapMutations, mapGetters olarak import edeceğiz (lazım olanlar şeklinde), notlar kodun üzerinde... 
