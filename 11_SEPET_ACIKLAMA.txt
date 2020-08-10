@@ -35,4 +35,17 @@ mutations : {
 
 * bu noktada ayrı bir Cart.vue oluşturalım, daha açık olması için, sepetteki elemanları dönecek her elemanın li sinde silme ve azaltma butonları olacak, toplam harcama ve hepsini sil gibi ayrı butonlarda olacak, template i tamamladık
 
-* script te ilk yapacağımız şey vuex den lazım olnaları import etmek, bunları, mapState, mapMutations, mapGetters olarak import edeceğiz (lazım olanlar şeklinde), notlar kodun üzerinde... 
+* script te ilk yapacağımız şey vuex den lazım olnaları import etmek, bunları, mapState, mapMutations, mapGetters olarak import edeceğiz (lazım olanlar şeklinde), notlar kodun üzerinde... burada 
+computed  
+    ...mapState(['cart])
+    ...mapGetters(['totalAmount])
+methods
+    formatCurrency(price){...}
+    ...mapMutations(['deductItemCount', 'removeItem', 'clearAll'])
+
+hazırladık, daha sonra index.js ye gidip bunların tanımını yaptık, herhangibir actions kullanmadık sebebi async işlemimizin olmaması, bu yüzden mutations bize yeter, artık router ayarları yapmaya geldi sıra
+
+* src > router.js hazırlayacağız, vue, vue router import ları ve Vue.use(VueRouter) yani bunu kullanacağım dan sonra export default ile yeni bir VueRouter tanımlayıp içine component ve path leri belirleyeceğiz daha sonrada export ettiğimiz bu router ı main.js e dahil edeceğiz,
+router ı import sonrası new Vue içine de router olarak ekleyeceğiz, böylelikle router ı dakullanabilir hale geldik, artık App.vue ya gidip linklerimizi vs ekleyelim
+
+* App.vue ya gidelim ve router ile kullanacağımız linkleri ekleyelim, 
