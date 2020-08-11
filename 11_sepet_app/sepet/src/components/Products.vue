@@ -2,7 +2,9 @@
     <div id="products">
         <h2>products</h2>
         <div class="notification" v-for="(info,key) in infos" :key="key">
-            <table class="{ products : products.length !== 0}">
+            {{ info }}            
+        </div>
+        <table class="{ products : products.length !== 0}">
                 <!-- eğer products da bir şeyler varsa o zaman class alacak -->
                 <tr>
                     <th>product name</th>
@@ -24,7 +26,6 @@
                     </td>
                 </tr>
             </table>
-        </div>
     </div>
 </template>
 <script>
@@ -50,7 +51,7 @@ export default {
                 //product daki tüm elermanlar + count demek
                 this.$store.commit('addToCart', product)
                 //commit mutations ı hatırlatır, mutations dki addToCart a parametre olarak produt gönder
-                const info = product.name + 'added to cart'
+                const info = product.name + ' added to cart'
                 //bildirim oluşturuyor ve infos []'a pushluyoruz
                 this.infos.push(info)
                 //3000ms sonra infos a eklediğimizi sileceğiz

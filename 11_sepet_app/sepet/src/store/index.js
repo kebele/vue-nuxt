@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
             } else {
                 //daha önceden sepette varsa miktarını arttıracağız, sepetteki ürünün id si ile ürüne erişip onun count unu; count seçilen ürünün id sinin value siydi, önceki product ın countunu alıp üstüne yeni count ekleyeceğiz,
                 // parseInt gelen değeri integer a çevirir
-                cart[itemIndex].count = cart[itemIndex].count + parseInt(product.count)
+                cart[itemIndex].count = parseInt(cart[itemIndex].count) + parseInt(product.count)
             }
         },
         //...mapMutations(['deductItemCount', 'removeItem', 'clearAll'])
@@ -38,8 +38,9 @@ export const store = new Vuex.Store({
             const itemIndex = cart.findIndex(item => item.id === product.id)
             cart.splice(itemIndex,1)
         },
-        clearAll({state}){
-            //hepsini sileceğiz, state de yazabilirdik, ama anlam karmaşası olmasın diye üsttede cart kullanıkd hep
+        clearAll(state){
+            //hepsini sileceğiz, state de yazabilirdik, ama anlam karmaşası olmasın diye üsttede cart kullanık hep
+            // state.cart = []
             state.cart = []
         },
     },
