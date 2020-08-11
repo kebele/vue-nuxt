@@ -31,7 +31,10 @@ buradaki peoxy apimizin verdiği adresin ilk kısmı, localde çalıştığımı
 * components > CurrentData.vue yapıp içine bir buton koyup, currentValue(h{...} hazırlayıp içine https://www.npmjs.com/package/vue-resource dan örnek kodu koyalım, get yapacağımız adres openweather daki city ye göre olan adres 
 api.openweathermap.org/data/2.5/weather?id={city id}&appid={your api key} 
 
+* burada ilk kritik nota vue.config.js dosyası ikinci kritik konu ise CurrentData.vue da api adresinin ilk kısmına localde çalıştığımız adresi girmemiz gerektiği (http://localhost:8080/data)
 
-* 
+* problem olursa serverları dururup programı kapatıp tekkrar çalıştır, problem yoksa artık butona tıklayınca console a response.body nin geliyor olması lazım, artık içindeki bilgileri kullanabiliriz
 
-{
+* icon konsunda da bilgi veriyor, api dokümanında (https://openweathermap.org/weather-conditions) icon diye aratınca iconların ne olduğu nasıl kullanıcağı console da gelen icon kodlarının karşılıkları vb. bir çok bilgi geliyor, (http://openweathermap.org/img/wn/10d@2x.png) bu adreste örneğin bir icon adresi bunda ilgili kısmı değiştirerek iconların resimlerinide kullanabiliriz, (10d yazan kısım), response.body deki icon kodunu alıp... istediğimiz şey get weather dediğimizde hava durumuna ilişkin bilgileri çekip göstersin
+
+* CurrentData.vue içinde bir array yapacağız ve bu array içindeki bilgilere göre dönecek ve verileri ona göre basacak, bu array weatherValues : [] bu array içini temelde response.body yani api dolduracak, 
