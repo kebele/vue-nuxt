@@ -49,3 +49,12 @@ hazırladık, daha sonra index.js ye gidip bunların tanımını yaptık, herhan
 router ı import sonrası new Vue içine de router olarak ekleyeceğiz, böylelikle router ı dakullanabilir hale geldik, artık App.vue ya gidip linklerimizi vs ekleyelim
 
 * App.vue ya gidelim ve router ile kullanacağımız linkleri ekleyelim, 
+    <template>
+        <div id="app">
+            <router-link to="/"><img src="./assets/logo.png" alt="id"></router-link>
+            <router-link to="/products">products</router-link>
+            <router-link to="/cart">cart</router-link>
+            <router-view></router-view>
+        </div>
+    </template>
+
