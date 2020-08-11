@@ -1,0 +1,37 @@
+hava durumu uygulaması api kullanımı olacak,
+vue create hava-durumu
+cd hava*
+npm install -s vue-resource
+
+* projeyi temizleyelim, 
+
+* https://openweathermap.org/api adresindeki api yi kullanacağız, yani dışarıdan veri alacağız, bue-resource u o yüzden kurduk
+
+* main.js e rosources i ekleyelim, 
+    import Vue from 'vue'
+    import App from './App.vue'
+    import VueResource from 'vue-resource' 
+
+    Vue.use(VueResource)
+    Vue.config.productionTip = false
+
+    new Vue({
+    render: h => h(App),
+    }).$mount('#app')
+
+    ayrıca vue.config dopsyasıonı oluşturmalıyız, 
+        module.export = {
+    devServer : {
+        proxy : 'https://samples.openweathermap.org/'
+    }
+}
+
+buradaki peoxy apimizin verdiği adresin ilk kısmı, localde çalıştığımız adresi ise bu adresin olduğu yere yapıştıryoruz, CurrentData.vue da, 
+
+* components > CurrentData.vue yapıp içine bir buton koyup, currentValue(h{...} hazırlayıp içine https://www.npmjs.com/package/vue-resource dan örnek kodu koyalım, get yapacağımız adres openweather daki city ye göre olan adres 
+api.openweathermap.org/data/2.5/weather?id={city id}&appid={your api key} 
+
+
+* 
+
+{
