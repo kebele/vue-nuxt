@@ -37,4 +37,17 @@ api.openweathermap.org/data/2.5/weather?id={city id}&appid={your api key}
 
 * icon konsunda da bilgi veriyor, api dokümanında (https://openweathermap.org/weather-conditions) icon diye aratınca iconların ne olduğu nasıl kullanıcağı console da gelen icon kodlarının karşılıkları vb. bir çok bilgi geliyor, (http://openweathermap.org/img/wn/10d@2x.png) bu adreste örneğin bir icon adresi bunda ilgili kısmı değiştirerek iconların resimlerinide kullanabiliriz, (10d yazan kısım), response.body deki icon kodunu alıp... istediğimiz şey get weather dediğimizde hava durumuna ilişkin bilgileri çekip göstersin
 
-* CurrentData.vue içinde bir array yapacağız ve bu array içindeki bilgilere göre dönecek ve verileri ona göre basacak, bu array weatherValues : [] bu array içini temelde response.body yani api dolduracak, 
+* CurrentData.vue içinde bir array yapacağız ve bu array içindeki bilgilere göre dönecek ve verileri ona göre basacak, bu array weatherValues : [] bu array içini temelde response.body yani api dolduracak, CurrentData.vue içinde butona tıkladığımızda value adında bir nesneyi ekranda görünecek olan array in içine pushluyor ve bunlarıu deneme amaçlı sayfada görebiliyoruz, sorun yok
+
+
+* şimdi bu verileri kullanarak ekrana belli bir formatta getirecek olan RowValue.vue componentini yapcağız. Bunun yapacağı temel şey gelen bilgileri row olarak ekrana yazması, 
+
+*RowValue.vue templateini tamamladık, burada apideki örnek sayfada veriler nasıl ve neyin içinde ne konumda old. bakıp buna göre templateini hazırladık, buraya bu veriler props olarak gelecek geliş adını item dedik ve object olarak geleceğini belirttik, CurrentData.vue ya gidip RowValue.vue yu import edip, components listesine ekleyeceğiz, 
+
+* CurrentData.vue da template e 
+    <div v-if="loading">
+      <RowValue :item="weatherValues[0]"/>
+    </div>
+kodunu yazdık, burada eğer loading true ise <RowValue/> göster diyoruz, loading i ise computed olarak hazırladık, eğer weatherValues boş değil ise yani içnde bilgi varsa o zaman loading true oluyor, yani ekrana gösterecek ayrıca RowValue da props olarak item ismi ile weatherValues[0] ı yolluyoruz, weatherVAlues[0] içeriğibir nesne bunun ilk elamnı date, ikincisi ise body bize body lazım old. için RowValue içinde body olarak adrese ekliyoruz gelen props u. Buna dikkat.
+
+* RowValue.vue da template i birtablo şeklinde düzenleyelim, 

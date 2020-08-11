@@ -1,10 +1,20 @@
 <template>
   <div>
+    <div v-if="loading">
+      <RowValue :item="weatherValues[0]"/>
+    </div>
     <button @click="currentValue()">get weather</button>
+    <br>
+    <!-- {{ weatherValues }} -->
   </div>
 </template>
 <script>
+import RowValue from './RowValue'
+
 export default {
+  components : {
+    RowValue,
+  },
   data(){
     return {
       //weatherValues e veriler object olarak gelecek 
@@ -25,12 +35,12 @@ export default {
             // console.log(response.body);
             //tarihi alalım
             const dataValue = new Date(); // tarihi alıyoruz
-            //dataValue adında bir object yaptık içine hem tarihi hemde response.body den gelen bilgileri ekledim
+            //dataValue adında bir object yaptık içine hem tarihi hemde response.body den gelen bilgileri ekledim ve bunu value adında bir nesne oluşturduk ve bunu da weatherValues[]'e pushladık, şimdi artık butona tıkladığımızda sorunsuz ekrana date ve body i basıyor
             const value = {
               date : dataValue,
               body : response.body
             }
-            this.weatherValues.push()
+            this.weatherValues.push(value)
           },
           (response) => {
             // error callback
@@ -39,6 +49,15 @@ export default {
           }
         );
     },
+  },
+  computed: {
+    loading(){
+      if(this.weatherValues !== []){
+        return true
+      } else {
+        return false
+      }
+    }
   },
 };
 </script>
