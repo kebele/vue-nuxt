@@ -61,4 +61,10 @@ index.js de de
     setWeatherValue(state, payload){
             state.weatherValues.unshift(payload)
         }
-artık CurrentData.vue dan props item olarak bir şey yollamamıza gerek yok, template deki<RowValue/> yu itemsiz düzenleyeceğiz ve RowValue.vue ya gidip 
+artık CurrentData.vue dan props item olarak bir şey yollamamıza gerek yok, template deki<RowValue/> yu itemsiz düzenleyeceğiz ve RowValue.vue ya gidip props kısmını kaldırmak ve template içinde v-for ile döndüğümüz kaynağı direkt state şekliden düzenlemek yani 
+    <tr v-for="(i,index) in this.$store.state.weatherValues" :key="index">
+şeklinde, denemesinde sıkıntı yok, normal çalışıyor.
+
+* artık SomeValue.vue yu dolduralım, burada da yine api den dönen verilerden alacağız, burada da yapacağımız şey bir tablo old. için Rowvalue.vue daki tabloyu buraya kopyalayıp düzenleyelim, style kısmını da RowValue.vue dan alıp düzenleyelim, CurrentData.vue ya gidip SomeValue.vue import, components e ekleyip, template de tag ını yerleştirelim, ayrıca computed deki loading i de vuex e göre güncelleyelim, çünkü artık data da weatherValues yok, bu index.js de state olarak var, 
+
+* şimdi bir başka API olan one call api kullanalım, 

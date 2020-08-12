@@ -4,6 +4,7 @@
       <!-- <RowValue :item="weatherValues[0]"/> bunu deneme için yolladık -->
       <!-- <RowValue :item="weatherValues"/>  artık projeye vux ileva ettiğimiz için props olarak item name i ile bunu RowValue.vue ya yollamamıza gerek yok, bu yüzden yoruma aldım-->
       <RowValue/>
+      <SomeValue/>
     </div>
     <button @click="currentValue()">get weather</button>
     <br>
@@ -12,10 +13,11 @@
 </template>
 <script>
 import RowValue from './RowValue'
+import SomeValue from './SomeValue'
 
 export default {
   components : {
-    RowValue,
+    RowValue, SomeValue, 
   },
   data(){
     return {
@@ -59,10 +61,14 @@ export default {
   },
   computed: {
     loading(){
-      if(this.weatherValues !== []){
-        return true
-      } else {
+      // if(this.weatherValues !== []){
+        //artık burada data da weatherValues olmadığı için burada bakacağımız yer state olacak
+      if(this.$store.state.weatherValues.length === 0){
+        // return true
         return false
+      } else {
+        // return false
+        return true
       }
     }
   },
