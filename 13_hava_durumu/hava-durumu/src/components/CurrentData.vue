@@ -2,7 +2,8 @@
   <div>
     <div v-if="loading">
       <!-- <RowValue :item="weatherValues[0]"/> bunu deneme için yolladık -->
-      <RowValue :item="weatherValues"/>
+      <!-- <RowValue :item="weatherValues"/>  artık projeye vux ileva ettiğimiz için props olarak item name i ile bunu RowValue.vue ya yollamamıza gerek yok, bu yüzden yoruma aldım-->
+      <RowValue/>
     </div>
     <button @click="currentValue()">get weather</button>
     <br>
@@ -20,7 +21,8 @@ export default {
     return {
       //weatherValues e veriler object olarak gelecek 
       //response.body den gelenlere bakacağız, yani apideki istediğimiz verileri bu []'e push'layacağız
-      weatherValues : [],
+      // weatherValues : [], 
+      //artık vuex ile çözeceğimiz için burada bir [] ihtiyacımız olmadığından yoruma aldım
     }
   },
   methods: {
@@ -42,7 +44,10 @@ export default {
               body : response.body
             }
             // this.weatherValues.push(value) data yı [] in sonuna eklemesin başına eklesin diye unshift yaptık
-            this.weatherValues.unshift(value)
+            // this.weatherValues.unshift(value) 
+            //bunu artık bu işlemi vuex ile yapacağımız için yoruma aldık
+            //yaptığımız şey storedaki setWeatherValue mutations ına value yi gönderdik
+            this.$store.commit('setWeatherValue', value)
           },
           (response) => {
             // error callback

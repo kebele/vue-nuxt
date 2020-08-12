@@ -52,6 +52,13 @@ kodunu yazdık, burada eğer loading true ise <RowValue/> göster diyoruz, loadi
 
 * RowValue.vue da template i birtablo şeklinde düzenleyelim, ilk yapacağımız şey artık biraz önce CurrentData.vue dan item props u olarak bil kısım gönderdiğimiz verinin tamamını yani weatherValues[] inin tamamını yollamak, ayroca array a push luyorduk veriyi resource da bunu unshift ile değiştirelim, yani yeni gelen data array ın sonuna değil başına eklensin, RowValue.vue da props olarak gelecek item artık object değil Array olacak, artık template e table girmeye başlayalım, table ayarlamaları sonrası style larıda düzenledik, sıkıntısız şekilde verileri alıp tabloya yerleştiriyor
 
-* SomeValue.vue adında bir comp oluşturduk, vuex i projeye dahil edelim, 
+* SomeValue.vue adında bir comp oluşturduk, vuex i projeye dahil edelim, npm i -s vuex
+src > store > index.js oluştrduk ve main.js e de bunu ekleyelim, 
 
-* 
+* index.js yi düzenlemeye devam, mutataions hazırlayalım, burada setWeatherValue(){...} buradan CurrentData.vue ya gidip unshify yaptığımız işlemi index.js ye alacağız, CurrentData da ise mutations daki setWeatherValue() yu çağıracağız; 
+    this.$store.commit('setWeatherValue', value)
+index.js de de 
+    setWeatherValue(state, payload){
+            state.weatherValues.unshift(payload)
+        }
+artık CurrentData.vue dan props item olarak bir şey yollamamıza gerek yok, template deki<RowValue/> yu itemsiz düzenleyeceğiz ve RowValue.vue ya gidip 

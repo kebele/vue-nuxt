@@ -12,7 +12,8 @@
                   <th>description</th>
                   <th>icon</th>
               </tr>
-              <tr v-for="(i,index) in item" :key="index">
+              <!-- <tr v-for="(i,index) in item" :key="index"> artık item değil statei döneceğimiz için yoruma aldım -->
+              <tr v-for="(i,index) in this.$store.state.weatherValues" :key="index">
                   <td>{{ i.date }}</td>
                   <td>{{ i.body.weather[0].main }}</td>
                   <td>{{ i.body.weather[0].description }}</td>
@@ -26,10 +27,11 @@
 <script>
 export default {
     name : "RowValue",
-    props : {
-        // item : Object, bunu deneme için yapmıştık, normalde gelecek data array olacak
-        item : Array,
-    },
+    //vuex ile çözeceğimiz için buna ihtıyacımız kalmadı, normalde bunu CurrentData.vue dan alıyorduk ve template de item olarak aldığımızı dönüyorduk, artık direk state i döneceğiz
+    // props : {
+    //     // item : Object, bunu deneme için yapmıştık, normalde gelecek data array olacak
+    //     item : Array,
+    // },
 }
 </script>
 
