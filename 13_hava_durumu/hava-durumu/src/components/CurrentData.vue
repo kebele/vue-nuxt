@@ -6,7 +6,10 @@
       <RowValue/>
       <SomeValue/>
     </div>
-    <button @click="currentValue()">get weather</button>
+    <div>
+      <!-- one call api ile yapılacak işlemlere ilişkin bölüm burada olacak -->
+    </div>
+    <button @click="currentValue()">get current weather</button>
     <br>
     <!-- {{ weatherValues }} -->
   </div>

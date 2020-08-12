@@ -67,4 +67,21 @@ artık CurrentData.vue dan props item olarak bir şey yollamamıza gerek yok, te
 
 * artık SomeValue.vue yu dolduralım, burada da yine api den dönen verilerden alacağız, burada da yapacağımız şey bir tablo old. için Rowvalue.vue daki tabloyu buraya kopyalayıp düzenleyelim, style kısmını da RowValue.vue dan alıp düzenleyelim, CurrentData.vue ya gidip SomeValue.vue import, components e ekleyip, template de tag ını yerleştirelim, ayrıca computed deki loading i de vuex e göre güncelleyelim, çünkü artık data da weatherValues yok, bu index.js de state olarak var, 
 
-* şimdi bir başka API olan one call api kullanalım, 
+* şimdi bir başka API olan one call api kullanalım, örnek adres olarak api docs da 
+    https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&
+exclude={part}&appid={YOUR API KEY}
+
+https://www.latlong.net/place/istanbul-turkey-2242.html den istanbul verilerini alalım ve ares satırıbdaki ilgili yere yapıştıralım ve api key imizide ilgili yere yapıştıralım ee1077edbdc73b4a202dbac609f83794 yani adresimiz 
+    https://api.openweathermap.org/data/2.5/onecall?lat=41.015137&lon=28.979530&%20exclude={part}&appid=ee1077edbdc73b4a202dbac609f83794
+olacak buradanda bize istanbulun verileri geliyor, 
+
+* HourlyWeather.vue olarak ayrı bir component yapalım, ve currentValue.vue daki methods u buraya da yapıştıralım, ve url yi yeni url mizle değiştirelim ve adresi localhost kısmınıda ayarlayalım (açıklaması yukarıda var), buradaki commit imiz farklı olacak, index.js ye gidip düzenleyelim, 
+
+* index.js de hourlyWeather : [] koyacağız ve mutations adres   setHourlyWeather(state, payload){
+            state.hourlyWeather.unshift(payload)
+        }
+hazırlayacağız ve HourlyWeather.vue ya gidip store a veriyi commit ederken ki method ismini aşağıdaki şekilde düzenlememiz gerekiyor, 
+    this.$store.commit('setHourlyWeather', value)
+
+* RowValue.vue daki tablo yapısını da buraya koyalım içini düzenleyelim, aynı şekilde css leride alalım, şimdi deneme amaçlı olarakta bunu App.vue ya import edip kullanıp bakalım, 
+

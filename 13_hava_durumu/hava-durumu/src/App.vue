@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <CurrentData/>
+    <HourlyWeather/>
   </div>
 </template>
 
 <script>
 import CurrentData from './components/CurrentData'
+import HourlyWeather from './components/HourlyWeather'
 
 export default {
   name: 'App',
  components : {
    CurrentData,
+   HourlyWeather,
  }
 }
 </script>
