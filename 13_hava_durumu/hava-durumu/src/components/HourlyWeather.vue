@@ -3,14 +3,16 @@
       <div  v-if="this.$store.state.hourlyWeather.length !== 0" class="weatherBlock">          
           <table style="width:80%">
               <tr>
+                  <th>timezone</th>                  
                   <th>date</th>
-                  <th>timezone</th>
-                  <th>description</th>
-                  <th>icon</th>
+                  <th>current</th>
+                  <th>hourly</th>
               </tr>
               <tr v-for="(i,index) in this.$store.state.hourlyWeather" :key="index">
-                  <td>{{ i.date }}</td>
                   <td>{{ i.body.timezone }}</td>
+                  <td>{{ i.date }}</td>
+                  <td>{{ i.body.current.temp }}</td>
+                  <td>{{ new Date(i.body.hourly[0].dt * 1000) }}</td>
               </tr>
           </table>
       </div>

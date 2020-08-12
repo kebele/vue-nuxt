@@ -75,7 +75,9 @@ https://www.latlong.net/place/istanbul-turkey-2242.html den istanbul verilerini 
     https://api.openweathermap.org/data/2.5/onecall?lat=41.015137&lon=28.979530&%20exclude={part}&appid=ee1077edbdc73b4a202dbac609f83794
 olacak buradanda bize istanbulun verileri geliyor, 
 
-* HourlyWeather.vue olarak ayrı bir component yapalım, ve currentValue.vue daki methods u buraya da yapıştıralım, ve url yi yeni url mizle değiştirelim ve adresi localhost kısmınıda ayarlayalım (açıklaması yukarıda var), buradaki commit imiz farklı olacak, index.js ye gidip düzenleyelim, 
+* HourlyWeather.vue olarak ayrı bir component yapalım, ve currentValue.vue daki methods u buraya da yapıştıralım, ve url yi yeni url mizle değiştirelim ve adresi localhost kısmınıda ayarlayalım (açıklaması yukarıda var), buradaki commit imiz farklı olacak, index.js ye gidip düzenleyelim, denememiz başarılı
+
+* kalan kısımlarıda düzenlemeye devam edelim
 
 * index.js de hourlyWeather : [] koyacağız ve mutations adres   setHourlyWeather(state, payload){
             state.hourlyWeather.unshift(payload)
