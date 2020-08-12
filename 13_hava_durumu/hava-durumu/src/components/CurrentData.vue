@@ -1,7 +1,8 @@
 <template>
   <div>
     <div v-if="loading">
-      <RowValue :item="weatherValues[0]"/>
+      <!-- <RowValue :item="weatherValues[0]"/> bunu deneme için yolladık -->
+      <RowValue :item="weatherValues"/>
     </div>
     <button @click="currentValue()">get weather</button>
     <br>
@@ -40,7 +41,8 @@ export default {
               date : dataValue,
               body : response.body
             }
-            this.weatherValues.push(value)
+            // this.weatherValues.push(value) data yı [] in sonuna eklemesin başına eklesin diye unshift yaptık
+            this.weatherValues.unshift(value)
           },
           (response) => {
             // error callback

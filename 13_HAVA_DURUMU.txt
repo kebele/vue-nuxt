@@ -50,4 +50,8 @@ api.openweathermap.org/data/2.5/weather?id={city id}&appid={your api key}
     </div>
 kodunu yazdık, burada eğer loading true ise <RowValue/> göster diyoruz, loading i ise computed olarak hazırladık, eğer weatherValues boş değil ise yani içnde bilgi varsa o zaman loading true oluyor, yani ekrana gösterecek ayrıca RowValue da props olarak item ismi ile weatherValues[0] ı yolluyoruz, weatherVAlues[0] içeriğibir nesne bunun ilk elamnı date, ikincisi ise body bize body lazım old. için RowValue içinde body olarak adrese ekliyoruz gelen props u. Buna dikkat.
 
-* RowValue.vue da template i birtablo şeklinde düzenleyelim, 
+* RowValue.vue da template i birtablo şeklinde düzenleyelim, ilk yapacağımız şey artık biraz önce CurrentData.vue dan item props u olarak bil kısım gönderdiğimiz verinin tamamını yani weatherValues[] inin tamamını yollamak, ayroca array a push luyorduk veriyi resource da bunu unshift ile değiştirelim, yani yeni gelen data array ın sonuna değil başına eklensin, RowValue.vue da props olarak gelecek item artık object değil Array olacak, artık template e table girmeye başlayalım, table ayarlamaları sonrası style larıda düzenledik, sıkıntısız şekilde verileri alıp tabloya yerleştiriyor
+
+* SomeValue.vue adında bir comp oluşturduk, vuex i projeye dahil edelim, 
+
+* 

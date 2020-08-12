@@ -1,9 +1,24 @@
 <template>
   <div>
       <div class="weatherBlock">
-          <span>{{ item.body.weather[0].main }}</span>
+          <!--deneme için hazırlamıştık, bu yüzden yoruma aldım
+               <span>{{ item.body.weather[0].main }}</span>
           <span>{{ item.body.weather[0].description }}</span>
-          <img :src="`http://openweathermap.org/img/wn/${item.body.weather[0].icon}@2x.png`" class="iconClass" alt="">
+          <img :src="`http://openweathermap.org/img/wn/${item.body.weather[0].icon}@2x.png`" class="iconClass" alt=""> -->
+          <table style="width:80%">
+              <tr>
+                  <th>date</th>
+                  <th>main</th>
+                  <th>description</th>
+                  <th>icon</th>
+              </tr>
+              <tr v-for="(i,index) in item" :key="index">
+                  <td>{{ i.date }}</td>
+                  <td>{{ i.body.weather[0].main }}</td>
+                  <td>{{ i.body.weather[0].description }}</td>
+                  <td><img :src="`http://openweathermap.org/img/wn/${i.body.weather[0].icon}@2x.png`" class="iconClass" alt=""></td>
+              </tr>
+          </table>
       </div>
   </div>
 </template>
@@ -12,20 +27,32 @@
 export default {
     name : "RowValue",
     props : {
-        item : Object,
+        // item : Object, bunu deneme için yapmıştık, normalde gelecek data array olacak
+        item : Array,
     },
 }
 </script>
 
-<style>
+<style scoped>
     .weatherBlock{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
     }
     .iconClass{
         width: 50px;
         height: 50px;
     }
+    table, th, td{
+        border : 1px solid black;
+        border-collapse: collapse; 
+        /* aradaki mesafe azalsın */
+    }
+    th, td {
+        padding: 10px;
+    }
+
 </style>
 
 {
