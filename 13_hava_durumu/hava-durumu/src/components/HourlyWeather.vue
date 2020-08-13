@@ -1,34 +1,82 @@
 <template>
   <div>
-      <div  v-if="this.$store.state.hourlyWeather.length !== 0" class="weatherBlock">          
-          <table style="width:80%">
-              <tr>
-                  <th v-for="(i,index) in this.$store.state.hourlyWeather[0].body.hourly" :key="index">{{ new Date(i.dt * 1000)}}</th>                  
-                  <!-- <th>date</th>
+    <div
+      v-if="this.$store.state.hourlyWeather.length !== 0"
+      class="weatherBlock"
+    >
+      <table style="width:80%">
+        <tr>
+          <th>date</th>
+          <th
+            v-for="(i, index) in this.$store.state.hourlyWeather[0].body.hourly"
+            :key="index"
+          >
+            {{ new Date(i.dt * 1000) }}
+          </th>
+          <!-- <th>date</th>
                   <th>current</th>
                   <th>hourly</th> -->
-              </tr>
-              <!-- <tr v-for="(i,index) in this.$store.state.hourlyWeather" :key="index">
+        </tr>
+        <!-- <tr v-for="(i,index) in this.$store.state.hourlyWeather" :key="index">
                   <td>{{ i.body.timezone }}</td>
                   <td>{{ i.date }}</td>
                   <td>{{ i.body.current.temp }}</td>
                   <td>{{ new Date(i.body.hourly[0].dt * 1000) }}</td>
               </tr> -->
-              <tr>
-                <td v-for="(i,index) in this.$store.state.hourlyWeather[0].body.hourly" :key="index">{{ Math.round(i.temp - 273.15) + "c"}}</td>
-                <!-- santigrad a çevirmek -->
-              </tr>
-          </table>
-      </div>
-      <button @click="hourlyValue()">get hourly weather</button>
+        <tr>
+          <td>temperature (kelvin)</td>
+          <td
+            v-for="(i, index) in this.$store.state.hourlyWeather[0].body.hourly"
+            :key="index"
+          >
+            {{ Math.round(i.temp - 273.15) + "c" }}
+            <!-- santigrad a çevirmek -->
+          </td>
+        <tr>
+          <td>feels temperature (kelvin)</td>
+          <td
+            v-for="(i, index) in this.$store.state.hourlyWeather[0].body.hourly"
+            :key="index"
+          >
+            {{ Math.round(i.feels_like - 273.15) + "c" }}
+          </td>
+        <tr>
+          <td>pressure(hPa)</td>
+          <td
+            v-for="(i, index) in this.$store.state.hourlyWeather[0].body.hourly"
+            :key="index"
+          >
+            {{ i.pressure }}
+          </td>
+          <tr>
+            <td>humidity(hPa)</td>
+          <td
+            v-for="(i, index) in this.$store.state.hourlyWeather[0].body.hourly"
+            :key="index"
+          >
+            {{ i.humidity }}
+          </td>
+          </tr>
+          <tr>
+             <td>wind speed (m/s)</td>
+          <td
+            v-for="(i, index) in this.$store.state.hourlyWeather[0].body.hourly"
+            :key="index"
+          >
+            {{ i.wind_speed }}
+          </td>
+          </tr>
+      </table>
+    </div>
+    <button @click="hourlyValue()">get hourly weather</button>
   </div>
 </template>
 
 <script>
 export default {
-    name : 'HourlyWeather',
+  name: "HourlyWeather",
 
-methods: {
+  methods: {
     hourlyValue() {
       // burası ile ilgili açıklama CurrentData.vue da var
       this.$http
@@ -37,12 +85,12 @@ methods: {
         )
         .then(
           (response) => {
-            const dataValue = new Date(); 
+            const dataValue = new Date();
             const value = {
-              date : dataValue,
-              body : response.body
-            }
-            this.$store.commit('setHourlyWeather', value)
+              date: dataValue,
+              body: response.body,
+            };
+            this.$store.commit("setHourlyWeather", value);
           },
           (response) => {
             // error callback
@@ -50,23 +98,26 @@ methods: {
           }
         );
     },
-},
-}
+  },
+};
 </script>
 
 <style scoped>
-        .weatherBlock{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-    }  
-    table, th, td{
-        border : 1px solid black;
-        border-collapse: collapse; 
-        /* aradaki mesafe azalsın */
-    }
-    th, td {
-        padding: 10px;
-    }
-</style> 
+.weatherBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  /* aradaki mesafe azalsın */
+}
+th,
+td {
+  padding: 10px;
+}
+</style>

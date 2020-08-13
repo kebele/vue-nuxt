@@ -112,4 +112,12 @@ hazırlayacağız ve HourlyWeather.vue ya gidip store a veriyi commit ederken ki
         <!-- santigrad a çevirmek -->
     </tr>
 
-* 
+* HourlyWeather.vue da api deki diğer bazı bilgileride çekerek bir tablo yaptık
+
+* artık şehir seçiminide ekleyelim, seçilne şehre göre veri getirsin, yeni bir comp yapalım, multiData.vue, içine select menu koyup 4 şehir koyduk options da data da selectValue e ya istanbul atadık ve selectValue yu da template de v-*modele bağladık, yani seçilen şehre göre artık selectValue değeri değişecek,selectValue değişince o zaman lon ve lat değeride değişecek bunu da computed ile yapacağız, latLong(){...} hazırladık, daha sonra api url sinde lat ve long un olduğu kısmın değerinin computed den geleceğini ${this.latlong()} şeklinde belirttik, artık, burada index.js de mutations a göndermemiz lazım
+
+* index.js de state olarak bu sefer multiCity : [] hazırlayacağız,
+ setMultiCity(state, payload){
+    state.multicity.unshift(payload)
+}
+şimdi App.vue da multiData.vue yu import edelim, css leri RowValue.vue dan aldık, table yapısını da aldık, methods un adını değiştirdik, commit edeceğimiz function un adını da değiştirdik. 
