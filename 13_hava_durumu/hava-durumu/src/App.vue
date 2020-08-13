@@ -9,11 +9,11 @@
 <script>
 import CurrentData from './components/CurrentData'
 import HourlyWeather from './components/HourlyWeather'
-import MultiData from './components/multiData'
+import MultiData from './components/MultiData'
 
 export default {
   name: 'App',
- components : {
+  components : {
    CurrentData,
    HourlyWeather,
    MultiData,
