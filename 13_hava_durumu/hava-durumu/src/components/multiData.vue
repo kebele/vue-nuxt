@@ -6,31 +6,39 @@
       <table style="width:80%">
         <tr>
           <th>date</th>
+          <th>timezone</th>
           <th>main</th>
           <th>description</th>
           <th>icon</th>
+          <th>temperature (kelvin)</th>
+          <th>pressure (hPa)</th>
+          <th>humidity (%)</th>
         </tr>
-        <tr v-for="(i, index) in this.$store.state.weatherValues" :key="index">
+        <tr v-for="(i, index) in this.$store.state.multiCity" :key="index">
+          <td>{{ i.body.timezone }}</td>
           <td>{{ i.date }}</td>
-          <td>{{ i.body.weather[0].main }}</td>
-          <td>{{ i.body.weather[0].description }}</td>
+          <td>{{ i.body.current.weather[0].main }}</td>
+          <td>{{ i.body.current.weather[0].description }}</td>
           <td>
             <img
               :src="
-                `http://openweathermap.org/img/wn/${i.body.weather[0].icon}@2x.png`
+                `http://openweathermap.org/img/wn/${i.body.current.weather[0].icon}@2x.png`
               "
               class="iconClass"
               alt=""
             />
           </td>
+          <td>{{ i.body.current.temp }}</td>
+          <td>{{ i.body.current.pressure }}</td>
+          <td>{{ i.body.current.humidty }}</td>
         </tr>
       </table>
     </div>
-    <select name="cities" id="cities">
-      <options v-model="selectValue" value="istanbul">istanbul</options>
-      <options v-model="selectValue" value="izmir">izmir</options>
-      <options v-model="selectValue" value="ankara">ankara</options>
-      <options v-model="selectValue" value="antalya">antalya</options>
+    <select v-model="selectValue" name="cities" id="cities">
+      <option value="istanbul">istanbul</option>
+      <option value="izmir">izmir</option>
+      <option value="ankara">ankara</option>
+      <option value="antalya">antalya</option>
     </select>
     <button @click="setCityData">get city data</button>
   </div>
@@ -49,7 +57,7 @@ export default {
       // burası ile ilgili açıklama CurrentData.vue da var
       this.$http
         .get(
-          `"http://localhost:8080/data/2.5/onecall?${this.latlong}&%20exclude={part}&appid=ee1077edbdc73b4a202dbac609f83794"`
+          `http://localhost:8080/data/2.5/onecall?${this.latlong}&%20exclude={part}&appid=ee1077edbdc73b4a202dbac609f83794`
         )
         .then(
           (response) => {

@@ -7,7 +7,7 @@ export const store = new Vuex.Store({
     state : {
         weatherValues : [],
         hourlyWeather : [],
-        multicity : [],
+        multiCity : [],
     },
     mutations : {
         setWeatherValue(state, payload){
@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
             state.hourlyWeather.unshift(payload)
         },
         setMultiCity(state, payload){
-            state.multicity.unshift(payload)
+            state.multiCity.unshift(payload)
         }
     }
 })
