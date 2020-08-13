@@ -87,3 +87,29 @@ hazırlayacağız ve HourlyWeather.vue ya gidip store a veriyi commit ederken ki
 
 * RowValue.vue daki tablo yapısını da buraya koyalım içini düzenleyelim, aynı şekilde css leride alalım, şimdi deneme amaçlı olarakta bunu App.vue ya import edip kullanıp bakalım, 
 
+* HourlyWeather.vue da v-for ile hourlyWeather stae inde dönerek istediğimi verileri alabiliriz, 
+    <tr v-for="(i,index) in this.$store.state.hourlyWeather" :key="index">
+        <td>{{ i.body.timezone }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.body.current.temp }}</td>
+        <td>{{ new Date(i.body.hourly[0].dt * 1000) }}</td>
+    </tr>
+* şimdi başlık row unu da v-for ile dönelim, yalnız burada bu array in [0] indisinde döneceğiz ki  böylelikle saatelere göre hava scıcaklığını alalım, son hali
+    <tr>
+        <th v-for="(i,index) in this.$store.state.hourlyWeather[0].body.hourly" :key="index">{{ new Date(i.dt * 1000)}}</th>                  
+            <!-- <th>date</th>
+            <th>current</th>
+            <th>hourly</th> -->
+    </tr>
+        <!-- <tr v-for="(i,index) in this.$store.state.hourlyWeather" :key="index">
+        <td>{{ i.body.timezone }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.body.current.temp }}</td>
+        <td>{{ new Date(i.body.hourly[0].dt * 1000) }}</td>
+        </tr> -->
+        <tr>
+        <td v-for="(i,index) in this.$store.state.hourlyWeather[0].body.hourly" :key="index">{{ Math.round(i.temp - 273.15) + "c"}}</td>
+        <!-- santigrad a çevirmek -->
+    </tr>
+
+* 
