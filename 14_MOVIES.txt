@@ -1,0 +1,12 @@
+movies
+
+* http://www.omdbapi.com/ adresindeki film apisini kullanarak bir uygulama, buraya üye olduktan sonra aldığımız bi key ile bu apiya bağlanacağız, kbeler@outlook.com ile üye oldum, api key'im 4f73315c
+usage da nasıl kullanıldığına dair bilgiler var, 
+
+*   vue create film-app
+    cd film-app
+    npm i --save axios
+    main.js e axios import, ve Vue.prototype.$http = axios ekleyelim, böyleleikle projede her yerden axios a ulaşabileceğiz ve http yazdığımız yerde direkt axios çalışacak
+    npm run serve
+
+*  App.vue temizleyelim, src > components > SearchByTitle.vue yapalım, içine input ve buton koyalım, App.vue ya import edelim
