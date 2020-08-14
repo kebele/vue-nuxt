@@ -60,4 +60,12 @@ const router = new VueRouter({
     ]
 })
 
-componentlerimizi import edeceğiz, path imizi ayarlayacağız, sonrada App.vue ya gidip route ları <router-view></router-view> arasına alacağız, 
+componentlerimizi import edeceğiz, path imizi ayarlayacağız, sonrada App.vue ya gidip route ları <router-view></router-view> ile göstereceğiz artık adres satırına /search eklediğimizde sayfamız gelir
+
+* şimdi yeni bir comp oluşturalım, buna FavoriteMovies.vue, bunun içinde de bir tablo olacak ancak bu tabloda bu sefer bizim favori filmlerimiz olacak, şimdi SearchByTitle.vue ya gidelim ve favori filmlerimizi eklemeyi yapalım, butona tıklayınca bir state daha oluşturalım store da index.js defavoriteMovies : [] ve bir mutation daha oluştralım,  
+    setFavoriteMovies(state, payload){
+            state.favoriteMovies.unshift(payload)
+        },
+şimdi SearchByTitle.vue ya gidip index.js deki setFavoriteMovies(){} e bağlanacak işlemleri yapalım, jbutona click ve methodu hazırlamak, burada yapacağı işlem butonun ait olduğu rowdaki filmi state aktarmak, butona tıklayınca i yi aldık başarılı, şimdi bunu commitleyerek setFavoriteMovies mutatin ı çalıştırdık o da state deki favoriteMovies [] e yolladığımız i yi unshift yaptı, artık FavoriteMovies.vue yu düzenleyebiliriz
+
+* 

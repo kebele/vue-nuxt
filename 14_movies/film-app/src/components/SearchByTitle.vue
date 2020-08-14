@@ -17,7 +17,7 @@
               <td>{{ i.Year }}</td>
               <td><img :src="i.Poster" alt="" class="imgPoster"></td>
               <td>
-              <button>+</button>
+              <button @click="setFavorite(i)">+</button>
 
               </td>
           </tr>
@@ -39,9 +39,13 @@ export default {
           //http dediğimizde bunun axios u çalıştımasını main.js de ayarlamıştık,
           this.$http.get(`http://www.omdbapi.com/?s=${this.searchMovieTitle}&apikey=4f73315c`)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 this.$store.commit('setSearchRes', response.data)
             });
+      },
+      setFavorite(i){
+        // console.log(i)
+        this.$store.commit('setFavoriteMovies', i)
       }
   },
 };

@@ -1,8 +1,8 @@
 <template>
   <div id="App">
     <router-view>
-      <!-- <SearchByTitle /> -->
     </router-view>
+      <!-- <SearchByTitle /> -->
   </div>
 </template>
 
