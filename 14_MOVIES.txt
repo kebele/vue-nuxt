@@ -9,4 +9,55 @@ usage da nasıl kullanıldığına dair bilgiler var,
     main.js e axios import, ve Vue.prototype.$http = axios ekleyelim, böyleleikle projede her yerden axios a ulaşabileceğiz ve http yazdığımız yerde direkt axios çalışacak
     npm run serve
 
-*  App.vue temizleyelim, src > components > SearchByTitle.vue yapalım, içine input ve buton koyalım, App.vue ya import edelim
+*  App.vue temizleyelim, src > components > SearchByTitle.vue yapalım, içine input ve buton koyalım, App.vue ya import edelim, components e ekleyelim, tekrar SearchByTitle.vue ya gelelim,
+
+* input yaptık ve v-model ile data ya bağladık, button yaptık ve click ile getMovieById(){} ye bağladık, bu func içinde axios bağlantısı yapacağız, api key imiz ile beraber url yi yerleştirdik ve sonuçları cponsole a aldık, burada gelen verilerde poster, film adı, yılı imdb id si vb bir çok bilgi var, bunları başrılı şekilde console a aldık artık kulanabiliriz, 
+
+*vuex i dahil edelim, server ı durduralım, ctrl + c ile, npm i -s vuex , store u oluşturalım, src > store > index.js olarak içine direkt
+    import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export const store = new Vuex.Store({
+    state : {
+        
+    }
+})
+
+main.js ye vuex i kaydedelim
+import Vue from 'vue'
+import App from './App.vue'
+import axios from 'axios'
+import { store } from './store'
+
+Vue.config.productionTip = false
+Vue.prototype.$http = axios
+//http yazdığımızda direkt axios çalışsın
+
+
+new Vue({
+  store,
+  render: h => h(App),
+}).$mount('#app')
+
+* artık vuex projeye dahil edildi, state olarak searchRes : [] yaptık, bunun içine mutations dan bir commit ile veri pushlayacağız, mutations da setSearchRes adında bir mutation tanıladık, bu parametre olarak state ve payload alacak, state deki searcRes = payload olacak, yani dışarıdan payload olarak gelen state olacak, yenidenSearchByTitle.vue ya gidelim, getMOvieById içinden setSearchRes state ine api den aldığımız response.data yı yolayalım, yani artık state imiz bu olacakj diyoruz, dahs onra template den de bu statei akrana bastıralım, 
+    {{ this.$store.state.searchRes }}
+sonuç başarılı, bunu yoruma alıp bir tablo yapalım, bu datadaki bazı bilgileri bir table a bassın,
+
+* template de tabloyu hazırladık, tablo v-for ile state deki searchRes içindeki Search içinde dolaşacak ve title, year, poster gibi bilgileri alıp basacak.
+
+* şimdi yapacağımız şey tablonun her satırında bulunan + butonuna tıklayınca ilgili filmi favoriler gibisinden bir arraya kaydetmesi, oradan da bir sayfaya basması,
+
+* vue-router kuralım, önce server ı durduralım, npm i -s vue-router kurulum sonrası main.js işlemlerini yapalım, 
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+    mode : 'history,
+    routes : [
+        {...},{...},
+    ]
+})
+
+componentlerimizi import edeceğiz, path imizi ayarlayacağız, sonrada App.vue ya gidip route ları <router-view></router-view> arasına alacağız, 
