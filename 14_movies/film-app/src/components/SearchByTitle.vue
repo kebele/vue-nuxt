@@ -5,12 +5,13 @@
       <button @click="getMovieById">search movie by title</button>
       <!-- {{ searchMovieTitle }} -->
       <!-- {{ this.$store.state.searchRes}} -->
+      <button @click="goFav">go favorities</button>
       <table>
           <tr>
               <th>movie title</th>
               <th>movie year</th>
               <th>movie poster</th>
-              <th>favori</th>
+              <th>add</th>
           </tr>
           <tr v-for="(i, index) in this.$store.state.searchRes.Search" :key="index">
               <td>{{ i.Title }}</td>
@@ -44,8 +45,12 @@ export default {
             });
       },
       setFavorite(i){
-        // console.log(i)
+        console.log(i)
         this.$store.commit('setFavoriteMovies', i)
+        // this.$router.push('/favorite')
+      },
+      goFav(){
+        this.$router.push('/favorite')
       }
   },
 };
@@ -58,7 +63,7 @@ export default {
   align-items: center;
 }
 .imgPoster{
-    width: 50px;
+    width: 120px;
     height: auto;
 }
 table,

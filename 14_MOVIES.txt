@@ -68,4 +68,14 @@ componentlerimizi import edeceğiz, path imizi ayarlayacağız, sonrada App.vue 
         },
 şimdi SearchByTitle.vue ya gidip index.js deki setFavoriteMovies(){} e bağlanacak işlemleri yapalım, jbutona click ve methodu hazırlamak, burada yapacağı işlem butonun ait olduğu rowdaki filmi state aktarmak, butona tıklayınca i yi aldık başarılı, şimdi bunu commitleyerek setFavoriteMovies mutatin ı çalıştırdık o da state deki favoriteMovies [] e yolladığımız i yi unshift yaptı, artık FavoriteMovies.vue yu düzenleyebiliriz
 
-* 
+* düzenleme sonrası main.js de router da favoriteMovies.vue yu ekleyelim
+
+
+
+
+* favorite den film silmek için
+
+
+* detaya veya postere tıklayınca detay sayfası gelsin vb.
+
+

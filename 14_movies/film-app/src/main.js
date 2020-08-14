@@ -8,14 +8,16 @@ import { store } from './store'
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 //http yazdığımızda direkt axios çalışsın
-Vue.use(VueRouter)
 
+Vue.use(VueRouter)
 import SearchByTitle from './components/SearchByTitle.vue'
+import FavoriteMovies from './components/FavoriteMovies.vue'
 
 const router = new VueRouter({
   mode : 'history',
   routes : [
     { path : '/search', component : SearchByTitle },
+    { path : '/favorite', component : FavoriteMovies },
   ]
 })
 
