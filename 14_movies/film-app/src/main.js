@@ -12,12 +12,14 @@ Vue.prototype.$http = axios
 Vue.use(VueRouter)
 import SearchByTitle from './components/SearchByTitle.vue'
 import FavoriteMovies from './components/FavoriteMovies.vue'
+import MovieDetail from './components/MovieDetail.vue'
 
 const router = new VueRouter({
   mode : 'history',
   routes : [
     { path : '/search', component : SearchByTitle },
     { path : '/favorite', component : FavoriteMovies },
+    { path : '/detail', component : MovieDetail },
   ]
 })
 

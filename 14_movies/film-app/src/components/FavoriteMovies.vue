@@ -6,7 +6,8 @@
         <th>movie title</th>
         <th>movie year</th>
         <th>movie poster</th>
-        <th>favori</th>
+        <th>delete</th>
+        <th>detail</th>
       </tr>
       <tr v-for="(i, index) in this.$store.state.favoriteMovies" :key="index">
         <td>{{ i.Title }}</td>
@@ -14,6 +15,9 @@
         <td><img :src="i.Poster" alt="" class="imgPoster" /></td>
         <td>
           <button @click="deleteFav(index)"> - </button>
+        </td>
+        <td>
+          <button @click="detail(i.imdbID)"> detail </button>
         </td>
       </tr>
     </table>
@@ -30,6 +34,10 @@ export default {
       },
       goSearch(){
           this.$router.push('/search')
+      },
+      detail(id){
+          this.$store.commit('setImdbID', id)
+          this.$router.push('/detail')
       }
   },
 };

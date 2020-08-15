@@ -76,6 +76,16 @@ componentlerimizi import edeceğiz, path imizi ayarlayacağız, sonrada App.vue 
 * favorite den film silmek için
 
 
-* detaya veya postere tıklayınca detay sayfası gelsin vb.
+* detaya veya postere tıklayınca detay sayfası gelsin vb. mesela imdb id siyle bir şeyler yapalım, bir buton yapaım, detail e gitsin, methodnunda router ayarını yapalım, index.js de de yani bir state yapalım, imdbID : null, bunudeğiştirecek mutation 
+     setImdbID(state, payload){
+            state.imdbID = payload
+        },
+ve bu mutation a veri yollayacak olan FavoriteMovies deki method 
+    detail(id){
+          this.$store.commit('setImdbID', id)
+          this.$router.push('/detail')
+      }
+state hazır, mutation, hazır route hazır, dateil componentini hazırlayalım, bu arada bunuda main.js de import edip routes a eklememiz lazım önce onu yapıp sonra comp un içini halledelim, 
 
+* MovieDetail.vue oluştruduk, burada life cycle lardan created yapalım, bu sayfaya geldiğinde direk çalışsın yani, sayfanın altına apiden gelen cevabı koyduk alabileiceğimiz şeuleri oradan alabilelim diye, kolaylık olsun, veriler console a geliyor, artık tempolate i düzenleyelim, 
 
