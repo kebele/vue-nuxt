@@ -8,9 +8,7 @@
     <div class="infoRow">
       <h2>{{ detailMovie.data.Title }}</h2>
       <br />
-      <span>year : {{ detailMovie.data.Year }}</span
-      ><br />
-      <span>released : {{ detailMovie.data.Released }}</span
+      <span>Released : {{ detailMovie.data.Released }}</span
       ><br />
       <span>Director : {{ detailMovie.data.Director }}</span
       ><br />
@@ -29,7 +27,10 @@
       <span>IMDB Votes : {{ detailMovie.data.imdbVotes }}</span
       ><br />
       <span>DVD Release : {{ detailMovie.data.DVD }}</span
-      ><br />
+      ><br>
+      <input type="text" placeholder="max : 100" v-model="myvote"><br>
+      <textarea name="" v-model="review" id="" cols="30" rows="10" class="reviewClass"></textarea><br>
+      <button @click="addReview">add review and vote</button>
     </div>
   </div>
 </template>
@@ -41,6 +42,8 @@ export default {
   data() {
     return {
       detailMovie: null,
+      review: "",
+      myvote : null
     };
   },
   created() {
@@ -55,6 +58,30 @@ export default {
         this.detailMovie = res;
         //apiden gelen cevabı data daki detailMovie ye koyalım,
       });
+  },
+  methods: {
+    addReview(){
+      if(this.$store.state.imdbID !== null){
+        const data = {
+        id : this.$store.state.imdbID,
+        title : this.detailMovie.data.Title,
+        poster : this.detailMovie.data.Poster,
+        review : this.review,
+        myvote : this.myvote
+      }
+      this.$store.commit('setMyReviewsAndVotes', data)
+      this.$router.push('/favorite')
+      } else {
+        alert("id null ...")
+      }      
+    },
+    goSearch(){
+      this.$store.commit('deleteImdbID')
+      this.detainMovie = null
+      this.myvote = null
+      this.review = ''
+      this.$router.push('/search')
+    }
   },
 };
 </script>
@@ -77,6 +104,9 @@ export default {
 .infoRow{
   width: 60%;
   padding: 20px;
+}
+.reviewClass{
+  width : 80%;
 }
 </style>
 

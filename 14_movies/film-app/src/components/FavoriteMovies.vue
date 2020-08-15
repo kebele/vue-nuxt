@@ -22,6 +22,7 @@
       </tr>
     </table>
     <button @click="goSearch">go search</button>
+    <button @click="goReview">go review</button>
   </div>
 </template>
 
@@ -38,6 +39,9 @@ export default {
       detail(id){
           this.$store.commit('setImdbID', id)
           this.$router.push('/detail')
+      },
+      goReview(){
+          this.$router.push('/review')
       }
   },
 };

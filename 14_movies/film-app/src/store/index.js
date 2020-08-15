@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
     state : {
         searchRes : [],
         favoriteMovies : [],
-        imdbID : null
+        imdbID : null,
+        myReviewsAndVotes : [],
     },
     mutations : {
         setSearchRes(state, payload){
@@ -24,6 +25,12 @@ export const store = new Vuex.Store({
         setImdbID(state, payload){
             state.imdbID = payload
             console.log(state.imdbID)
+        },
+        setMyReviewsAndVotes(state, payload){
+            state.myReviewsAndVotes.unshift(payload)
+        },
+        deleteMyReviewAndVote(state, value){
+            state.myReviewsAndVotes.splice(value,1)
         },
     }
 })

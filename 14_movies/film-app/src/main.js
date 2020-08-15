@@ -13,6 +13,7 @@ Vue.use(VueRouter)
 import SearchByTitle from './components/SearchByTitle.vue'
 import FavoriteMovies from './components/FavoriteMovies.vue'
 import MovieDetail from './components/MovieDetail.vue'
+import ReviewPage from './components/ReviewPage.vue'
 
 const router = new VueRouter({
   mode : 'history',
@@ -20,6 +21,7 @@ const router = new VueRouter({
     { path : '/search', component : SearchByTitle },
     { path : '/favorite', component : FavoriteMovies },
     { path : '/detail', component : MovieDetail },
+    { path : '/review', component : ReviewPage },
   ]
 })
 

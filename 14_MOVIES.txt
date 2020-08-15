@@ -87,5 +87,10 @@ ve bu mutation a veri yollayacak olan FavoriteMovies deki method
       }
 state hazır, mutation, hazır route hazır, dateil componentini hazırlayalım, bu arada bunuda main.js de import edip routes a eklememiz lazım önce onu yapıp sonra comp un içini halledelim, 
 
-* MovieDetail.vue oluştruduk, burada life cycle lardan created yapalım, bu sayfaya geldiğinde direk çalışsın yani, sayfanın altına apiden gelen cevabı koyduk alabileiceğimiz şeuleri oradan alabilelim diye, kolaylık olsun, veriler console a geliyor, artık tempolate i düzenleyelim, 
+* MovieDetail.vue oluştruduk, burada life cycle lardan created yapalım, bu sayfaya geldiğinde direk çalışsın yani, sayfanın altına apiden gelen cevabı koyduk alabileiceğimiz şeuleri oradan alabilelim diye, kolaylık olsun, veriler console a geliyor, artık template i düzenleyelim,
+vote ve revi,ew alanlarıda ekledik ve buton koyduk buton, bu anlanlara girilecek veriler de bir state olacak,  index.js de myReviewsAndVotes olarak state yaptık ve bu state i değiştirecek vb. işlemler için mutation oluşturduk,
+mutation da myReviewANd Votes i güncelliyor,
+
+* ReviewPage.vue yu hazırlayalım, 
+
 
