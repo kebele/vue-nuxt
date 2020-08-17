@@ -15,4 +15,6 @@
         npm run build
         npm run start
 
-* 
+* gelen yapıyı inceleyelim, 
+
+* projeyi çalıştırmak için kendidizinine gidip npm run dev deriz sonrasında bazı sorulara ceevapları verip devam...
