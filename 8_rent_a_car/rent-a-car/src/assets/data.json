@@ -1,0 +1,40 @@
+{
+    "data" : [
+        {
+            "title" : "honda civic",
+            "about" : "lorem ipsum",
+            "price" : "10",
+            "image" : ["https://i.sozcu.com.tr/wp-content/uploads/2019/09/03/iecrop/yeni_honda_civic_sedan-6_16_9_1567501303-880x495.jpg"]
+        },
+        {
+            "title" : "toyota corolla",
+            "about" : "lorem ipsum",
+            "price" : "9",
+            "image" : ["https://cdn.motor1.com/images/mgl/wN33Q/s1/2020-toyota-corolla-sedan.jpg"]
+        },
+        {
+            "title" : "volkswagen golf",
+            "about" : "lorem ipsum",
+            "price" : "8",
+            "image" : ["https://cdn.motor1.com/images/mgl/yKn3b/s1/volkswagen-golf-2020.jpg"]
+        },
+        {
+            "title" : "opel astra",
+            "about" : "lorem ipsum",
+            "price" : "5",
+            "image" : ["https://www.yenimodelarabalar.com/images/userfiles/optimized/we10%20(1).jpg"]
+        },
+        {
+            "title" : "hyundai elantra",
+            "about" : "lorem ipsum",
+            "price" : "6",
+            "image" : ["https://staticb.yolcu360.com/blog/wp-content/uploads/2020/04/27121508/ela.jpg"]
+        },
+        {
+            "title" : "renault megane",
+            "about" : "lorem ipsum",
+            "price" : "7",
+            "image" : ["https://www.log.com.tr/wp-content/uploads/2020/05/2017-renault-megane-sedan-01-660x371-1-1280x720.jpg"]
+        }
+    ]
+}

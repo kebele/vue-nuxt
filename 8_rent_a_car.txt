@@ -12,7 +12,7 @@ rent a car uygulaması
 
 * projeyi vue ui ile kurarken router ı da eklemiştik, yapacağımız şey MainContent i ana comp olarak ayarlamak, bunuda index.js içinden yapacağız, MainContent.vue import sonrası home olarak mainContent i ayarlayacağız, deneeyi yapalım, App.vue daki template imiz artık aşağıdaki şekilde, ayrıca artık sayfalar components içinde değil views içinde olacak, views içinde sayfalar, components içinde de comp lar olacak, 
 
-<template>
+<template> 
   <div id="app">
    <Navbar></Navbar>
    <!-- <MainContent></MainContent> -->
@@ -31,3 +31,15 @@ rent a car uygulaması
 * componentlerin içinde de kullanlabilecek props yntemleri var, CArs.vue ya gidelim, açıklama ve kullanımlar orada
 
 * middleware; index.js de açıklamalar, 
+
+15. bölüm olarak bu projeye vuex ekleyeceiz ve bazı yerleri değiştreceğiz, 
+
+*bazı düzenlemeler ile başlayalım, App.vue ile başlayalım, componentler üzerinde formatsal düzenlemeler bitti, TheForm.vue yaptık ve MainContent.vue daki forma ilşikin konuları TheForm.vue ya taşıdık, şimdi CarCard ı düzenleyelim, açıklamalr kodun üzerinde
+
+* .... neler yaptığımı özetle
+
+* şimdi tıklama ile bir modal açılsın ve ilgili bilgileri modal a alalım, bunuda bir paymet sayfası ayapıl orayada yönlendirelim, bootstrapvue dan modal alalım, 
+
+* şimdi modal açılıyor, artık alt kısma bir footer ekleyelim, TheFooter.vue açıklamalar kodun içinde, 
+
+* vuex ekleyelim, 

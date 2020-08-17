@@ -3,6 +3,7 @@
    <Navbar></Navbar>
    <!-- <MainContent></MainContent> -->
    <router-view></router-view>
+   <TheFooter/>
   </div>
 </template>
 <script>
@@ -14,8 +15,6 @@ export default {
 }
 </script>
 <style>
-#app {
 
-}
 
 </style>
