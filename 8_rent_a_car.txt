@@ -42,4 +42,16 @@ rent a car uygulaması
 
 * şimdi modal açılıyor, artık alt kısma bir footer ekleyelim, TheFooter.vue açıklamalar kodun içinde, 
 
-* vuex ekleyelim, 
+* vuex ekleyelim,
+npm i vuex -s 
+src > store > index.js 
+içine vue ve vuex i import edeceğiz ve main.js dede gerekli eklemeleri yapacağız
+import { store } from './store'
+ve
+new Vue({
+  store,
+  router,
+  render: h => h(App)
+}).$mount('#app')
+
+daha sonra index.js yi hazırlayacağız, 

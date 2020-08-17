@@ -63,12 +63,14 @@ resmi ayarlayalım, resmi dinamik olarak alalım,
               </b-card-text>
               <div class="priceBucket">
                 <b-card-text class="priceText"> ${{ item.price }} </b-card-text>
-                <b-icon
+                <!-- <b-icon
                   class="h4 mb-2"
                   icon="bucket"
                   variant="danger"
                   @click="modalShow = !modalShow"
-                ></b-icon>
+                ></b-icon> 
+                bunun yerine bir buton yapacağız ve bunu vuex e bağlayacağız vuex e bilgi yollayacağız-->
+                <button @click="getInformation">get information</button>
               </div>
             </b-card-body>
           </b-col>
@@ -88,6 +90,12 @@ export default {
     return {
       modalShow: false,
     };
+  },
+  methods: {
+    getInformation(){
+      this.$store.commit('setInformation', this.item)
+      console.log(this.item)
+    }
   },
 };
 </script>
