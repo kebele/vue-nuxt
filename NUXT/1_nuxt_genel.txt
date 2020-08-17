@@ -1,0 +1,18 @@
+* vue ile yaptığımız bir çok şeyi çok kolaylaştran bir framework, ironman, 
+
+* https://www.npmjs.com/package/nuxt den yüklenir, npm i nuxt -g diyerek global yükleyelim
+
+* proje oluşturmak, npx create-nuxt-app <project-name> burada bize bir şok sorular soracak projemize uygun cevaplar vereceğiz, 
+
+*   To get started:
+
+        cd hello-nuxt
+        npm run dev
+
+  To build & start for production:
+
+        cd hello-nuxt
+        npm run build
+        npm run start
+
+* 
