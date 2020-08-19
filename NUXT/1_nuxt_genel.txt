@@ -15,6 +15,18 @@
         npm run build
         npm run start
 
-* gelen yapıyı inceleyelim, 
+* gelen yapıyı inceleyelim, he klasör içinde kendi readme si içinde o klasörün ne için kullanıldığı yazıyor, nuxt ile gelen proje yapsını bozmamaya çalışmalıyız, 
 
-* projeyi çalıştırmak için kendidizinine gidip npm run dev deriz sonrasında bazı sorulara ceevapları verip devam...
+* projeyi çalıştırmak için kendidizinine gidip npm run dev deriz sonrasında bazı sorulara cevapları verip devam...
+
+* nuxt.config.js dosyası hakkında açıklama kodun içinde, dokumantasyonunda nelerin yazılabileceği de var, burada yazımda hatalar çıkarıyor, 
+
+* layouts kısmında genel template ve css ayarları yapılır, farklı layoutlar tanımşayıp istediğimiz sayfaların o layout a göre çalışmasını sağlayabiliriz, bunu page deki index e gidp export defult kısmına layout:'xyzLayout' gşbşsşnden hazırladığımız layout u göstererek yapabiliriz, bunu bir func ile de yapabiliriz, 
+layout(context){
+    return 'xyzLayout'
+}
+buda aynı işi görür,layout ile iligli en önemli konu <nuxt/> ı layoutumuzun içine koymayı unutmamalıyız, buradaki nuxt etiketi router-view e benzer, ondaki attribute verme gibi bunada bazı attr ler verilebilir, 
+
+kendimize özel error sayfasıda yapabiliriz, böyle bir error layoutunda <nuxt/> olmaz buna dikkat, çünkü error layoutları normal sayfa gibi değildir, 
+
+* 

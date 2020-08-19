@@ -6,15 +6,12 @@ export default {
   */
   mode: 'universal',
   /*
-  uygulama hem client hemde server tarafında çalışacak demek,
-  burası spa olursa sadece client da çalışacak demek, single page app demek,
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'server',
   /*
   ** Headers of the page
-  burası html deki head kısmı, meta seo konularıyla ilgili etiket girme yerleri gibi
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
@@ -48,42 +45,16 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {},
-  /*
-  ** Content module configuration
-  ** See https://content.nuxtjs.org/configuration
-  */
-  content: {},
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    babel: {},
-    devtools: {},
-    plugins: {},
-    publicPath: {},
-    quite: {},
-    srr: {},
-    extend () {
-
-    }
   }
 }

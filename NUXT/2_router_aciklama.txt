@@ -1,0 +1,12 @@
+nuxt router
+
+* nuxt ın otomatik bir router yapısı var, pages > index.vue ya bakalım, nuxt da pages a bir sayfa eklediğimizde bunu route yapısına kendisi ekler, bir sayfa ekleyelim, deneme.vue 
+    <template>
+  <div class="container">
+    bu bir deneme sayfası
+  </div>
+</template>
+
+kayıt sonrası adres satırına http://localhost:3000/deneme yazmamızla bu sayfaya gideriz, main.js ile path ayarlamakla vs ugraşmayız, direkt router a ekler, bu path ekleme vs yi nuxt kendisi nuxt klasörü altında router.js içinde path ayarlamaları vs kendisi yaptı, 
+burada klasörlemede yapabiliriz ve klasör içine başka sayfada koyabiliriz, nuxt bunuda anlar ve route ayarlamlarını yapar, http://localhost:3000/alt_klasor yaptığımızda alt_klasor içindeki index.vue çalışır, 
+http://localhost:3000/alt_klasor/alt_klasor_2 burasıda sıkıntısız çalışır, dinamik yapıda yapabiliriz, bunun anlamı mesela olmayan bir adres yazdık diyelim veya olmayan bir istek gelsi bu durumda belli bir sayfaya yönlenmesini isteyebiliriz, bunun için sayfa adını _varsayilan.vue sayfası oluşturduk, adres satırına olmayan bir sayfa yazalım http://localhost:3000/alt_klasor/alt_klasor_2X bu istek cevabı adres satırı değişmeden bizi _varsayilan.vue ya götürür, 
