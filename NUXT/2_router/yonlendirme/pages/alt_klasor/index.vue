@@ -1,5 +1,5 @@
 <template>
   <div class="container">
-    bu alt klasördeki denem sayfasıdır
+    bu alt klasördeki deneme sayfasıdır
   </div>
 </template>

@@ -10,3 +10,25 @@ nuxt router
 kayıt sonrası adres satırına http://localhost:3000/deneme yazmamızla bu sayfaya gideriz, main.js ile path ayarlamakla vs ugraşmayız, direkt router a ekler, bu path ekleme vs yi nuxt kendisi nuxt klasörü altında router.js içinde path ayarlamaları vs kendisi yaptı, 
 burada klasörlemede yapabiliriz ve klasör içine başka sayfada koyabiliriz, nuxt bunuda anlar ve route ayarlamlarını yapar, http://localhost:3000/alt_klasor yaptığımızda alt_klasor içindeki index.vue çalışır, 
 http://localhost:3000/alt_klasor/alt_klasor_2 burasıda sıkıntısız çalışır, dinamik yapıda yapabiliriz, bunun anlamı mesela olmayan bir adres yazdık diyelim veya olmayan bir istek gelsi bu durumda belli bir sayfaya yönlenmesini isteyebiliriz, bunun için sayfa adını _varsayilan.vue sayfası oluşturduk, adres satırına olmayan bir sayfa yazalım http://localhost:3000/alt_klasor/alt_klasor_2X bu istek cevabı adres satırı değişmeden bizi _varsayilan.vue ya götürür, 
+
+* içiçe route lar ve isimlendirme; şimdi klasör yapısında şöyle bir şey yaptık, alt_klasor adında bir folder yapmıştık içinde sayfalar vardı, şimdi birde pages ın altına alt_klasor.vue yaptık ve içine 
+    <template>
+  <div class="container">
+    bu bir deneme sayfası
+    <nuxt-child />
+  </div>
+</template>
+<nuxt-child/> koyduk bu önemli bu şekilde önce alt_klasor.vue çalışacak ve bunun altına bunun child ları var onlar çalışacak, mantık önemli, bu şekilde nested (içiçe) rouutes yapmış olduk, 
+
+* bunun yanında <nuxt-child keep-alive/> keep alive uygulayabiliriz, artık her değişme, geçişte componentler silinmeyecek, buna props da gönderebiliriz,
+    <nuxt-child kep-alive-props="{exclude:'modal'}"
+şeklinde
+
+ayrıca <nuxt-child name="inner"/> şeklinde yapıp inner için başka bir compoent gösterebiliriz, bunu yapmak için router.js e gidip ilgili path de (burada alt_klasor) component içine 
+    component: {
+        default : _00dedeec,
+        inner : xyz_abc,
+      },
+    yapabiliriz, bu durumda ilgili sayfada iki ayrı comp aynı anda da görünür, yazma tarzına dikkat, 
+
+* dinamik routes,  
