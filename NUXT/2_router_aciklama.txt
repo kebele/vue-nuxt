@@ -30,5 +30,30 @@ ayrıca <nuxt-child name="inner"/> şeklinde yapıp inner için başka bir compo
         inner : xyz_abc,
       },
     yapabiliriz, bu durumda ilgili sayfada iki ayrı comp aynı anda da görünür, yazma tarzına dikkat, 
+    bir konuda folder lara dinamiklik verilebilir ancak vue dokumantasyonunda bu pek tavsiye edilemez
 
-* dinamik routes,  
+* sayfe geçişleri esnasında gönderilen parametreleri nasıl yakalayacağız? _id.vue ya gönderdiğimiz parametreyi yakalayalım, buton > showParams methodunu bağlayalım, method aşağıdaki gibi olacak, parametreyide aşağıdaki ile yakalıyoruz
+
+methods: {
+    showParams(){
+      console.log(this.$route.params.id)
+    }
+  },
+
+bu sayfa varsayılan bir sayfa yani adres satırınde ne girersek girlim alt_klasor altında bu sayfa gelecek mesela http://localhost:3000/alt_klasor/xxyzas girdiğimizde bizim yolladığımız parametre xxyzas dir bunuda butona tıkladığımızda console dan alırız. Bunu alabildiğimize göre çeşitli şekiller kullanabiliriz mesela parametreleri kontrol edebiliriz, validasyonda kullanabiliriz, burada bir özellik olarak validate({...}) kullanalım, mesela buradaki validate imiz parametre sadece number olsun, buna göre regex kodunu validate özelliği ile kullanalım, 
+     validate({params}){
+    return /^\d+$/.test(params.id)
+  }
+adres satırından mesela xyz parametresi yollarsak bizi hata sayfasına yollar eğer hata sayfası yoksa console da 404 gelir, parametre olarak 123 yollarsak bu sefer normal varsayılan sayfasına yollar, benzer bir validate işlemini nuxt.config.js de de yapabiliriz
+
+* sayfa geçişlerine animasyon verme, assets > main.css daha sonra bu css dosyasını nuxt.config.js de bu ana css dosyası olarak tanımlıyoruz, 
+     css: [
+    '~/assets/main.css'
+  ],
+bundna sonra main.css de normal vue da anmasyon da kullanılan kodlarımızı kullanabiliriz, default olarak sayfa işaretçisi .page dir, 
+<nuxt-link to="/deneme"/>
+nuxt-link genellikle iç linkler için kullanılır, dış link normal a dır. <n-link/> nuxt-link ile aynıdır, en çok bu kullanılır, 
+<n-link no-prefetch /> ön yükleme olmasın demektir, bütün ön yüklemelri nuxt.config.js den de yapabiliriz, bütün app a ilşikin ayarlar nuxt.config.js den yapılır, mesela nuxt.config de prefetch i kapattık diyelim, bu kullanım ile sadece burada açabiliriz vs. 
+
+burada veya başka aşamalarda problem ıkması halinde ctrl + c ile server ı durdurup npm run dev ile manuel olarak başlatmak aorunu çözebilir
+
