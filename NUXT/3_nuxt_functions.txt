@@ -1,0 +1,2 @@
+nuxt da kullanılan bazı function lar
+

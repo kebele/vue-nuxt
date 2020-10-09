@@ -54,10 +54,11 @@ adres satırından mesela xyz parametresi yollarsak bizi hata sayfasına yollar 
      css: [
     '~/assets/main.css'
   ],
-bundna sonra main.css de normal vue da anmasyon da kullanılan kodlarımızı kullanabiliriz, default olarak sayfa işaretçisi .page dir, 
+bundna sonra main.css de normal vue da anmasyon da kullanılan kodlarımızı kullanabiliriz, default olarak sayfa işaretçisi .page dir, animasyon ile ilgili diğer durumları daburada enter-ective, leave-active vs hepsini burada tanımlayabiliirz,
+
 <nuxt-link to="/deneme"/>
-nuxt-link genellikle iç linkler için kullanılır, dış link normal a dır. <n-link/> nuxt-link ile aynıdır, en çok bu kullanılır, 
+nuxt-link genellikle iç linkler için kullanılır, dış link normal <a href="">xxx</a> dır. <n-link/> nuxt-link ile aynıdır, en çok bu kullanılır, 
 <n-link no-prefetch /> ön yükleme olmasın demektir, bütün ön yüklemelri nuxt.config.js den de yapabiliriz, bütün app a ilşikin ayarlar nuxt.config.js den yapılır, mesela nuxt.config de prefetch i kapattık diyelim, bu kullanım ile sadece burada açabiliriz vs. 
 
-burada veya başka aşamalarda problem ıkması halinde ctrl + c ile server ı durdurup npm run dev ile manuel olarak başlatmak aorunu çözebilir
+burada veya başka aşamalarda problem ıkması halinde ctrl + c ile server ı durdurup npm run dev ile manuel olarak başlatmak sorunu çözebilir
 

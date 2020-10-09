@@ -1,3 +1,4 @@
 .page-enter-active{
     transition: opacity .15s ease-in-out
 }
+/* .page-enter-active bütün sayfa geçişlerinde bu css i kullanacak demek */

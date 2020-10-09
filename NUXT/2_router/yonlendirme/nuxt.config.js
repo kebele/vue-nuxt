@@ -30,6 +30,7 @@ export default {
   */
   css: [
     '~/assets/main.css'
+    // bu benim ana css dosyam diye belirtiyoruz
   ],
   /*
   ** Plugins to load before mounting the App
