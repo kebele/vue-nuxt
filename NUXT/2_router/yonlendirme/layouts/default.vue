@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <p>kemal</p> -->
     <Nuxt />
   </div>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div>
+    <!-- <p>kemal</p> -->
       <Logo />
       <h1 class="title">
         yonlendirme
