@@ -1,7 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'hello1XXX',
+    title: 'hello2',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -45,12 +45,5 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    // bazı ayarlamalar yapalım
-    babel : {},//webpackteki bazı ayarlamaları yapmak için
-    devtools:{}, //vue devtool u kapartmak için ayarlar yazılabilir
-    plugins:{},//plugin ayarlamaları
-    publicPath:{},//cdn tanımlayabiliriz
-    quite:{},//console çıktılarını kapatmak için
-    srr:{}//server side rendering için ayarlamalar burada
   }
 }
