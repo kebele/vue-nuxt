@@ -14,3 +14,27 @@ sayfa yüklendiğinden asyncData ile yapabileceğimiz, bütün veri türlerini c
 bu componenet oluşturulmadan önce server side dan veri almak için kullandığımız func, sayfa her yüklendiğinde yada başka sayfaya gidip gelindiğinde tekrar tekrar çalışır, parametrelerde yazan işlemler için kullanılır, bir apiden ver almak veya route dan almak vb. yalnız burada unutulmamas gerelen asyncData ile ulşabileceğimiz şeyler ilk çalıştığında instance değildir, çünkü daha instance oluşturyulmadan biz bu bilgileri alırız, öncelik sonralık var,
 
 bir örnek yapalım, ir API işlemi yapalım, https://jsonplaceholder.typicode.com/ den posts daki verileri kullanalım, gerisini _deneme.vue da yazalım, burada _deneme.vue şeklinde yazdık bunun anlamı deneme dinamik hale gelir bu şekilde ve veri alabiliriz,  
+
+
+nuxt fetch için pages >  foo.vue oluşturduk,
+fetch ihtiyaç duyduğumuz asenkron datayı bize getirmek için kullanılır,
+fetch navigasyon değişikliklerinde çalışır ancak query değişikliklerinde çalışmaz ama bunu watch içine fetch i koyarak çözebiliriz, 
+
+export default {
+  async fetch () {
+    this.value = await this.$http.$get('')
+    // burada asyncData ile kullandığımız context ide burada kullanabiliriz,
+  },
+  data () {
+    return {
+      value: null
+    }
+  },
+  watch: {
+    '$route.query': '$fetch'
+  }
+}
+
+ayrıca layout içindeki default.vue ya keep alive koyarsak her seferinde yeniden oluşruma olmaz, 
+
+nuxt ile middleware oluşturma 
