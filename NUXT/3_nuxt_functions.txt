@@ -1,2 +1,16 @@
 nuxt da kullanılan bazı function lar
 
+pages > deneme.vue 
+denemeleri bunun içinde yapalım
+
+asyncData({isDev, route, store, env, params, query, req, res, redirect, error}){}
+
+asyncData(context){
+    console.log(context)
+}
+
+sayfa yüklendiğinden asyncData ile yapabileceğimiz, bütün veri türlerini console a getiririr, context yuarıdaki bir sürü parametrenin hepsini kapsayan bir parametredir,
+
+bu componenet oluşturulmadan önce server side dan veri almak için kullandığımız func, sayfa her yüklendiğinde yada başka sayfaya gidip gelindiğinde tekrar tekrar çalışır, parametrelerde yazan işlemler için kullanılır, bir apiden ver almak veya route dan almak vb. yalnız burada unutulmamas gerelen asyncData ile ulşabileceğimiz şeyler ilk çalıştığında instance değildir, çünkü daha instance oluşturyulmadan biz bu bilgileri alırız, öncelik sonralık var,
+
+bir örnek yapalım, ir API işlemi yapalım, https://jsonplaceholder.typicode.com/ den posts daki verileri kullanalım, gerisini _deneme.vue da yazalım, burada _deneme.vue şeklinde yazdık bunun anlamı deneme dinamik hale gelir bu şekilde ve veri alabiliriz,  
