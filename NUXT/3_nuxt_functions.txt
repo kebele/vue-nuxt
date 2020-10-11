@@ -38,3 +38,20 @@ export default {
 ayrıca layout içindeki default.vue ya keep alive koyarsak her seferinde yeniden oluşruma olmaz, 
 
 nuxt ile middleware oluşturma 
+named middleware ayrı klasörde haızlrdığımız middleware ler
+anonim middleware ler ise kullanacağımız sayfada hazırladığımız middlewarelerdir
+middleware lerin görevi arada bir işlem yapmak
+middleware > authenticated.js oluşturduk, bu dosyada yapaağımızı işlem eğer gelen kullanıcı kayırlı değilse onu login sayfasına yönlendirmek,
+  export default function ({ store, redirect }) {
+
+}
+// store ile kullanıcı kayıtlı mı değil mi, redirect ile de yönlendirme yapacak
+// store oluşturalım, store > index.js olarak
+
+//midleware leri kullanacağımız sayfada da tanımlayabiliriz, burada midburada.vue da kullandığımız için oraya koyalım, 
+
+//yaptığımız işlem http://localhost:3000/login ile başlıyoruz, başlangıçta state true yani sistemde kayıtlıyız, midburada ya tıklayıp gidiyoruz http://localhost:3000/midburada da kayıt durumunu değiştire tıklayıp state i değiştiriyoruz, false yapıyoruz yani artık sistemde kayıtlı değiliz, logine tıkıyoruz buradan tekrar midburada ya tıkladığımızda gidemiyoruz çünkü artık sisteme layıtlı değiliz, 
+
+
+
+
