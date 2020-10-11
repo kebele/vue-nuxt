@@ -52,6 +52,10 @@ middleware > authenticated.js oluşturduk, bu dosyada yapaağımızı işlem eğ
 
 //yaptığımız işlem http://localhost:3000/login ile başlıyoruz, başlangıçta state true yani sistemde kayıtlıyız, midburada ya tıklayıp gidiyoruz http://localhost:3000/midburada da kayıt durumunu değiştire tıklayıp state i değiştiriyoruz, false yapıyoruz yani artık sistemde kayıtlı değiliz, logine tıkıyoruz buradan tekrar midburada ya tıkladığımızda gidemiyoruz çünkü artık sisteme layıtlı değiliz, 
 
+nuxt da validasyon functionları
+
+pages > _id.vue yapalım, parametre kontrolu yapacağız her route geçisinde yazacağımız şartlara uygun m u değil mi, _id.vue ya önce her halukarda true dönme durumunu yapalım, adres satırına herhangibir şey yazsak bizim _id.vueya götürecek, çünkü validate i her durumda true ya ayarladık, 
+
 
 
 

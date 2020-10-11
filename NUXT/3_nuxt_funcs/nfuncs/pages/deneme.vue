@@ -1,5 +1,8 @@
 <template>
   <div>
+    <!--
+      sayfanın adını validate i denemek için _deneme.vue dan deneme.vue ya çevirdim
+       -->
     deneme
     <br>
     <hr>
