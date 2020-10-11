@@ -14,7 +14,9 @@ export default {
     // } else { return false }
     // redirect yapalım, bu da state false ise logine yollasın bizi
     } else { redirect('/login') }
+    throw new Error('500 ')
   }
+
 }
 </script>
 

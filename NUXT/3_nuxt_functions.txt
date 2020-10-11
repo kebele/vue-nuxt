@@ -55,6 +55,12 @@ middleware > authenticated.js oluşturduk, bu dosyada yapaağımızı işlem eğ
 nuxt da validasyon functionları
 
 pages > _id.vue yapalım, parametre kontrolu yapacağız her route geçisinde yazacağımız şartlara uygun m u değil mi, _id.vue ya önce her halukarda true dönme durumunu yapalım, adres satırına herhangibir şey yazsak bizim _id.vueya götürecek, çünkü validate i her durumda true ya ayarladık, 
+validate server side da çağrılır, 
+async olarakta çalıştırabiliriz
+validate içinde bir hata da fırlatabiliriz, 
+watchQuery ile gelen bilgileride izleyip kullanabiliriz, 
+
+
 
 
 
