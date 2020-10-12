@@ -65,6 +65,11 @@ nuxt plugin
 
 js pluginleri tanımlamamıza izin verir, bunun için bilmemiz gereken life cycle func larıdır, sadece beforeCreate ve created hem client side hemde server side da çalışır, diğer yaşam döngüsü func client side da çalışır, plugins > notifications.js yapalım, içinde vue notifications ı kullanmak istiyoruz, dosyaya yazdım açıklamaları, 
 
+bazı plug inler sadece client yada sadece server side da çalışabilir bunu da plugin nuxt.config.js de şu şekilde belirtebiliriz; {src:'~plugins/notification', mode:'client'},
+veya bununla uğraşmayıp dosyanın adını değiştirerek mesela notification.client.js şeklinde 
+
+PLUGIN ile ÇALIŞMIYOR
+
 
 
 

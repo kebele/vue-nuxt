@@ -28,7 +28,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+  asyncData (context) {
+    context.app.myInjectFunc()
+  },
+  mounted () {
+    this.$myInjectFunc('deneme')
+  }
+}
+
 </script>
 
 <style>
