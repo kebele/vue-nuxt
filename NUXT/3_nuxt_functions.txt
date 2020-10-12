@@ -61,6 +61,10 @@ validate içinde bir hata da fırlatabiliriz,
 watchQuery ile gelen bilgileride izleyip kullanabiliriz, 
 
 
+nuxt plugin
+
+js pluginleri tanımlamamıza izin verir, bunun için bilmemiz gereken life cycle func larıdır, sadece beforeCreate ve created hem client side hemde server side da çalışır, diğer yaşam döngüsü func client side da çalışır, plugins > notifications.js yapalım, içinde vue notifications ı kullanmak istiyoruz, dosyaya yazdım açıklamaları, 
+
 
 
 
