@@ -68,8 +68,22 @@ js pluginleri tanımlamamıza izin verir, bunun için bilmemiz gereken life cycl
 bazı plug inler sadece client yada sadece server side da çalışabilir bunu da plugin nuxt.config.js de şu şekilde belirtebiliriz; {src:'~plugins/notification', mode:'client'},
 veya bununla uğraşmayıp dosyanın adını değiştirerek mesela notification.client.js şeklinde 
 
-PLUGIN ile ÇALIŞMIYOR
+PLUGIN ile 
 
+nuxt funcs module
+
+nuxt ile uygulama geliştirirken bazen yeterli olmayan şeyler olduğunda bunu moduller ile nuxt ın neredeyse her tarafı özelleştirilebilir, modul ekleneblir, hazır gelen modullerde var bunları zaten proje oluşturulurken soruyor, axios gibi pwa gibi, kendi yazdığımız modulleride nuxt.config.js deki module kısmına eklememiz lazım, bir module yazalım
+
+modules klasörü yoksa yapıp içine modules > simple.js yapalım, 
+export default function SimpleModule(moduleOptions){
+
+}
+
+modules.export.meta=require('./package.json')
+
+bunları yukarıdaki şekilde export edersek npm olarak yayınlayabiliriz. 
+
+nuxt.config.js e de kaydedelim, modules kısmına '~/modules/simple', ekleriz
 
 
 
