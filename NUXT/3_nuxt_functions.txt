@@ -87,7 +87,10 @@ nuxt.config.js e de kaydedelim, modules kısmına '~/modules/simple', ekleriz
 
 nuxt transition - scrolltop vb işlemler
 index.vue içine transition ekleyelim,
-github ifadesi transition lu olsun
+github ifadesi transition lu olsun, transition a da name="test" dememiz lazım
+burada .test-leave-to{...} şeklindebir css de buna hazırlayabiliriz, 
+veya asset in içine global bir main.css hazırlayabilğiriz, bu css dosyasonıoda nuxt.config.js de tanıtıp kullanabiliriz, 
+ayrıca css leri transition içine attribute olarakta koyabiliriz, bunlarıstyle da da tanımlayabiliriz burada da tanımlayabilğiriz, 
 
 
 
