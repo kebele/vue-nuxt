@@ -85,6 +85,12 @@ bunları yukarıdaki şekilde export edersek npm olarak yayınlayabiliriz.
 
 nuxt.config.js e de kaydedelim, modules kısmına '~/modules/simple', ekleriz
 
+nuxt transition - scrolltop vb işlemler
+index.vue içine transition ekleyelim,
+github ifadesi transition lu olsun
+
+
+
 
 
 

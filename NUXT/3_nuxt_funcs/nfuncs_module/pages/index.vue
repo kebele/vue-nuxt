@@ -20,7 +20,9 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
+          <transition>
           GitHub
+          </transition>
         </a>
       </div>
     </div>
@@ -28,7 +30,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  transition : {
+    name: 'test',
+    mode:'out-in' //nuxt da standart bu
+  }
+}
 </script>
 
 <style>
