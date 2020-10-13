@@ -4,3 +4,11 @@ firebase ile auth işlemleri yapacağız,
 kurulumda bootstrap-vue ekledik
 daha sonra proje dizinine gidip kullanacağımız npm paketlerini yükleyeceğiz
 npm i js-cookie cookieparser jwt-decode firebase -s
+package.json dan kontrol
+bunların her birinin ne oldu. kulanımları vs. npmjs de var
+firebase de bir proje oluşturalım, nuxt-auth isimli, anaytics hesabımız olmadığı için bunu seçmeyelim, proje hazırladnıktan sonra authentication a gidip sign in method da e postay aktifleşirelim,
+kodumuza geri dönüp vuex methodlarını oluşturalım,
+store > users > index.js 
+yapalım burada user lrın kayıt işlemlerini yapacağız, 
+cd authX 
+npm run dev
