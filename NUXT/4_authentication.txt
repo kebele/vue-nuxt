@@ -10,6 +10,8 @@ firebase de bir proje oluşturalım, nuxt-auth isimli, anaytics hesabımız olma
 kodumuza geri dönüp vuex methodlarını oluşturalım,
 store > users > index.js burada kullanıcıya yönelik stateler
 store.index.js de ise nuxt server başlatılırken kullanıcı var mı yok mu kontrolü
-yapalım burada user lrın kayıt işlemlerini yapacağız, 
+yapalım burada user ların kayıt işlemlerini yapacağız, 
+services > firebase.js yapıp burada da firebase e ilişkin işlemleri yapacağızpages içinden signup.vue ile gerekli sayfaları hazırlayacağız
+
 cd authX 
 npm run dev
