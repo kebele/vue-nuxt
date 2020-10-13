@@ -18,13 +18,14 @@ export const actions = {
     const parsedCookie = cookieparser.parse(req.headers.cookie);
 
     //eğer bu parse edilmiş cookie de access_token yoksa çık
-    if (!parsedCookie.access_token) return;
+    const parsedToken = parsedCookie.access_token;
+    if (!parsedToken) return;
 
     //burada kullandığımız access_token JWT ile şifreli halde bunu çözmemiz lazım
-    const decoded = JWTDecode(parsedCookie.access_token);
+    const decoded = JWTDecode(parsedToken);
     // cookide ki bilgilerei decoded e atadık şimdi bunları users > index.js ye gönderelim
     if (decoded) {
-      commit("saveUser", {
+      commit("users/saveUser", {
         email: decoded.email,
         uid: decoded.user_id
         //buradaki email ve user_id response ile dönen veride bulunanlar yani consolden çıktı alsaydık firebase den bize bu isimlerle dönecek,

@@ -1,7 +1,7 @@
+//signup sayfasından kopyalayıp, düzenleyelim
+
 <template>
   <div class="container">
-    <!-- bootstrap vue yu projeyi kurarken eklediğimiz için gidip direkt componentlerden alıp burada kullanabiliriz -->
-    <!-- fomlardan alalım -->
     <b-form @submit.stop.prevent>
       <b-form-group
         id="input-group-1"
@@ -28,7 +28,7 @@
         Your password must be 8-20 characters long, contain letters and numbers,
         and must not contain spaces, special characters, or emoji.
       </b-form-text>
-      <b-button @click="signup" variant="outline-primary">sign up</b-button>
+      <b-button @click="signin" variant="outline-primary">sign in</b-button>
     </b-form>
   </div>
 </template>
@@ -44,10 +44,10 @@ export default {
     }
   },
   methods: {
-    signup(){
-      //burada kayıt için vuex e ulaşacağız, ilk çağıracağımız action, çünkü action state i değiştirecek mutation u tetikliyor, 
-      // burada dispatch ile önce createUser a göndereceğiz, createUser bizden email ve password bilgisini bekliyor (store daki index.js ye bak), bunun içinde v-model ile bunları bağlamaız gerekiyor, zaten email bağlanmıştı, password u da bağlayalım, v-model="form.password"
-      this.$store.dispatch("users/createUser", this.form)
+    signin(){
+      //burada signin için vuex e ulaşacağız, ilk çağıracağımız action, çünkü action state i değiştirecek mutation u tetikliyor, 
+      // burada dispatch ile önce signin a göndereceğiz, singin bizden email ve password bilgisini bekliyor (store daki index.js ye bak), bunun içinde v-model ile bunları bağlamaız gerekiyor, zaten email bağlanmıştı, password u da bağlayalım, v-model="form.password"
+      this.$store.dispatch("users/singin", this.form)
         .then(()=>{
           this.$router.push("/")
         })
@@ -58,10 +58,7 @@ export default {
   },
 };
 /* 
-denememizi yapıp firebase e baktığımızda elemanın kaydolduğunu görürüz, 
-console da da auth nesnesi içnde bir sürü bilgi var,
-kayıt işlemi sıkıntısız yapılıyor, jwt bilgisi cookie alınıyor, sıkıntı yok
-kullanıcı oluşturabiliyoruz, firebase e kaydedebiliyoruz, 
+problemsiz şekilde singin çalışıyor şimdi index.vue da en yukarıya bir log out ekleyelim, ayrıca firebase de confirmasyon maili gönderme gibi opsiyonlarıda yapabiliriz
 */
 </script>
 
