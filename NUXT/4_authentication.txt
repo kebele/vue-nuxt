@@ -8,7 +8,8 @@ package.json dan kontrol
 bunların her birinin ne oldu. kulanımları vs. npmjs de var
 firebase de bir proje oluşturalım, nuxt-auth isimli, anaytics hesabımız olmadığı için bunu seçmeyelim, proje hazırladnıktan sonra authentication a gidip sign in method da e postay aktifleşirelim,
 kodumuza geri dönüp vuex methodlarını oluşturalım,
-store > users > index.js 
+store > users > index.js burada kullanıcıya yönelik stateler
+store.index.js de ise nuxt server başlatılırken kullanıcı var mı yok mu kontrolü
 yapalım burada user lrın kayıt işlemlerini yapacağız, 
 cd authX 
 npm run dev
