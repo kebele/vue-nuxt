@@ -32,7 +32,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      form : {
+        email :"",
+        password : ""
+      }
+    }
+  }
+};
 </script>
 
 <style scoped></style>
