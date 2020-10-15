@@ -16,9 +16,14 @@ midlleware > authenticated.js oluşturalım,
     const isUserAuth = store.state.users.user;
     //isUserAuth varsa state içinde bir user var yani kullanıcı giriş yapmış demek
     //kullanıcı kayıt yaptıysa yani içerideyse signup sayfasına gitmesin
-    if(isUserAuth && route.path == "/signup"){
-        redirect("/")
+    // if(isUserAuth && route.path == "/signup"){
+        // redirect("/")
         //kulanıcı sisteme kayıt yapmış ve path i signup ise bunu ana sayfaya yönlendir
+    if(isUserAuth === null && route.path === "/profile"){
+        redirect("/login/singin")
+        //profile gitmek istedim ama kullanıcı kaydımız yoksa sistemde singin sayfasına git
+        //deneyelim ana sayfadan profile gitmek istedik, bizi signin e yollar
+        
     }
  }
 

@@ -13,8 +13,10 @@
       <!-- </b-collapse> -->
       <b-navbar-nav class="ml-auto">
           <!-- bu class en sağa atar -->
-        <b-button @click="logout" variant="outline-primary">log out</b-button>
+          <n-nav-text>{{ this.$store.state.users.user ? this.$store.state.users.user.email : "please login"}}</n-nav-text>
+        
       </b-navbar-nav>
+      <b-button :style="{marginLeft: '10px'}" @click="logout" variant="outline-primary">log out</b-button>
     </b-navbar>
   </div>
 </template>
@@ -28,6 +30,7 @@ export default {
     async logout(){
       await auth.signOut(); //sign out işlemi
       await Cookie.remove("access_token") //cookie silme işlemi
+      this.$router.push("/login/singin")
     }
   },
 };

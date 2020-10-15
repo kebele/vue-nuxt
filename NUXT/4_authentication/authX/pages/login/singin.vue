@@ -50,7 +50,9 @@ export default {
       // burada dispatch ile önce signin a göndereceğiz, singin bizden email ve password bilgisini bekliyor (store daki index.js ye bak), bunun içinde v-model ile bunları bağlamaız gerekiyor, zaten email bağlanmıştı, password u da bağlayalım, v-model="form.password"
       this.$store.dispatch("users/singin", this.form)
         .then(()=>{
-          this.$router.push("/")
+          // this.$router.push("/")
+          this.$router.push("/profile")
+          //kaydolduğumuzda bizi profile sayfasına yollasın
         })
         .catch(err=>{
           console.log(err)

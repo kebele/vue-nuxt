@@ -15,6 +15,8 @@
           type="email"
           required
           placeholder="Enter email"
+          :state="validEmail(form.email)"
+
         ></b-form-input>
       </b-form-group>
       <label for="text-password">Password</label>
@@ -23,10 +25,10 @@
         type="password"
         id="text-password"
         aria-describedby="password-help-block"
+        :state="validPassword(form.password)"
       ></b-input>
       <b-form-text id="password-help-block">
-        Your password must be 8-20 characters long, contain letters and numbers,
-        and must not contain spaces, special characters, or emoji.
+        Your password must be 8-20 characters long, contain letters and numbers
       </b-form-text>
       <b-button @click="signup" variant="outline-danger">sign up</b-button>
     </b-form>
@@ -50,11 +52,21 @@ export default {
       // burada dispatch ile önce createUser a göndereceğiz, createUser bizden email ve password bilgisini bekliyor (store daki index.js ye bak), bunun içinde v-model ile bunları bağlamaız gerekiyor, zaten email bağlanmıştı, password u da bağlayalım, v-model="form.password"
       this.$store.dispatch("users/createUser", this.form)
         .then(()=>{
-          this.$router.push("/")
+          // this.$router.push("/")
+          this.$router.push("/profile")
         })
         .catch(err=>{
           console.log(err)
         })
+    },
+    validEmail: function (email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    validPassword : function(password){
+      if(password.length >= 8 && password.length <= 20){
+        return true
+      } else return false
     }
   },
 };

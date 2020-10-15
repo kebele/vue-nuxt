@@ -38,3 +38,9 @@ components > NavbarRegisteredUser.vue hazırlayalım,
 içini NavbarAnonymousUser ın içini alıp düzenleyelim, daha sonra layouts > registeredUser.vue layout unu oluşturalım, 
 bu layout u profile.vue da kullanacağız, 
 
+singin, sign out, profile sayfası vb işlemler tamam, şimdi birde validasyonları ekleyelim, bunun için vue docs a gidip form validation a gideceğiz, validEmail function u alıp, signup.vue ya gidelim, method olarak ekleyip, template deki e mail kısmına :state="validEmail(form.email)" ekleyeceğiz, problem yok, denemesini yap, 
+password u da benzer mantıkla hazırlayacağız
+denemeleri yaptık 
+problem yok
+ 
+
