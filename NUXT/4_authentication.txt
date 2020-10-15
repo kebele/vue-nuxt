@@ -7,11 +7,34 @@ npm i js-cookie cookieparser jwt-decode firebase -s
 package.json dan kontrol
 bunların her birinin ne oldu. kulanımları vs. npmjs de var
 firebase de bir proje oluşturalım, nuxt-auth isimli, anaytics hesabımız olmadığı için bunu seçmeyelim, proje hazırladnıktan sonra authentication a gidip sign in method da e postay aktifleşirelim,
+
+cd authX 
+npm run dev
+
 kodumuza geri dönüp vuex methodlarını oluşturalım,
 store > users > index.js burada kullanıcıya yönelik stateler
 store.index.js de ise nuxt server başlatılırken kullanıcı var mı yok mu kontrolü
 yapalım burada user ların kayıt işlemlerini yapacağız, 
 services > firebase.js yapıp burada da firebase e ilişkin işlemleri yapacağızpages içinden signup.vue ile gerekli sayfaları hazırlayacağız
+singin ve signout sayfalarını hazırladık, log out u hazırladık, bunları store a bağladık, açıklamalar kendi içlerinde var
+middleware yaparak yetkilendirme yapabiliriz, belli ara katmanlar oluşturabiliriz. Bununla mesela kullanıcı sisiteme girmemişse belli sayfaları görüntülenmesini engelleyebiliriz,
+midlleware > authenticated.js oluşturalım, 
+şimdi sayfaları düzenleyelim ve validasyon kısımlarını ekleyelim
+klasör yapısında pages > login > singin.vue ve signup.vue yapalım
+ayrıca pages > profile.vue yapalım, bu sayfayı sadece kayıtlı kullanıcılar görecek, bunun için middleware den gerekli düzenlemeyi yapacağız, 
+profile sayfasını hazırlarken bootstrap vue dan bir navbar alalım, 
+kayıtlı kullanıcılar için ayrı, kayıtsız kullanıcılar için ayrı navbar oluşturmak
+components > NavbarAnonymousUser.vue içine navbarı koyuyoruz, 
+layouts > default.vue ya gidip css leri temizliyoruz, 
+    nuxt ın üzerine NavbarAnonymousUser 
+ekleyip denemyi yapalım, http://localhost:3000/login/signup adresi ile sorunsuzca gittik.
+şu anda default.vue layoutunda kullandık, kendi ayrı layout unda kullanabilir miyiz?
+ayrı layut yapalım
+layouts > anonymousUser.vue yapalım ve default.vue layoutundaki kodun buraya yapıştıralım, default.vue layoutundaki anonymous ile ilgili kısımları silelim, şu anda anonymousUser.vue layou u hiç bir yerde kullanılmıyor bunu nasıl yapacağız, pages > login >signup.vue ve signin.vue ya gidip ikisinide layout: "anonymounUser" özelliğini veriyoruz
+şu anda iki sayfada da navbarımız var ancak ana sayfada yok, 
+şimdi kayıtsız kullanıcı için sayfalar vs. hazır
+artık kayıtlı olan kullanıcı sayfalarını yapalım
+components > NavbarRegisteredUser.vue hazırlayalım, 
+içini NavbarAnonymousUser ın içini alıp düzenleyelim, daha sonra layouts > registeredUser.vue layout unu oluşturalım, 
+bu layout u profile.vue da kullanacağız, 
 
-cd authX 
-npm run dev

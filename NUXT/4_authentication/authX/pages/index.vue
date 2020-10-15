@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <!-- buraya bir log out butonu koyalım -->
-      <b-button @click="logout" variant="outline-primary">log out</b-button>
+      <!-- <b-button @click="logout" variant="outline-primary">log out</b-button> -->
       <Logo />
       <h1 class="title">
         authX
@@ -30,16 +30,16 @@
 </template>
 
 <script>
-import {auth} from "@/services/firebase"
-import Cookie from "js-cookie" 
+// import {auth} from "@/services/firebase"
+// import Cookie from "js-cookie" 
 
 export default {
-  methods: {
-    async logout(){
-      await auth.signOut();
-      await Cookie.remove("access_token")
-    }
-  },
+  // methods: {
+  //   async logout(){
+  //     await auth.signOut(); //sign out işlemi
+  //     await Cookie.remove("access_token") //cookie silme işlemi
+  //   }
+  // },
 }
 </script>
 

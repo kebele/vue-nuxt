@@ -15,7 +15,10 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
   ],
-
+  //router ı yeni açıyoruz, her router yönlendirmesinde nuxt aşağıya yadığımız middleware leri kontrol edecek
+router:{
+  middleware : ["authenticated"]
+},
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
