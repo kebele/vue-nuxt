@@ -6,6 +6,7 @@
                     <span class="brandHeader">kebele</span>
                     <p class="infoText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, dignissimos!</p>
                     <span class="phoneText">phone : +90 555 555 5555</span>
+                    <br>
                     <span>info@kebele.com</span>
                     <br>
                     <img class="imgInstagram" src="https://www.transparentpng.com/thumb/logo-instagram/YfpFOL-logo-instagram-free-transparent.png" alt="Logo Instagram Free Transparent @transparentpng.com">
@@ -52,7 +53,7 @@
         flex-direction: column;
         /* justify-content: center; */
         align-items: center;
-        position: fixed;
+        /* position: fixed; */
         left: 0;
         bottom: 0;
         width: 100%;

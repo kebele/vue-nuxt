@@ -9,4 +9,6 @@ npm run dev
 * layouts > default.vue daki style silelim, script ekleyip UnregisteredUserNavbar.vue yu import edip kullanıma alalım, <nuxt/> üstüne koyalım, sıkıntısız çalışıyor, 
 searchbar bulalım ve ekleyelim, 
 
-* footer ekleyelim, TheFooter.vue hazırladık (vue tek kelimelik comp isimlendirmede başına the koyun diyor), index.vue yu temizleyelim,  default layoutta <nuxt/> altına koyalım
+* footer ekleyelim, TheFooter.vue hazırladık (vue tek kelimelik comp isimlendirmede başına the koyun diyor), index.vue yu temizleyelim,  default layoutta <nuxt/> altına koyalım, 
+
+* anasayfadaki slider ve onun altında göstereceğimiz ürünlerin componentlerini yapalım, bootstrap vue dan carousel alalım, gerekli düzenlemeleri yaptıktan sonra index.vue ya import edelim, 
