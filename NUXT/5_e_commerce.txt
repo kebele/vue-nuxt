@@ -5,4 +5,5 @@ cd e_comm_nuxt
 npm run dev
 
 * kayıtsız kullanıcılar için nav bar yapalım, components > UnregisteredUserNavbar.vue yapalım, bootstrap vue dan navbar ekleyelim, 
-*layouts > default.vue daki style silelim, script ekleyip UnregisteredUserNavbar.vue yu import edip kullanıma alalım
+*layouts > default.vue daki style silelim, script ekleyip UnregisteredUserNavbar.vue yu import edip kullanıma alalım, <nuxt/> üstüne koyalım, sıkıntısız çalışıyor, 
+searchbar bulalım ve ekleyelim, 
