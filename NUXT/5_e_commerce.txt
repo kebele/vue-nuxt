@@ -14,3 +14,5 @@ searchbar bulalım ve ekleyelim,
 * anasayfadaki slider ve onun altında göstereceğimiz ürünlerin componentlerini yapalım, bootstrap vue dan carousel alalım, gerekli düzenlemeleri yaptıktan sonra index.vue ya import edelim, gerekli düzenlemeleri yapalım
 
 * şimdi slider ın altına vitrin ürünleri kısmını yapalım, ürün vitrini için bir döngü koyacağız, 
+
+* kategori menusu yapalım, akordeon menu yapalım, bootstrap vue dan collapsedan,  components > CategoriesAccordionMenu.vue yapup bootstrap dan aldığımız kodu buraya yapıştırıyoruz, index.vue da import edip kullanacağız, 

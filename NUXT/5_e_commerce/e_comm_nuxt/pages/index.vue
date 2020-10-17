@@ -2,19 +2,22 @@
   <div class="mainContainer">
     <TheSlider/>
     <!-- ürün vitrini koyacağız -->
-    <div class="productsList">
-      <div v-for="i in 12" :key="i" class="productArea">
-      product
+    <div class="centerArea">
+      <CategoriesAccordionMenu/>
+      <div class="productsList">
+      <div v-for="i in 12" :key="i" class="productArea">product</div>
     </div>
-    </div>
+    </div>    
   </div>
 </template>
 
 <script>
 import TheSlider from '../components/TheSlider'
+import CategoriesAccordionMenu from '../components/CategoriesAccordionMenu';
 export default {
   components : {
     TheSlider,
+    CategoriesAccordionMenu
   }
 }
 </script>
@@ -25,6 +28,11 @@ export default {
     flex-direction: column;
     width: 100%;
     align-items: center;
+  }
+  .centerArea{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
   }
   .productsList{
     display: flex;
