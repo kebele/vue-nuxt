@@ -1,3 +1,10 @@
+
+
+*********************   proje burada     *****************************
+C:\kml\DEVELOPER\VUE\VUE_github\vue-nuxt\NUXT\5_e_commerce
+**********************************************************
+
+
 npx create-nuxt-app e_comm_nuxt
 sadece bootstrap vue ekledik
 github da development ve experimental brnach oluşturduk
