@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .mainContainer{
     display : flex;
     flex-direction: column;

@@ -15,4 +15,6 @@ searchbar bulalım ve ekleyelim,
 
 * şimdi slider ın altına vitrin ürünleri kısmını yapalım, ürün vitrini için bir döngü koyacağız, 
 
-* kategori menusu yapalım, akordeon menu yapalım, bootstrap vue dan collapsedan,  components > CategoriesAccordionMenu.vue yapup bootstrap dan aldığımız kodu buraya yapıştırıyoruz, index.vue da import edip kullanacağız, 
+* kategori menusu yapalım, akordeon menu yapalım, bootstrap vue dan collapsedan,  components > CategoriesAccordionMenu.vue yapup bootstrap dan aldığımız kodu buraya yapıştırıyoruz, index.vue da import edip kullanacağız, caterorg kısmıda accordion yapısı ile hazır,
+
+* tek bir ürün için fiyat miktar bilgisini hazırlayalım, pages > products > _id.vue yapalım, index.vue içindekileri kopyalayıp _id.vue ya yapıştırıyoruz, _id.vue da slider ı kaldıralım, grekli açıklamalar _id.vue da 
