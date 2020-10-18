@@ -3,7 +3,7 @@
     <TheSlider/>
     <!-- ürün vitrini koyacağız -->
     <div class="centerArea">
-      <CategoriesAccordionMenu/>
+      <CategoriesAccordionMenu class="accordionMenu"/>
       <div class="productsList">
       <div v-for="i in 12" :key="i" class="productArea">product</div>
     </div>
@@ -33,6 +33,12 @@ export default {
     display: flex;
     flex-direction: row;
     width: 80%;
+  }
+  .accordionMenu{
+    width: 20%;
+    padding: 10px;
+    margin-left: 20px;
+    background-color: gray;
   }
   .productsList{
     display: flex;
