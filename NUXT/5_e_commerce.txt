@@ -4,6 +4,12 @@ github da development ve experimental brnach oluşturduk
 cd e_comm_nuxt
 npm run dev
 
+*** kaynak kodlar ***
+
+https://github.com/hihurmuz/e-commerce-with-nuxt
+
+
+
 * kayıtsız kullanıcılar için nav bar yapalım, components > UnregisteredUserNavbar.vue yapalım, bootstrap vue dan navbar ekleyelim, 
 
 * layouts > default.vue daki style silelim, script ekleyip UnregisteredUserNavbar.vue yu import edip kullanıma alalım, <nuxt/> üstüne koyalım, sıkıntısız çalışıyor, 
@@ -18,3 +24,6 @@ searchbar bulalım ve ekleyelim,
 * kategori menusu yapalım, akordeon menu yapalım, bootstrap vue dan collapsedan,  components > CategoriesAccordionMenu.vue yapup bootstrap dan aldığımız kodu buraya yapıştırıyoruz, index.vue da import edip kullanacağız, caterorg kısmıda accordion yapısı ile hazır,
 
 * tek bir ürün için fiyat miktar bilgisini hazırlayalım, pages > products > _id.vue yapalım, index.vue içindekileri kopyalayıp _id.vue ya yapıştırıyoruz, _id.vue da slider ı kaldıralım, grekli açıklamalar _id.vue da 
+
+* client kısmı tamam sayılır, sıra server kısmında bunun için node ve mongo ya ,ihtiyacımız var, 
+
