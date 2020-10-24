@@ -34,3 +34,17 @@ searchbar bulalım ve ekleyelim,
 
 * client kısmı tamam sayılır, sıra server kısmında bunun için node ve mongo ya ,ihtiyacımız var, 
 
+****** SERVER ******
+
+* bu aşamda bir server ve admin paneline ihtiyacımız var, server klasörü açıp oradan devam edelim
+
+* npm init -y ile bir nodejs projesi başlatacağız,  
+* npm i express 
+body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile kullanacağımız paketleri yüklüyoruz
+
+* .env çevresel değişkenlerimiz burada olacak ve server.js yaptık, routes ve models isimli klasörlerimizi de hazırladık, models de schemalar routes de yönlendirmeler olacak, models > user.js ve product.js hazırladık, routes > product.js ve authentication.js hazırladık, 
+
+* server.js e gidip, server ı hazırlayalım, açıklamalar orada
+
+* database işlemleri için mongo işlrini yapalım, mongo da cluster oluşturup bize connect için verdiği kodu kopyalaytıp .env ye gidip DATABASE = mongonun verdiği kod bunu env ye yazıp server.js de kullnamamızın sebebi buradaki user ve password un takip edilmemeis..., gidip server.js de bunu kullanalım ve denemesini yapalım, 
+
