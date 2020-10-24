@@ -66,3 +66,11 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 * admin panelinde, ürün yükleme, silme, güncelleme gibi işlemler olacak, 
 
+* pages > product > create.vue yaptık, yeni ürün ekleyacağimiz sayfa olsun, components > TheNavbar.vue yapalım ve bootstrap vue dan bir navbar koyalım, layouts > default.vue ya gidip bu TheNavbar.vue yu ekleyelim, bazı düzenlemeleri yapalım kendimize göre,
+
+* pages > product > create.vue içini düzenleyelim, ve ayrıca TheNavbar.vue da create ın yolunuda ayarlayalım, <b-dropdown-item href="/product/create">create</b-dropdown-item> şeklinde
+
+* şimdi create.vue içinde ürün ekleme yapısını yapalım ve eklediğimiz ürünü server üzerinden mongo db ye kaydedelim
+
+* 
+
