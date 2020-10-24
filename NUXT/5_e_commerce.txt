@@ -54,9 +54,15 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 * token ı verify etmek için gerekli midlleware yapısını kuracağız, middleware klasörü > verify-token.js içerisinde token kontrol işlemleri yapılacak, token routes > authentication içinde oluşturulacak
 
-* authentication.js de kullanıcıyı siteme kayıt etmek, daha onra zaten kayıtlı bir kullanıyı sisteme almayı yapacağız
+* authentication.js de kullanıcıyı siteme kayıt etmek, daha onra zaten kayıtlı bir kullanıyı sisteme almayı yapacağız, node server deyip denedik, body-parser deprecated olmuş onun dışında sıkıntı yok,
 
 * routes > product.js i hazırlayalım, product ı hazırladıktan sonra server.js ye gidip server ı toparlayalım, 
 
 * admin panelinide hazırladıktan sonra denemeleri yapacağız,
+
+******* ADMIN paneli *********
+
+* admini nuxt ile yapacağız,
+
+* admin panelinde, ürün yükleme, silme, güncelleme gibi işlemler olacak, 
 
