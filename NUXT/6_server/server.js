@@ -5,14 +5,22 @@ const dotenv = require("dotenv") // çevresel değişkenler için
 const cors = require("cors") // dış bağlantılar için 
 const bodyParser = require("body-parser") // gelen datayı kontrol ve dönüştürmek için
 const mongoose = require("mongoose") // mongo db ye bağlanmak için
+// bütün diğer dosyaları, öodels içini routers içindekileri hazırladık artık route ları buraya getirelim
+const productRoutes = require("./routes/product")
+const userMethods = require("./routes/authentication")
 
 
 const app = express();
 
 app.use(cors());
-app.use(morgan("dev")) // http istekleri için 
+app.use(morgan("dev")) // http istekleri için, dev dışında başka farklı ayarlarda var, şu anda dev ortamında old. için bu ayarı verdik 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extends:false}))
+
+//routes ları kullanalım
+app.use("/api", productRoutes)
+app.use("/api", userMethods)
+//server yapısını tamamladık,
 
 dotenv.config()
 
