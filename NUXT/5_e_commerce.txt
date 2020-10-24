@@ -46,5 +46,14 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 * server.js e gidip, server ı hazırlayalım, açıklamalar orada
 
-* database işlemleri için mongo işlrini yapalım, mongo da cluster oluşturup bize connect için verdiği kodu kopyalaytıp .env ye gidip DATABASE = mongonun verdiği kod bunu env ye yazıp server.js de kullnamamızın sebebi buradaki user ve password un takip edilmemeis..., gidip server.js de bunu kullanalım ve denemesini yapalım, 
+* database işlemleri için mongo işlrini yapalım, mongo da cluster oluşturup bize connect için verdiği kodu kopyalaytıp .env ye gidip DATABASE = mongonun verdiği kod bunu env ye yazıp server.js de kullnamamızın sebebi buradaki user ve password un takip edilmemeis..., gidip server.js de bunu kullanalım ve denemesini yapalım, başarılı mongo db ile bağlantımızı kurduk
+
+* models > user.js içinde mongo db için kullanaağımız schemayı oluşturalım, bu arada brycpt-node paketi deprecate olmuş onun yerine bcryptjs yükleyelim npm i bcryptjs -s 
+
+* user schema ve product schema ları models klasörü içinde hazırladık, 
+
+* token ı verify etmek için gerekli midlleware yapısını kuracağız, middleware klasörü > verify-token.js içerisinde token kontrol işlemleri yapılacak, token routes > authentication içinde oluşturulacak
+
+* authentication.js de kullanıcıyı siteme kayıt etmek, 
+
 

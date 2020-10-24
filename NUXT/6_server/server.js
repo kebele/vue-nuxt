@@ -1,10 +1,10 @@
 // server ımızı oluşturalım, importlarımızı alalım, midlleware leri hazılayalım
-const express = require("express")
-const morgan = require("morgan")
-const dotenv = require("dotenv")
-const cors = require("cors")
-const bodyParser = require("body-parser")
-const mongoose = require("mongoose")
+const express = require("express") // server oluşturmak için
+const morgan = require("morgan") //http istekleri için
+const dotenv = require("dotenv") // çevresel değişkenler için
+const cors = require("cors") // dış bağlantılar için 
+const bodyParser = require("body-parser") // gelen datayı kontrol ve dönüştürmek için
+const mongoose = require("mongoose") // mongo db ye bağlanmak için
 
 
 const app = express();
