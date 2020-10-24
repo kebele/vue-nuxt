@@ -72,5 +72,7 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 * şimdi create.vue içinde ürün ekleme yapısını yapalım ve eklediğimiz ürünü server üzerinden mongo db ye kaydedelim
 
+* create.vue da bootstrap  vue dan form group dan card grubunu alalım, description da form tags kullanacağız (bootstrap vue dan), category içinde bootstrap vue dan form select alalım, main ve sub category leri hazırladık, şimdi main e göre değişen sub category leri hazırlayalım, 
+
 * 
 
