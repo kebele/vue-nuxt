@@ -182,5 +182,23 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 ******** KULLANICI KAYDI *********
 
+* önceki bölümde db ye ürün yolladık, kaydttik, çektik update ettik vs. 
 
+* burada kullanıcı kaydı yapcağız,bunun için server da authentication da newUser ı düzenleyelim biraz, models > user.js de bir hata var onu düzeltelim, 
 
+* şimdi e-commerce e gidip çalıştıralım, npm run dev, sonrasında unregisteredUserNavbar.vue ya gidip bazı yerleri değiştirelim, unregisteredusernavbar ın adını değiştirdik
+
+* TheNavbar.vue ya gidip yeni düzenlemelerimiz yapalım, signin signup kaldırıp yenine login koyacağızbuna tıklayınca bir modal açılaa işlemleri oradan yapacağız, bootstrap vue dan modal alalım, modal da açılma nın login ile olmasını yaptık, bootstrap vue dan gelen buton kısmını sildik, şimdi bir tab alalım ve modal içne koyalım
+
+* daha sonra form group a gidip modal içinde yer alacak formu koyalım ve düzenleyelim, 
+
+* artık data yı ve signup methodunu hazırlayalım, burada async olacak userData tanımladık, bunları formdan alıp, axios ile aythentication daki signup a parametre olarak yollayacak, bu arada cookie paketini yükleyelim, npm i -s js-cookie ve TheNavbar.vue ya import edip kullanalım, methodu hazırladık, sign up butonuna bağladık, formu doldurduk yolladık ancak $post hatası verdi sebebini nuxt.config.js de görüyoruz burada axios eklemedik pakete bunu ekleyelim, durdurup axios u yükleyelim, npm i -s @nuxtjs/axios
+yüklediktyen sonra daha önce admin kısmını yaparken axios yüklemiştik oradaki nuxt.config.js e fidip axios için ilgili kısmı koyalayıp buradaki uxtconfig e koyalım,
+
+* signup formu doldurduk, yolladık ve consolöden dönüş geldi başarılı,
+
+* burada dikkat edilecek konu, mongoya bağlı mıyız, server çalışıyor mu? 
+
+* apllication kısmından token ı kopyalayıp jwt decode sitesine gidip kontorlu yapalımi, evet decode edilmiş tokan bizim signup a yazdıklarımız la aynı sıkıntı yok, mongo dan da user kısmından kontrol eelim sıkıntı yok oraya da gelmiş, sadece password kısmında bir hata var o gelmemiş düzeltilecek, 
+
+* 

@@ -10,7 +10,7 @@ const jsonwebtoken = require("jsonwebtoken");
 
 //post işlemimizi yapalım
 //burada yeni kayıt
-router.post("/authentication/singup", async (req, res) => {
+router.post("/authentication/signup", async (req, res) => {
   if (!req.body.email || !req.body.password) {
     //email yada password yoksa
     //o zman bu mesajı verecek
@@ -21,14 +21,18 @@ router.post("/authentication/singup", async (req, res) => {
   } else {
     try {
       // hem email hemde passwoprd varsa o zaman yeni user oluşturacak
-      let newUser = new User();
-      newUser.name = req.body.name; //body den name olarak bir degişken gelecek bunu buna ata
-      newUser.email = req.body.name;
-      newUser.password = req.body.password;
-      newUser.phone = req.body.phone;
-      newUser.address = req.body.address;
+      let newUser = new User({
+      name : req.body.name, //body den name olarak bir degişken gelecek bunu buna ata
+      email : req.body.name,
+      password : req.body.password,
+      phone : req.body.phone,
+      address : req.body.address,
+      });
+      
       //
-      await newUser.save();
+      let result = await newUser.save();
+      console.log("result : " + result )
+      // await newUser.save();
       // buradan bize bir token dönecek, daha önce tokan işlemlerini hazırlamıştık bize tokan lazımdı, işte await ile newUser hazırlandı burada da bu newUser daki bilgileri jsona çevir ve token olarak ata dedik, içine de SECRET_KEY'i veriyoruz
       let token = jsonwebtoken.sign(newUser.toJSON(), process.env.SECRET_KEY, {
         expiresIn: 31536000, //saniye olarak 1 yıl, bu tokan ın geçerlilik süresi
