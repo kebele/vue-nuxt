@@ -82,7 +82,105 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 * server ı çalıştıralım, cd server dan node server ile server ı çalıştıralım, bu 8080 de çalışıyor, admin panelide 8000 de çalışıyor, 
 
-* create a bir metod atayalım, createProduct(){
+* create a bir metod atayalım, 
+      methods: {
+    async createProduct(){
+      let newProduct = {
+        title : this.title,
+        price : this.price,
+        stockNumber : this.stockNumber,
+        description : this.description,
+        photo : this.photo,
+        mainCategory : this.mainCategory,
+        subCategory : this.subCategory,
+      };
+      let result = await this.$axios.$post("http://localhost:8080/api/product",newProduct);
+      console.log(result)
+    }
+  },
 
-}
+  * bir debenem daha yaptık, sıkıntı yok, şimdi bizim TheNavbar.vue da neler yapmıştık, create, delete, update, all bunlardan create yaptık şimdi update i yapalım, 
+
+  * pages > product > update.vue yapalım, TheNavbar.vue da update yolunuda ekleyelim, update.vue da bir tane input olsun bi inputtan id yollayıp o id ye ait ürünü getirelim, formu hazırladfık, yapıda id yi gireceğiz ve mongoya gidip yolladığımız id ye ilişkin ürün bilgilerini getirecek, formu oluşturduk, verdiğimiz id yi mongoya yollayıp ürün bilgilieri getiren methodu oluışturduk, 
+    methods: {
+    async getProduct() {
+      let result = await this.$axios.$get(
+        `http://localhost:8080/api/product/${this.productID}`
+      );
+      console.log(result);
+    }
+  }
+
+  * denememiz başarılı, mongodan bir id alıp update.vue da yazdık yolladık ve verileri console a yazdırdık, şimdi create benzeri bir form oluşturup bu verileri o forma yerleştirelim
+
+  * v-if koyduk ikinci div e update kısmına yani, create.vue dan options a aldık, computedlerı aldık, çektiğimiz verileri atayalım, 
+    methods: {
+    async getProduct() {
+      let result = await this.$axios.$get(
+        `http://localhost:8080/api/product/${this.productID}`
+      );
+      this.title = result.product.title
+      this.price = result.product.price
+      this.stockNumber = result.product.stockNumber
+      this.description = result.product.description
+      this.photo = result.product.photo
+      this.mainCategory = result.product.mainCategory
+      this.subCategory = result.product.subCategory
+      console.log(result);
+    }
+  }
+
+  * şimdi getirdiğimiz verileri update edip mongo ya yollayalım, hem admin hemde server da düzenlemeler yapalım, şimdi 6_server > routes > product.js de put methodunu oluşturacağız, router.put(....) hazırladık 
+    router.put("/product/:id", async (req,res) => {
+   
+    try {
+        let product = await Product.findOneAndUpdate({_id:req.params.id},{
+            $set : {
+                title : req.body.title,
+            price : req.body.price,
+            stockNumber : req.body.stockNumber,
+            description : req.body.description,
+            photo : req.body.photo,
+            mainCategory : req.body.mainCategory,
+            subCategory : req.body.subCategory,
+            }
+        }, {
+            upsert : true
+        });
+        res.json({
+            success: true,
+            updatedProduct : product
+          });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+          });
+    }
+})
+  
+  * şimdi update.vue ya gidip gerekli updateProduct methodunu oluşturalım, 
+    async updateProduct(){
+        let updatedProduct = {
+        title : this.title,
+        price : this.price,
+        stockNumber : this.stockNumber,
+        description : this.description,
+        photo : this.photo,
+        mainCategory : this.mainCategory,
+        subCategory : this.subCategory,
+      };
+      let result = await this.$axios.$put(
+        `http://localhost:8080/api/product/${this.productID}`, updatedProduct
+      );
+      console.log(result)
+    }
+
+* şimdi bunu update butonuna da bağladık, denemeyi yaptık sıkıntısız değişim yapıyor, mongodan da kontrol ettyik, problem yok,
+
+* şimdi pages > product > delete.vue yu da yapalım, şimdi server da delete i hazırlayalım, hazırladık denedik sıkıntı yok
+
+******** KULLANICI KAYDI *********
+
+
 
