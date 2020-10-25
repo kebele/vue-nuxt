@@ -74,5 +74,15 @@ body-parser mongoose dotenv cors axios bcrypt-nodejs jsonwebtoken morgan -s ile 
 
 * create.vue da bootstrap  vue dan form group dan card grubunu alalım, description da form tags kullanacağız (bootstrap vue dan), category içinde bootstrap vue dan form select alalım, main ve sub category leri hazırladık, şimdi main e göre değişen sub category leri hazırlayalım, 
 
-* 
+* bunun için computed kullanacağız, computed de selectin değişmesiyle main category, sub category konusunu tamamladık, bunlarda v-model data larımızı yazdık, atamalarını yaptık, bir buton yapacağız forma ve tıklayınca girdiğimiz veriler yoıllanacak, 
+
+* butona işlevini ekleyelim, bütün değerler girildiyse bunun için bir computed yapalım, allValueValid functionu tanımlayalım, butona da disabled dinamik yaptık ve allValueValid in değerine bağladık, allValueValid true döndüğünde buton actif olacak diğer durumlarda pasif halde yani tıklanamaz, 
+
+* bir metot tanımlayıp bu metodu butonun tıklanmasına bağlayacağız, bundan önce server a gidip category yapısını değiştrelim orada tek kategori şeklinde kurmuştuk artık bunu main ve sub haline getirdik, schema olarak yani models > product.js de değiştirdik ancak routes > product.js de de değiştirmeliyiz, 
+
+* server ı çalıştıralım, cd server dan node server ile server ı çalıştıralım, bu 8080 de çalışıyor, admin panelide 8000 de çalışıyor, 
+
+* create a bir metod atayalım, createProduct(){
+
+}
 
