@@ -23,12 +23,19 @@
           >login</b-nav-item
         >
       </b-navbar-nav>
-      <b-navbar-nav class="ml-auto" v-else>
-        <b-nav-item>{{ this.$store.state.email}}</b-nav-item
-        >
-      </b-navbar-nav>
-        <!-- bootstrap vue dan modal alaım, buna tıklayınca modal açılacak -->
+      
+      <!-- bootstrap vue dan modal alaım, buna tıklayınca modal açılacak -->
+      <b-dropdown :text="this.$store.state.email" variant="outline-primary" size="sm" class="m-2 ml-auto" right v-else>
+        <b-dropdown-item href="#">profile</b-dropdown-item>
+        <b-dropdown-item @click="userLogout">logout</b-dropdown-item>
+      </b-dropdown>
+
+<!-- dropdown ı koyduğumuz için buna gerek kalmadı -->
+      <!-- <b-navbar-nav class="ml-auto">
+        <b-nav-item>{{ this.$store.state.email }}</b-nav-item>
+      </b-navbar-nav> -->
       <div>
+
         <b-modal id="bv-modal-example" hide-footer>
           <template #modal-title>
             LOGIN
@@ -63,7 +70,7 @@
                         trim
                       ></b-form-input>
                     </b-form-group>
-                    <b-button variant="outline-primary" block>sign in</b-button>
+                    <b-button variant="outline-primary" @click="userSignIn" block>sign in</b-button>
                   </div>
                 </b-tab>
 
@@ -190,14 +197,39 @@ export default {
           //bu noktada vuex hazırlayacağız, store a gidip index.js i hazırlayalım, statei ve mutation u oluşturduk artık bunu burada çalıştırabiliriz
           this.$store.commit("setUser", {
             name: this.name,
-            email: this.email
+            email: this.email,
           });
           //butona bastıktan sonra kapansın
           //hide parametresi yukarıda modal ın en başındaki modal-id de yazıyor
-          this.$bvmodal.hide('bv-modal-example')
+          this.$bvmodal.hide("bv-modal-example");
         }
       } catch (error) {
         console.log(error);
+      }
+    },
+    async userLogout(){
+      //log out methodunda cookie silmemiz lazım ve state i boşaltmamız lazım
+       Cookie.remove("access_token");
+       //store>index.js e gidip mutations da state i boşaltacak methodu yazacağız
+       this.$store.commit("deleteUser");
+    },
+    async userSignIn(){
+      try {
+        let userData = {
+          email: this.email,
+          password: this.password,
+        };
+
+        let result = await this.$axios.$post(
+          "http://localhost:8080/api/authentication/signin",userData);
+          Cookie.set("access_token", result.token);
+          this.$store.commit("setUser", {
+            name: result.user.name,
+            email: result.user.email,
+          });
+        console.log(result);
+      } catch (error) {
+        
       }
     }
   }

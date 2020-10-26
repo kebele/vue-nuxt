@@ -5,7 +5,7 @@
 const router = require("express").Router();
 const User = require("../models/user");
 const verifyToken = require("../middleware/verify-token");
-
+const bcrypt = require("bcryptjs");
 const jsonwebtoken = require("jsonwebtoken");
 
 //post işlemimizi yapalım
@@ -23,7 +23,7 @@ router.post("/authentication/signup", async (req, res) => {
       // hem email hemde passwoprd varsa o zaman yeni user oluşturacak
       let newUser = new User({
       name : req.body.name, //body den name olarak bir degişken gelecek bunu buna ata
-      email : req.body.name,
+      email : req.body.email,
       password : req.body.password,
       phone : req.body.phone,
       address : req.body.address,
@@ -55,32 +55,55 @@ router.post("/authentication/signup", async (req, res) => {
 
 
 // zaten kayıtlı kullanıcı sisteme alma
-router.post("authentication/signin", async (req,res) => {
-    try {
-        let anyUser = await User.findOne({email : req.body.email}) // eğer bir kullanıcı varsa içine değer alacak
-        if(!anyUser){
-            res.status(403).json({
-                success : false,
-                message : "user not found..."
-            })
+// router.post("authentication/signin", async (req,res) => {
+//     try {
+//         let anyUser = await User.findOne({email : req.body.email}) // eğer bir kullanıcı varsa içine değer alacak
+//         if(!anyUser){
+//             res.status(403).json({
+//                 success : false,
+//                 message : "user not found..."
+//             })
+//         }else{
+//             if(anyUser.comparePassword(req.body.password)){
+//                 let token = jsonwebtoken.sign(anyUser.toJSON(), process.env.SECRET_KEY, {
+//                     expiresIn: 31536000, //saniye olarak 1 yıl, bu tokan ın geçerlilik süresi
+//                   });
+//             }
+//             res.json({
+//                 success: true,
+//                 token: token,
+//                 message: "user is signed in succesfull",
+//               });
+//         }
+//     } catch (error) {
+//         res.status(500).json({
+//             success: false,
+//             message: error.message,
+//           });
+//     }
+// })
+
+//SIGNIN için tamamen farklı bir yapı kuracağız
+router.post("/authentication/signin", async (req,res) => {
+  await User.findOne({email:req.body.email})
+    .then(user=>{
+      if(!user) return res.status(400).json({message:"user not found..."})
+
+      let token = jsonwebtoken.sign(user.toJSON(), process.env.SECRET_KEY, {
+        expiresIn: 31536000 //saniye olarak 1 yıl, bu tokan ın geçerlilik süresi
+      });
+
+      bcrypt.compare(req.body.password, user.password, (err, data)=>{
+        if(err) throw err
+        
+        
+        if(data){
+          return res.status(200).json({message:"login success...", token:token, user:user})
         }else{
-            if(anyUser.comparePassword(req.body.password)){
-                let token = jsonwebtoken.sign(anyUser.toJSON(), process.env.SECRET_KEY, {
-                    expiresIn: 31536000, //saniye olarak 1 yıl, bu tokan ın geçerlilik süresi
-                  });
-            }
-            res.json({
-                success: true,
-                token: token,
-                message: "user is signed in succesfull",
-              });
+          return res.status(401).json({message:"gecersiz giris..."})
         }
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error.message,
-          });
-    }
+      })
+    })
 })
 
 module.exports = router;

@@ -205,4 +205,10 @@ yüklediktyen sonra daha önce admin kısmını yaparken axios yüklemiştik ora
 
 * şimdi kullanıcı sisteme girdi sonra siteyi kapattı sonra geri geldi, sitenin kullanıcı geri geldiğinde onun cookie sinden onu hatırlasın, store > index.js de actions tanımlayacağız, bu arada bunlarda kullanacağızmız jwt decode ve cookieparser paketlerini kurup import etmeliyiz, npm i -s jwt-decode cookieparser
 
+* artık sign up durumöunda sağ üette maili görünüyor, şimdi oraya tıkayınca yani maile tıklayınca bir menu açılsın, bir dropdown alalım, bootstrap vue dan, 
+
+* logout methodunu hazırlayalım, log out ta yapacağımız şet cookie yi silmek ve state i delete etmek yani state i tekrar null haline getirmek, bunun için mutations da deleteUser methodu yapacağız ve logout methodundan mutation olaral delete User göndermek,
+
+* deneme başarılı logout dediğimizde çıkış yapıyor ve bizi login e getiriyor, şimdi geriye sign in kaldı zaten sign in in end point ini server içinde yapmıştık, 
+
 * 

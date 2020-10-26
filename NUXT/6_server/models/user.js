@@ -29,7 +29,7 @@ UserSchema.pre('save', function(next){
             if(err){
                 return next(err);
             }
-            bcrypt.hash(user.password,salt,null,function(err,hash){
+            bcrypt.hash(user.password,salt,function(err,hash){
                 if(err){
                     return next(err);
                 }
@@ -42,11 +42,7 @@ UserSchema.pre('save', function(next){
     }
 })
 
-// burad da paswordları bizdekiyle karşılaştırıyoruz, aynı mı değil mi diye
-UserSchema.methods.comparePassword = function(password, next){
-    let user = this;
-    return bcrypt.compareSync(password,user.password)
-}
+
 
 module.exports = mongoose.model("User", UserSchema);
 
