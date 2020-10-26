@@ -15,14 +15,19 @@
       </b-nav-form>
 
       <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
+      <!-- eğer store da email yoksa login i gösterecek değilse yani store da email varsa yani kullanıcı login olduysa o zamanda kullanıcının email ini gösterecek -->
+      <b-navbar-nav class="ml-auto" v-if="!this.$store.state.email">
         <!-- <b-nav-item>sign in</b-nav-item> -->
         <!-- <b-nav-item>sign in</b-nav-item> -->
         <b-nav-item @click="$bvModal.show('bv-modal-example')"
           >login</b-nav-item
         >
-        <!-- bootstrap vue dan modal alaım, buna tıklayınca modal açılacak -->
       </b-navbar-nav>
+      <b-navbar-nav class="ml-auto" v-else>
+        <b-nav-item>{{ this.$store.state.email}}</b-nav-item
+        >
+      </b-navbar-nav>
+        <!-- bootstrap vue dan modal alaım, buna tıklayınca modal açılacak -->
       <div>
         <b-modal id="bv-modal-example" hide-footer>
           <template #modal-title>
@@ -187,6 +192,9 @@ export default {
             name: this.name,
             email: this.email
           });
+          //butona bastıktan sonra kapansın
+          //hide parametresi yukarıda modal ın en başındaki modal-id de yazıyor
+          this.$bvmodal.hide('bv-modal-example')
         }
       } catch (error) {
         console.log(error);

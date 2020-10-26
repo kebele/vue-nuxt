@@ -201,4 +201,8 @@ yüklediktyen sonra daha önce admin kısmını yaparken axios yüklemiştik ora
 
 * apllication kısmından token ı kopyalayıp jwt decode sitesine gidip kontorlu yapalımi, evet decode edilmiş tokan bizim signup a yazdıklarımız la aynı sıkıntı yok, mongo dan da user kısmından kontrol eelim sıkıntı yok oraya da gelmiş, sadece password kısmında bir hata var o gelmemiş düzeltilecek, 
 
+* kulanıcı sisteme girdiğinde login görünmesin emaili görünsün bunu yaptık, 
+
+* şimdi kullanıcı sisteme girdi sonra siteyi kapattı sonra geri geldi, sitenin kullanıcı geri geldiğinde onun cookie sinden onu hatırlasın, store > index.js de actions tanımlayacağız, bu arada bunlarda kullanacağızmız jwt decode ve cookieparser paketlerini kurup import etmeliyiz, npm i -s jwt-decode cookieparser
+
 * 
