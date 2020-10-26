@@ -222,4 +222,47 @@ yüklediktyen sonra daha önce admin kısmını yaparken axios yüklemiştik ora
 
 * nodemon ekleyelim projeye bu şekilde her değişiklikte server ı durdurup tekrar başlatmayla uğraşmayalım, npm i --save-dev nodemon dev modunda ekledik projeye ve nodemon server komnutu ile de başlatalım
 
-* 
+* toplu yükleme yapmak, server > routes > product.js burada yapacağımız işlem farklı bir data türü oluşturup onu kontrol etmek o data türü varsa farklı bir işlem yapmasını sağlamak, product.js de router.post methodnu buna göre düzenleyelim, düzenlemeyi belli bir aşamada yaptık, şimdi postman dan deneme yapalım, post seçtik body, json seçeneklerini yaptık, post u 8080 e yollayacağız, http://localhost:8080/api/product 
+
+* bir ürün girelim 
+    {
+    "multiData" : [
+        {
+            "title" : "mouse",
+            "price" : 22,
+            "stockNumber" : 32,
+            "description" : "just mouse",
+            "photo" : ["",""],
+            "mainCategory" : "A",
+            "subCategory" : "3"
+        }
+    ]
+}
+
+bunu post edelim, problem yok, multiData dan kaynaklanan küçük bir problem çıktı onu kodu yazarak düzelttik, hatayı verdi zaten bize, şimdi tek ürün kaydından sıkıntı yok, çok ütrün kaydı için poostmanda birden fazla object şeklinde ürün hazırlayıp postman ile post edelim bakalı n eolacak 
+
+{
+    "multiData" : [
+        {
+            "title" : "mouse",
+            "price" : 22,
+            "stockNumber" : 32,
+            "description" : "just mouse",
+            "photo" : ["",""],
+            "mainCategory" : "A",
+            "subCategory" : "3"
+        },
+        {
+            "title" : "klavye",
+            "price" : 52,
+            "stockNumber" : 35,
+            "description" : "just keyboard",
+            "photo" : ["",""],
+            "mainCategory" : "B",
+            "subCategory" : "2"
+        }
+    ]
+}
+
+yaptık ve sorunsuz mongo ya sorunsuz kaydettik
+

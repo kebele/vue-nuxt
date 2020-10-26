@@ -5,7 +5,21 @@ const Product = require("../models/product") //models deki product ı çağırı
 
 router.post("/product", async (req,res) => {
     try {
-        let product = new Product()
+        // çoklu data yollamak için yapacağımız şey farklı bir data türü tanımlamak ve bu data türü varsa ona göre işlem yapmak mesela buna multiData diyelim ve if hazırlayalım bu if in else ise aşağıdaji let kısmını bunun içine taşıyacağız, yani muştiData varsa xxx yapacak yoksa normal eski posttan tekil ürün kaydetme devam edecek
+        if(req.body.multiData){
+            Product.insertMany(req.body.multiData, (err)=>{
+                if(err){
+                    res.send(err)
+                }else{
+                    res.json({
+                        success: true,
+                        message: "products ARE saved succesfull",
+                        products : req.body.multiData
+                      });    
+                }
+            })
+        }else{
+            let product = new Product()
             product.title = req.body.title
             product.price = req.body.price
             product.stockNumber = req.body.stockNumber
@@ -22,8 +36,8 @@ router.post("/product", async (req,res) => {
                 success: true,
                 message: "product is saved succesfull",
                 product : product
-              });
-        
+              });        
+        }        
     } catch (error) {
         res.status(500).json({
             success: false,
