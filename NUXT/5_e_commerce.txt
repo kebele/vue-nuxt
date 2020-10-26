@@ -212,3 +212,14 @@ yüklediktyen sonra daha önce admin kısmını yaparken axios yüklemiştik ora
 * deneme başarılı logout dediğimizde çıkış yapıyor ve bizi login e getiriyor, şimdi geriye sign in kaldı zaten sign in in end point ini server içinde yapmıştık, 
 
 * 
+
+* 
+
+
+* 
+
+* .env de db adını değiştrelim, nizim ismim mongo-egitim di değiştirmedim, 
+
+* nodemon ekleyelim projeye bu şekilde her değişiklikte server ı durdurup tekrar başlatmayla uğraşmayalım, npm i --save-dev nodemon dev modunda ekledik projeye ve nodemon server komnutu ile de başlatalım
+
+* 
